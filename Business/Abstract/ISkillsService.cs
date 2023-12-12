@@ -14,6 +14,6 @@ namespace Business.Abstract
         Task<CreatedSkillsResponse> Add(CreatedSkillsRequest createSkillsRequest);
         Task<IPaginate<GetListSkillsResponse>> GetListSkills();
         Task<UpdatedSkillsResponse> Update(UpdateSkillsRequest updateSkillsRequest);
-        Task<DeletedSkillsResponse> Delete(DeletedSkillsRequest deleteCategoryRequest);
+        Task<DeletedSkillsResponse> Delete(DeletedSkillsRequest deleteSkillRequest);
     }
 }
