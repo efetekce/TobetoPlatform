@@ -1,4 +1,5 @@
-﻿using Core.Persistence.Dynamic;
+﻿using Core.Entities;
+using Core.Persistence.Dynamic;
 using Core.Persistence.Paging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Query;
 using System.Collections;
 using System.Linq.Expressions;
 using System.Reflection;
+
 
 namespace Core.DataAccess.Repositories;
 

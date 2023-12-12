@@ -1,4 +1,5 @@
-﻿using Core.Persistence.Dynamic;
+﻿using Core.Entities;
+using Core.Persistence.Dynamic;
 using Core.Persistence.Paging;
 using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
