@@ -1,22 +1,29 @@
-﻿namespace Core.Persistence.Dynamic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Filter
+namespace Core.DataAccess.Dynamic
 {
-    public string Field { get; set; }
-    public string Operator { get; set; }
-    public string? Value { get; set; }
-    public string? Logic { get; set; }
-    public IEnumerable<Filter>? Filters { get; set; }
-
-    public Filter()
+    public class Filter
     {
-        Field = string.Empty;
-        Operator = string.Empty;
-    }
+        public string Field { get; set; }
+        public string Operator { get; set; }
+        public string? Value { get; set; }
+        public string? Logic { get; set; }
+        public IEnumerable<Filter>? Filters { get; set; }
 
-    public Filter(string field, string @operator)
-    {
-        Field = field;
-        Operator = @operator;
+        public Filter()
+        {
+            Field = string.Empty;
+            Operator = string.Empty;
+        }
+
+        public Filter(string field, string @operator)
+        {
+            Field = field;
+            Operator = @operator;
+        }
     }
 }

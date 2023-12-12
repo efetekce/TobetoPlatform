@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
-using Core.Persistence.Paging;
+using Core.DataAccess.Paging;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;

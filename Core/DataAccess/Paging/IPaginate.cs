@@ -1,13 +1,20 @@
-﻿namespace Core.Persistence.Paging;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public interface IPaginate<T>
+namespace Core.DataAccess.Paging
 {
-    int From { get; }
-    int Index { get; }
-    int Size { get; }
-    int Count { get; }
-    int Pages { get; }
-    IList<T> Items { get; }
-    bool HasPrevious { get; }
-    bool HasNext { get; }
+    public interface IPaginate<T>
+    {
+        int From { get; }
+        int Index { get; }
+        int Size { get; }
+        int Count { get; }
+        int Pages { get; }
+        IList<T> Items { get; }
+        bool HasPrevious { get; }
+        bool HasNext { get; }
+    }
 }

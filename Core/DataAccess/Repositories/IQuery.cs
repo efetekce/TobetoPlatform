@@ -1,6 +1,13 @@
-﻿namespace Core.DataAccess.Repositories;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public interface IQuery<T>
+namespace Core.DataAccess.Repositories
 {
-    IQueryable<T> Query();
+    public interface IQuery<T>
+    {
+        IQueryable<T> Query();
+    }
 }

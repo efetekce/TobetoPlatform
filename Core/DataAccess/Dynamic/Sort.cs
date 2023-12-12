@@ -1,19 +1,27 @@
-﻿namespace Core.Persistence.Dynamic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Sort
+namespace Core.DataAccess.Dynamic
 {
-    public string Field { get; set; }
-    public string Dir { get; set; }
-
-    public Sort()
+    public class Sort
     {
-        Field = string.Empty;
-        Dir = string.Empty;
-    }
+        public string Field { get; set; }
+        public string Dir { get; set; }
 
-    public Sort(string field, string dir)
-    {
-        Field = field;
-        Dir = dir;
+        public Sort()
+        {
+            Field = string.Empty;
+            Dir = string.Empty;
+        }
+
+        public Sort(string field, string dir)
+        {
+            Field = field;
+            Dir = dir;
+        }
     }
 }
+
