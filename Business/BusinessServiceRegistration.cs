@@ -17,8 +17,12 @@ namespace Business
         {
             services.AddScoped<ILanguageService, LanguageManager>();
 
+            services.AddScoped<IPersonalInformationService, PersonalInformationManager>();
+
+
             services.AddScoped<ISkillsService, SkillsManager>();
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
+
             //services.AddScoped<ICategoryService, CategoryManager>();
             //services.AddScoped<ICourseService, CourseManager>();
             //services.AddScoped<CategoryBusinessRules>();
