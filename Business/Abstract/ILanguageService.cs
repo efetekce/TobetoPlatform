@@ -13,5 +13,8 @@ namespace Business.Abstract
     {
         Task<CreatedLanguageResponse> Add(CreateLanguageRequest createLanguageRequest);
         Task<IPaginate<GetListLanguageResponse>> GetListLanguage();
+        Task<UpdatedLanguageResponse> Update(UpdateLanguageRequest updateLanguageRequest);
+        Task<DeletedLanguageResponse> Delete(DeletedLanguageRequest deletedLanguageRequest);
+
     }
 }

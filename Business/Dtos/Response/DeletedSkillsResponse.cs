@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Response
 {
-    public class CreatedLanguageResponse
+    public class DeletedSkillsResponse
     {
         public int Id { get; set; }
-        public string? LanguageName { get; set; }
-        public string? LanguageLevel { get; set; }
+        public string Skill { get; set; }
     }
 }

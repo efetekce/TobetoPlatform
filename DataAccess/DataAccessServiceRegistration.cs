@@ -20,6 +20,17 @@ namespace DataAccess
             services.AddScoped<ILanguageDal, EfLanguageDal>();
             services.AddScoped<IExperienceDal, EfExperienceDal>();
             services.AddScoped<IEducationDal, EfEducationDal>();
+            services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
+
+            services.AddScoped<ISkillsDal, EfSkillsDal>();
+            services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
+
+
+
+            //services.AddScoped<ICategoryDal, EfCategoryDal>();
+            //services.AddScoped<ICourseDal, EfCourseDal>();
+
+            services.AddScoped<IPlatformCatalogDal,EfPlatformCatalogDal>();
             return services;
         }
     }

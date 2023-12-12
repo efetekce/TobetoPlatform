@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
-    public class CreateLanguageRequest
+    public class CreatedSocialMediaRequest
     {
-        public string? LanguageName { get; set; }
-        public string? LanguageLevel { get; set; }
+        public string SocialMediaName { get; set; }
+        public string Description { get; set; }
     }
 }
