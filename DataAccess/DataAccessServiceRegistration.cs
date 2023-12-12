@@ -22,6 +22,10 @@ namespace DataAccess
 
             services.AddDbContext<TobetoContext>(options => options.UseSqlServer(configuration.GetConnectionString("Tobeto")));
             services.AddScoped<ILanguageDal, EfLanguageDal>();
+            services.AddScoped<ISkillsDal, EfSkillsDal>();
+            services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
+
+
 
             //services.AddScoped<ICategoryDal, EfCategoryDal>();
             //services.AddScoped<ICourseDal, EfCourseDal>();

@@ -15,6 +15,9 @@ namespace DataAccess.Context
         protected IConfiguration Configuration { get; set; }
 
         public DbSet<Language> Languages { get; set; }
+        public DbSet<SocialMedia> SocialMedias { get; set; }
+        public DbSet<Skills> Skills { get; set; }
+
 
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
