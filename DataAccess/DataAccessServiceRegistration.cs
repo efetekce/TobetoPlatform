@@ -18,6 +18,8 @@ namespace DataAccess
         {
             services.AddDbContext<TobetoContext>(options => options.UseSqlServer(configuration.GetConnectionString("Tobeto")));
             services.AddScoped<ILanguageDal, EfLanguageDal>();
+            services.AddScoped<IExperienceDal, EfExperienceDal>();
+            services.AddScoped<IEducationDal, EfEducationDal>();
             services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
 
             services.AddScoped<ISkillsDal, EfSkillsDal>();
@@ -29,7 +31,6 @@ namespace DataAccess
             //services.AddScoped<ICourseDal, EfCourseDal>();
 
             services.AddScoped<IPlatformCatalogDal,EfPlatformCatalogDal>();
-
             return services;
         }
     }
