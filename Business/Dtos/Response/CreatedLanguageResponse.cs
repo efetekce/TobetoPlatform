@@ -9,7 +9,7 @@ namespace Business.Dtos.Response
     public class CreatedLanguageResponse
     {
         public int Id { get; set; }
-        public string LanguageName { get; set; }
-        public int LanguageLevel { get; set; }
+        public string? LanguageName { get; set; }
+        public string? LanguageLevel { get; set; }
     }
 }
