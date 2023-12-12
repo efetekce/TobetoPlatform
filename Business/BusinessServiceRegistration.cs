@@ -16,6 +16,7 @@ namespace Business
         public static IServiceCollection AddBusinessServices(this IServiceCollection services)
         {
             services.AddScoped<ILanguageService, LanguageManager>();
+            services.AddScoped<IPlatformCatalogService,PlatformCatalogManager>();
             
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;

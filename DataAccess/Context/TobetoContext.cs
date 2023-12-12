@@ -15,10 +15,13 @@ namespace DataAccess.Context
         protected IConfiguration Configuration { get; set; }
 
         public DbSet<Language> Languages { get; set; }
+        public DbSet<PlatformCatalog> PlatformCatalogs { get; set; }
 
-        public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
+
+        public TobetoContext(DbContextOptions<TobetoContext> dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
-            Configuration = configuration; Database.EnsureCreated();
+            Configuration = configuration;
+            //Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
