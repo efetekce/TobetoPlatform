@@ -1,18 +1,16 @@
-﻿using Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concretes
+namespace Business.Dtos.Response
 {
-    public class Language : Entity<int>
+    public class UpdatedLanguageResponse
     {
-        public int ProfileId { get; set; }
+        public int Id { get; set; }
         public string? LanguageName { get; set; }
         public string? LanguageLevel { get; set; }
-
 
     }
 }

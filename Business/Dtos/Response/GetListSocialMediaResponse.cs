@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Response
 {
-    public class CreatedLanguageResponse
+    public class GetListSocialMediaResponse
     {
         public int Id { get; set; }
-        public string? LanguageName { get; set; }
-        public string? LanguageLevel { get; set; }
+        public string SocialMediaName { get; set; }
+        public string Description { get; set; }
     }
 }
