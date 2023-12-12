@@ -15,17 +15,23 @@ namespace DataAccess.Context
         protected IConfiguration Configuration { get; set; }
 
         public DbSet<Language> Languages { get; set; }
+
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Skills> Skills { get; set; }
 
 
-        public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
+        public DbSet<PlatformCatalog> PlatformCatalogs { get; set; }
+
+
+
+        public TobetoContext(DbContextOptions<TobetoContext> dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
-            Configuration = configuration; Database.EnsureCreated();
+            Configuration = configuration;
+            //Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());//conf dosyalarını bul ve 
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
