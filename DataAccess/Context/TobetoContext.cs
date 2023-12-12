@@ -16,13 +16,18 @@ namespace DataAccess.Context
 
         public DbSet<Language> Languages { get; set; }
 
+        public DbSet<Experience> Experiences { get; set; }
+
+        public DbSet<Education> Educations { get; set; }
+
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
-            Configuration = configuration; Database.EnsureCreated();
+            Configuration = configuration; 
+            Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());//conf dosyalarını bul ve 
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
