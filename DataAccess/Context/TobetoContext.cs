@@ -15,10 +15,12 @@ namespace DataAccess.Context
         protected IConfiguration Configuration { get; set; }
 
         public DbSet<Language> Languages { get; set; }
+        public DbSet<PersonalInformation> PersonalInformation { get; set; }
 
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
-            Configuration = configuration; Database.EnsureCreated();
+            Configuration = configuration; 
+            Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

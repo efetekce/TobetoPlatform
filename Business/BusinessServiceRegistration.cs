@@ -16,6 +16,7 @@ namespace Business
         public static IServiceCollection AddBusinessServices(this IServiceCollection services)
         {
             services.AddScoped<ILanguageService, LanguageManager>();
+            services.AddScoped<IPersonalInformationService, PersonalInformationManager>();
             //services.AddScoped<ICategoryService, CategoryManager>();
             //services.AddScoped<ICourseService, CourseManager>();
             //services.AddScoped<CategoryBusinessRules>();
