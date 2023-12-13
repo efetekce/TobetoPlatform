@@ -15,9 +15,9 @@ namespace Business.Profiles
     {
         public SkillsMappingProfile()
         {
-            CreateMap<CreatedSkillsRequest, Skills>().ReverseMap();
+            CreateMap<CreateSkillsRequest, Skills>().ReverseMap();
             CreateMap<UpdateSkillsRequest, Skills>().ReverseMap();
-            CreateMap<DeletedSkillsRequest, Skills>().ReverseMap();
+            CreateMap<DeleteSkillsRequest, Skills>().ReverseMap();
 
 
 

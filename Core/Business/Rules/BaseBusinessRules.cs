@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Abstracts
+namespace Core.Business.Rules
 {
-    public interface IUserDal
+    public class BaseBusinessRules
     {
     }
 }

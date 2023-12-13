@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concretes
 {
-    public class EfLanguageDal : EfRepositoryBase<Language, int, TobetoContext>, ILanguageDal
+    public class EfExperienceDal : EfRepositoryBase<Experience, int, TobetoContext>, IExperienceDal
     {
-        TobetoContext _tobetoContext;
-        public EfLanguageDal(TobetoContext context) : base(context)
+        TobetoContext _tobetocontext;
+        public EfExperienceDal(TobetoContext context) : base(context)
         {
-            _tobetoContext = context;
+            _tobetocontext = context;
         }
     }
 }
