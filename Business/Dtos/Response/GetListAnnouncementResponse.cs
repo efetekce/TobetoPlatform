@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Dtos.Request
+namespace Business.Dtos.Response
 {
-    public class DeletedSocialMediaRequest
+    public class GetListAnnouncementResponse
     {
         public int Id { get; set; }
-        public string SocialMediaName { get; set; }
+        public int ProfileId { get; set; }
+        public string Subject { get; set; }
         public string Description { get; set; }
+        public DateTime AnnouncementDate { get; set; }
     }
 }

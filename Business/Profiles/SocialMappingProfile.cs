@@ -15,9 +15,9 @@ namespace Business.Profiles
     {
         public SocialMappingProfile()
         {
-            CreateMap<CreatedSocialMediaRequest, SocialMedia>().ReverseMap();
+            CreateMap<CreateSocialMediaRequest, SocialMedia>().ReverseMap();
             CreateMap<UpdateSocialMediaRequest, SocialMedia>().ReverseMap();
-            CreateMap<DeletedSocialMediaRequest, SocialMedia>().ReverseMap();
+            CreateMap<DeleteSocialMediaRequest, SocialMedia>().ReverseMap();
         
             CreateMap<Paginate<SocialMedia>, Paginate<GetListSocialMediaResponse>>().ReverseMap();
 

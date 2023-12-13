@@ -14,37 +14,22 @@ namespace DataAccess.Context
     {
         protected IConfiguration Configuration { get; set; }
 
+        public DbSet<Announcement> Announcements { get; set; }
         public DbSet<Language> Languages { get; set; }
-
-<<<<<<< Updated upstream
+        public DbSet<PersonalInformation> PersonalInformation { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Skills> Skills { get; set; }
-
         public DbSet<Certificate> Certificates { get; set; }
-=======
         public DbSet<Experience> Experiences { get; set; }
-
         public DbSet<Education> Educations { get; set; }
-
-        public DbSet<SocialMedia> SocialMedias { get; set; }
-        public DbSet<Skills> Skills { get; set; }
-
         public DbSet<ProfileImage> ProfileImages { get; set; }
->>>>>>> Stashed changes
         public DbSet<PlatformCatalog> PlatformCatalogs { get; set; }
 
 
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
-<<<<<<< Updated upstream
             Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
-=======
-            Database.EnsureCreated();
-
-
-
->>>>>>> Stashed changes
         }
 
 

@@ -24,7 +24,7 @@ namespace Business.Concrete
             _mapper = mapper;
         }
 
-        public async Task<CreatedSocialMediaResponse> Add(CreatedSocialMediaRequest createSocialMediaRequest)
+        public async Task<CreatedSocialMediaResponse> Add(CreateSocialMediaRequest createSocialMediaRequest)
         {
             var socialMedia = _mapper.Map<SocialMedia>(createSocialMediaRequest);
             var createdSocialMedia = await _socialMediaDal.AddAsync(socialMedia);
@@ -32,7 +32,7 @@ namespace Business.Concrete
             return createdSocialMediaResponse;
         }
 
-        public async Task<DeletedSocialMediaResponse> Delete(DeletedSocialMediaRequest deleteSocialMediaRequest)
+        public async Task<DeletedSocialMediaResponse> Delete(DeleteSocialMediaRequest deleteSocialMediaRequest)
         {
             var socialMedia = _mapper.Map<SocialMedia>(deleteSocialMediaRequest);
             var deletedSocialMedia = await _socialMediaDal.DeleteAsync(socialMedia, true);

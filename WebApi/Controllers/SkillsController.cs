@@ -23,7 +23,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CreatedSkillsRequest createSkillsRequest)
+        public async Task<IActionResult> Add([FromBody] CreateSkillsRequest createSkillsRequest)
         {
             var result = await _skillService.Add(createSkillsRequest);
             return Ok(result);
@@ -37,7 +37,7 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] DeletedSkillsRequest deleteSkillsRequest)
+        public async Task<IActionResult> Delete([FromBody] DeleteSkillsRequest deleteSkillsRequest)
         {
 
             var result = await _skillService.Delete(deleteSkillsRequest);

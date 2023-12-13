@@ -14,7 +14,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-<<<<<<< Updated upstream
        
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -29,7 +28,6 @@ var app = builder.Build();
 
         app.Run();
     
-=======
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -43,4 +41,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
->>>>>>> Stashed changes
+

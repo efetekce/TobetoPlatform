@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
-    public class CreatedSkillsRequest
+    public class DeletePersonalInformationRequest
     {
-        public string Skill { get; set; }
+        public int Id { get; set; }
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Abstracts
+namespace Business.Dtos.Request
 {
-    public interface IUserDal
+    public class CreateSkillsRequest
     {
+        public string Skill { get; set; }
     }
 }
