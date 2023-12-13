@@ -19,7 +19,7 @@ namespace DataAccess.Context
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Skills> Skills { get; set; }
 
-
+        public DbSet<Certificate> Certificates { get; set; }
         public DbSet<PlatformCatalog> PlatformCatalogs { get; set; }
 
 
@@ -27,7 +27,7 @@ namespace DataAccess.Context
         public TobetoContext(DbContextOptions<TobetoContext> dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
-            //Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
+            Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

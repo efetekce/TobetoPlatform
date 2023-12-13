@@ -27,7 +27,6 @@ namespace Business.Profiles
             CreateMap<Language, DeletedLanguageResponse>().ReverseMap();
 
 
-
         }
     }
 

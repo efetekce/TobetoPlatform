@@ -16,16 +16,10 @@ namespace Business
         public static IServiceCollection AddBusinessServices(this IServiceCollection services)
         {
             services.AddScoped<ILanguageService, LanguageManager>();
-
             services.AddScoped<ISkillsService, SkillsManager>();
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
-            //services.AddScoped<ICategoryService, CategoryManager>();
-            //services.AddScoped<ICourseService, CourseManager>();
-            //services.AddScoped<CategoryBusinessRules>();
-            // services.AddAutoMapper(typeof(BusinessServiceRegistration));
-
-            services.AddScoped<IPlatformCatalogService,PlatformCatalogManager>();
-            
+            services.AddScoped<IPlatformCatalogService, PlatformCatalogManager>();
+            services.AddScoped<ICertificateService, CertificateManager>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
