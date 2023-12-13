@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concretes
 {
-    public class EfPersonalInformationDal : EfRepositoryBase<PersonalInformation, int, TobetoContext>, IPersonalInformationDal
+    public class EfProfileImageDal : EfRepositoryBase<ProfileImage, int, TobetoContext>, IProfileImageDal
     {
         TobetoContext _tobetoContext;
-        public EfPersonalInformationDal(TobetoContext context) : base(context)
+        public EfProfileImageDal(TobetoContext context) : base(context)
         {
             _tobetoContext = context;
         }

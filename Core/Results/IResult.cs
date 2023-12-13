@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Business.Rules
+namespace Core.Results
 {
-    public class BaseBusinessRules
+    public interface IResult
     {
+        bool Success { get; }
+        string Message { get; }
     }
+
+
 }

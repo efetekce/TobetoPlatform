@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Dtos.Request
+namespace Core.Results
 {
-    public class DeletePersonalInformationRequest
+    public interface IDataResult<T> : IResult
     {
-        public int Id { get; set; }
+        T Data { get; }
     }
 }
