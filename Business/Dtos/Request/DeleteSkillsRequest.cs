@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Dtos.Response
+namespace Business.Dtos.Request
 {
-    public class CreatedLanguageResponse
+    public class DeleteSkillsRequest
     {
         public int Id { get; set; }
-        public string LanguageName { get; set; }
-        public int LanguageLevel { get; set; }
+        public string Skill { get; set; }
     }
 }

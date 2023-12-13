@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
-    public class CreatedSkillsRequest
+    public class CreateSocialMediaRequest
     {
-        public string Skill { get; set; }
+        public string SocialMediaName { get; set; }
+        public string Description { get; set; }
     }
 }

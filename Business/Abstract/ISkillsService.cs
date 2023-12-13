@@ -11,9 +11,9 @@ namespace Business.Abstract
 {
     public interface ISkillsService
     {
-        Task<CreatedSkillsResponse> Add(CreatedSkillsRequest createSkillsRequest);
+        Task<CreatedSkillsResponse> Add(CreateSkillsRequest createSkillsRequest);
         Task<IPaginate<GetListSkillsResponse>> GetListSkills();
         Task<UpdatedSkillsResponse> Update(UpdateSkillsRequest updateSkillsRequest);
-        Task<DeletedSkillsResponse> Delete(DeletedSkillsRequest deleteSkillRequest);
+        Task<DeletedSkillsResponse> Delete(DeleteSkillsRequest deleteSkillRequest);
     }
 }

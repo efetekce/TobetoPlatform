@@ -10,8 +10,8 @@ namespace Entities.Concretes
     public class Language : Entity<int>
     {
         public int ProfileId { get; set; }
-        public string LanguageName { get; set; }
-        public int LanguageLevel { get; set; }
+        public string? LanguageName { get; set; }
+        public string? LanguageLevel { get; set; }
 
 
     }

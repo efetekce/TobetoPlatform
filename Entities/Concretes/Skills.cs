@@ -10,6 +10,6 @@ namespace Entities.Concretes
     public class Skills : Entity<int>
     {
         public int ProfileId { get; set; }
-        public string Skill { get; set; }
+        public string? Skill { get; set; }
     }
 }

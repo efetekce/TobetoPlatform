@@ -24,7 +24,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CreatedSocialMediaRequest createSocialMediaRequest)
+        public async Task<IActionResult> Add([FromBody] CreateSocialMediaRequest createSocialMediaRequest)
         {
             var result = await _socialMediaService.Add(createSocialMediaRequest);
             return Ok(result);
@@ -38,7 +38,7 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] DeletedSocialMediaRequest deleteSocialMediaRequest)
+        public async Task<IActionResult> Delete([FromBody] DeleteSocialMediaRequest deleteSocialMediaRequest)
         {
 
             var result = await _socialMediaService.Delete(deleteSocialMediaRequest);

@@ -11,9 +11,9 @@ namespace Business.Abstract
 {
     public interface ISocialMediaService
     {
-        Task<CreatedSocialMediaResponse> Add(CreatedSocialMediaRequest createdSocialMediaRequest);
+        Task<CreatedSocialMediaResponse> Add(CreateSocialMediaRequest createdSocialMediaRequest);
         Task<IPaginate<GetListSocialMediaResponse>> GetListSocialMedias();
         Task<UpdatedSocialMediaResponse> Update(UpdateSocialMediaRequest updateSocialMediaRequest);
-        Task<DeletedSocialMediaResponse> Delete(DeletedSocialMediaRequest deleteSocialMediaRequest);
+        Task<DeletedSocialMediaResponse> Delete(DeleteSocialMediaRequest deleteSocialMediaRequest);
     }
 }
