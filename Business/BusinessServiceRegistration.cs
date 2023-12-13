@@ -21,19 +21,10 @@ namespace Business
             services.AddScoped<IExperienceService, ExperienceManager>();
 
             services.AddScoped<IPersonalInformationService, PersonalInformationManager>();
-
-
             services.AddScoped<ISkillsService, SkillsManager>();
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
 
-            //services.AddScoped<ICategoryService, CategoryManager>();
-            //services.AddScoped<ICourseService, CourseManager>();
-            //services.AddScoped<CategoryBusinessRules>();
-            // services.AddAutoMapper(typeof(BusinessServiceRegistration));
-
-            services.AddScoped<IPlatformCatalogService,PlatformCatalogManager>();
-            
-
+           
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
 

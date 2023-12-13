@@ -25,7 +25,7 @@ namespace Business.Concrete
             _mapper = mapper;
         }
 
-        public async Task<CreatedSkillsResponse> Add(CreatedSkillsRequest createdSkillsRequest)
+        public async Task<CreatedSkillsResponse> Add(CreateSkillsRequest createdSkillsRequest)
         {
             var skills = _mapper.Map<Skills>(createdSkillsRequest);
             var createdSkills = await _skillsDal.AddAsync(skills);
@@ -33,7 +33,7 @@ namespace Business.Concrete
             return createdSkillsResponse;
         }
 
-        public async Task<DeletedSkillsResponse> Delete(DeletedSkillsRequest deleteSkillsRequest)
+        public async Task<DeletedSkillsResponse> Delete(DeleteSkillsRequest deleteSkillsRequest)
         {
             var skills = _mapper.Map<Skills>(deleteSkillsRequest);
             var deletedSkills = await _skillsDal.DeleteAsync(skills, true);
