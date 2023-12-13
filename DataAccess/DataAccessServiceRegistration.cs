@@ -18,9 +18,6 @@ namespace DataAccess
         {
             services.AddDbContext<TobetoContext>(options => options.UseSqlServer(configuration.GetConnectionString("Tobeto")));
             services.AddScoped<ILanguageDal, EfLanguageDal>();
-            services.AddScoped<IExperienceDal, EfExperienceDal>();
-            services.AddScoped<IEducationDal, EfEducationDal>();
-            services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
 
             services.AddScoped<ISkillsDal, EfSkillsDal>();
             services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
@@ -36,6 +33,7 @@ namespace DataAccess
 
 >>>>>>> Stashed changes
             services.AddScoped<IPlatformCatalogDal,EfPlatformCatalogDal>();
+
             return services;
         }
     }
