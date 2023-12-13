@@ -24,12 +24,13 @@ namespace DataAccess
             services.AddScoped<IEducationDal, EfEducationDal>();
             services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
 
-            
             services.AddScoped<ISkillsDal, EfSkillsDal>();
             services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
 
+            services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
 
-            services.AddScoped<IPlatformCatalogDal,EfPlatformCatalogDal>();
+            services.AddScoped<IPlatformCatalogDal, EfPlatformCatalogDal>();
+
 
             return services;
         }

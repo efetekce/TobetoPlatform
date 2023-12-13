@@ -20,29 +20,22 @@ namespace DataAccess.Context
         public DbSet<Experience> Experiences { get; set; }
 
         public DbSet<Education> Educations { get; set; }
-
-        public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
-        {
-            Configuration = configuration; 
-            Database.EnsureCreated();
+        
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Skills> Skills { get; set; }
-
+        public DbSet<Announcement> Announcements { get; set; }
 
         public DbSet<PlatformCatalog> PlatformCatalogs { get; set; }
 
+       
 
-
-        public TobetoContext(DbContextOptions<TobetoContext> dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
+        public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
 
-            Configuration = configuration; 
-            Database.EnsureCreated();
-
             Configuration = configuration;
-            //Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
-
+            Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
         }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
