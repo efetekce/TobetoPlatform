@@ -25,7 +25,6 @@ namespace DataAccess.Context
         public DbSet<ProfileImage> ProfileImages { get; set; }
         public DbSet<PlatformCatalog> PlatformCatalogs { get; set; }
 
-
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
