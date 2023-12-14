@@ -2,7 +2,6 @@
 using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
-using Business.Rules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using Entities.Concretes;

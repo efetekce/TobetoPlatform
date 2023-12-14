@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Business.Rules
+namespace Core.Results
 {
-    public class BaseBusinessRules
+    public interface IDataResult<T> : IResult
     {
+        T Data { get; }
     }
 }
