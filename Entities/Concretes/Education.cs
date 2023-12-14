@@ -22,5 +22,7 @@ namespace Entities.Concretes
         public DateTime EndYear { get; set; }
 
         public DateTime GraduationYear { get; set; }
+
+        public int MyProperty { get; set; }
     }
 }
