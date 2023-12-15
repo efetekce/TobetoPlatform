@@ -9,7 +9,10 @@ namespace Entities.Concretes
 {
     public class Certificate :Entity<int>
     {
-        public int ProfileId { get; set; }
-        public string? CertificateName { get; set; }
+        public string Name { get; set; }
+
+        public string FileType { get; set; }
+
+        public string FileUrl { get; set; }
     }
 }
