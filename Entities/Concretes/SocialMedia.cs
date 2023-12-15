@@ -9,9 +9,7 @@ namespace Entities.Concretes
 {
     public class SocialMedia : Entity<int>
     {
-        public int ProfileId { get; set; }
-        public string? SocialMediaName { get; set; }
+        public string SocialMediaName { get; set; }
         public string? Description { get; set; }
-
     }
 }

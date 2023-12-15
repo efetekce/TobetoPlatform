@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class Skills : Entity<int>
-    {
-        public int ProfileId { get; set; }
-        public string? Skill { get; set; }
+    public class Skill : Entity<int>
+    {       
+        public string Name { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(e => e.DeletedDate).HasColumnName("DeletedDate");
 
             //builder.HasIndex(indexExpression: e => e.Status, name: "UK_Educations_Status").IsUnique();
-
+            //one to many
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
