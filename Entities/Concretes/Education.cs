@@ -9,18 +9,20 @@ namespace Entities.Concretes
 {
     public class Education : Entity<int>
     {
-        public int ProfileId { get; set; }
 
-        public bool Status { get; set; }
 
-        public string University { get; set; }
+        //public bool Status { get; set; }
 
-        public string Major { get; set; }
+        //public string University { get; set; }
 
-        public DateTime StartYear { get; set; }
+        //public string Program { get; set; }
 
-        public DateTime EndYear { get; set; }
+        //public DateTime StartYear { get; set; }
 
-        public DateTime GraduationYear { get; set; }
+        //public DateTime EndYear { get; set; }
+
+        //public bool IsGraduated { get; set; }
+        //public DateTime GraduationYear { get; set; }
+        //kullanilmiyor
     }
 }

@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class Skill : Entity<int>
+    public class Application : Entity<int>
     {
-        public string Name { get; set; }
+        public int OrganizationId { get; set; }
         public int Priority { get; set; }
         public bool Visibility { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
+        public DateTime PublishedDate { get; set; }
     }
 }

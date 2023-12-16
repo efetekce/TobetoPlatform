@@ -2,9 +2,10 @@
 
 namespace Entities.Concretes
 {
-    public class ProfileSkill:Entity<int>
+    public class AccountSkill : Entity<int>
     {
-        public int ProfileId { get; set; }
+        public int AccountId { get; set; }
         public int SkillId { get; set; }
+        public int Priority { get; set; }
     }
 }

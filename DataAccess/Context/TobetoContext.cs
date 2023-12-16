@@ -15,7 +15,7 @@ namespace DataAccess.Context
         protected IConfiguration Configuration { get; set; }
 
         public DbSet<Announcement> Announcements { get; set; }
-        public DbSet<Language> Languages { get; set; }
+        public DbSet<ForeignLanguage> Languages { get; set; }
         public DbSet<PersonalInformation> PersonalInformation { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Skills> Skills { get; set; }

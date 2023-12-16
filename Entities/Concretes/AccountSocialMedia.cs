@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class Skill : Entity<int>
+    public class AccountSocialMedia : Entity<int>
     {
-        public string Name { get; set; }
+        public int AccountId { get; set; }
+        public int SocialMediaId { get; set; }
         public int Priority { get; set; }
-        public bool Visibility { get; set; }
+        public string Link { get; set; }
     }
 }

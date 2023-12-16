@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class Skill : Entity<int>
+    public class Answer : Entity<int>
     {
-        public string Name { get; set; }
-        public int Priority { get; set; }
-        public bool Visibility { get; set; }
+        public int QuestionId { get; set; }
+        public string Content { get; set; }
+        public bool IsCorrect { get; set; }
+
     }
 }

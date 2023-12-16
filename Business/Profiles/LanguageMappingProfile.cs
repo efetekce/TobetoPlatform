@@ -15,16 +15,16 @@ namespace Business.Profiles
     {
         public LanguageMappingProfile()
         {
-            CreateMap<CreateLanguageRequest, Language>().ReverseMap();
-            CreateMap<UpdateLanguageRequest, Language>().ReverseMap();
-            CreateMap<DeletedLanguageRequest, Language>().ReverseMap();
+            CreateMap<CreateLanguageRequest, ForeignLanguage>().ReverseMap();
+            CreateMap<UpdateLanguageRequest, ForeignLanguage>().ReverseMap();
+            CreateMap<DeletedLanguageRequest, ForeignLanguage>().ReverseMap();
 
-            CreateMap<Language, GetListLanguageResponse>().ReverseMap();
-            CreateMap<Paginate<Language>, Paginate<GetListLanguageResponse>>().ReverseMap();
+            CreateMap<ForeignLanguage, GetListLanguageResponse>().ReverseMap();
+            CreateMap<Paginate<ForeignLanguage>, Paginate<GetListLanguageResponse>>().ReverseMap();
 
-            CreateMap<Language, CreatedLanguageResponse>().ReverseMap();
-            CreateMap<Language, UpdatedLanguageResponse>().ReverseMap();
-            CreateMap<Language, DeletedLanguageResponse>().ReverseMap();
+            CreateMap<ForeignLanguage, CreatedLanguageResponse>().ReverseMap();
+            CreateMap<ForeignLanguage, UpdatedLanguageResponse>().ReverseMap();
+            CreateMap<ForeignLanguage, DeletedLanguageResponse>().ReverseMap();
 
 
         }
