@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class Course : Entity<int>
+    public class CourseTitle : Entity<int>
     {
-
-        public int CourseDetailId { get; set; }
         public string Name { get; set; }
-        public DateTime PublishedDate { get; set; }
+
     }
 }

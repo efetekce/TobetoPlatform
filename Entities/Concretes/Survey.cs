@@ -15,5 +15,7 @@ namespace Entities.Concretes
         public string Content { get; set; }
         public string Link { get; set; }
         public DateTime PublishedDate { get; set; }
+        public int Priority { get; set; }
+        public bool Visibility { get; set; }
     }
 }

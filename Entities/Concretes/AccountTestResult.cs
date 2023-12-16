@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class TestResult : Entity<int>
+    public class AccountTestResult : Entity<int>
     {
         public int AccountId { get; set; }
         public int TestId { get; set; }
@@ -18,6 +18,6 @@ namespace Entities.Concretes
         public int TotalWrongAnswer { get; set; }
         public int TotalBlankAnswer { get; set; }
         public int Points { get; set; }
-
+        //public bool IsCorrect { get; set; }
     }
 }

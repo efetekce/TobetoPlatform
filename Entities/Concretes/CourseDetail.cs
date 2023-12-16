@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class Course : Entity<int>
+    public class CourseDetail : Entity<int>
     {
-
-        public int CourseDetailId { get; set; }
+        public string CoverPath { get; set; }
         public string Name { get; set; }
+        public bool IsFavorite { get; set; }
+        public DateTime DueDate { get; set; }
         public DateTime PublishedDate { get; set; }
+        public int ProgressPercentage { get; set; }
     }
 }

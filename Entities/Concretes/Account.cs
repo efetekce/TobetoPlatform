@@ -22,5 +22,7 @@ namespace Entities.Concretes
         public string ProfilePhotoPath { get; set; }
         public bool IsActive { get; set; }
 
+
+
     }
 }
