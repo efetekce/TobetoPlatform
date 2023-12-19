@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
-
     public class CreateForeignLanguageRequest
     {
         public string Name { get; set; }

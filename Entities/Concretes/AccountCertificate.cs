@@ -9,6 +9,7 @@ namespace Entities.Concretes
 {
     public class AccountCertificate : Entity<int>
     {
+
         public int AccountId { get; set; }
         public int CertificateId { get; set; }
         public int Priority { get; set; }

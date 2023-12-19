@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
+
     public class DeletePersonalInformationRequest
     {
         public int Id { get; set; }
+
     }
 }

@@ -16,14 +16,11 @@ namespace Business
         public static IServiceCollection AddBusinessServices(this IServiceCollection services)
         {
 
-
+            
 
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
             services.AddScoped<IEducationService, EducationManager>();
             services.AddScoped<IExperienceService, ExperienceManager>();
-           
-
-                  
 
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
             services.AddScoped<ICertificateService, CertificateManager>();
