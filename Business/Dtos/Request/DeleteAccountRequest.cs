@@ -1,8 +1,9 @@
 ﻿namespace Business.Dtos.Request
 {
-    public class DeletedLanguageRequest
+    public class DeleteAccountRequest
     {
+
         public int Id { get; set; }
-        
+
     }
 }

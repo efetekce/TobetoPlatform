@@ -11,9 +11,9 @@ namespace Business.Abstract
 {
     public interface IProfileImageService
     {
-        IResult Add(IFormFile file, ProfileImage profileImage);
-        IResult Delete(ProfileImage profileImage);
-        IResult Update(IFormFile file, ProfileImage profileImage);
+        Core.Results.IResult Add(IFormFile file, ProfileImage profileImage);
+        Core.Results.IResult Delete(ProfileImage profileImage);
+        Core.Results.IResult Update(IFormFile file, ProfileImage profileImage);
         IDataResult<ProfileImage> Get(int id);
         IDataResult<List<ProfileImage>> GetAll();
         IDataResult<List<ProfileImage>> GetImagesByProfileId(int id);

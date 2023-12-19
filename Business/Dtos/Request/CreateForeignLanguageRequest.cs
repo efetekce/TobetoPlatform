@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
-    public class CreateLanguageRequest
+
+    public class CreateForeignLanguageRequest
     {
-        public string? LanguageName { get; set; }
-        public string? LanguageLevel { get; set; }
+        public string Name { get; set; }
+        public int Priority { get; set; }
+
     }
+
 }
