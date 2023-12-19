@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Dtos.Request
+namespace Business.Dtos.Response
 {
-    public class UpdateLanguageRequest
+    public class GetListForeignLanguageResponse
     {
         public int Id { get; set; }
-        public string? LanguageName { get; set; }
-        public string? LanguageLevel { get; set; }
+        public string? Name { get; set; }
+      
 
     }
 }

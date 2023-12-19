@@ -1,4 +1,5 @@
-﻿using Entities.Concretes;
+﻿using Core.Entities.Concrete;
+using Entities.Concretes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -14,9 +15,14 @@ namespace DataAccess.Context
     {
         protected IConfiguration Configuration { get; set; }
 
+<<<<<<< Updated upstream
         public DbSet<Language> Languages { get; set; }
 
 <<<<<<< Updated upstream
+=======
+        public DbSet<Announcement> Announcements { get; set; }
+       
+>>>>>>> Stashed changes
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Skills> Skills { get; set; }
 
@@ -30,13 +36,24 @@ namespace DataAccess.Context
         public DbSet<Skills> Skills { get; set; }
 
         public DbSet<ProfileImage> ProfileImages { get; set; }
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
         public DbSet<PlatformCatalog> PlatformCatalogs { get; set; }
+=======
+        public DbSet<User> Users { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+
+        public DbSet<ForeignLanguage> ForeignLanguages { get; set; }
+
+>>>>>>> Stashed changes
 
 
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
 =======
@@ -45,8 +62,14 @@ namespace DataAccess.Context
 
 
 >>>>>>> Stashed changes
+=======
+            Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
+>>>>>>> Stashed changes
         }
 
+        public TobetoContext()
+        {
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
