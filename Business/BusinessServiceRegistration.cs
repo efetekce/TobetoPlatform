@@ -19,8 +19,16 @@ namespace Business
             services.AddScoped<IEducationService, EducationManager>();
             services.AddScoped<IExperienceService, ExperienceManager>();
             services.AddScoped<IPersonalInformationService, PersonalInformationManager>();
-            services.AddScoped<ISocialMediaService, SocialMediaManager>();
             services.AddScoped<ICertificateService, CertificateManager>();
+            services.AddScoped<IMembershipStatusService, MembershipStatusManager>();
+            services.AddScoped<ISessionStatusService, SessionStatusManager>();
+            services.AddScoped<IAccountPasswordService, AccountPasswordManager>();
+            services.AddScoped<ISocialMediaPlatformService, SocialMediaPlatformManager>();
+            services.AddScoped<IAccountSocialMediaService, AccountSocialMediaManager>();
+            services.AddScoped<IEducationStatusService, EducationStatusManager>();
+            services.AddScoped<IUniversityService, UniversityManager>();
+            services.AddScoped<IAccountEducationService, AccountEducationManager>();
+            services.AddScoped<IEducationProgramService, EducationProgramManager>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;

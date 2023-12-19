@@ -9,12 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Dtos.Profiles
+namespace Business.Profiles
 {
     public class ExperienceMappingProfile : Profile
     {
         public ExperienceMappingProfile()
-        {         
+        {
             CreateMap<CreateExperienceRequest, Experience>().ReverseMap();
             CreateMap<UpdateExperienceRequest, Experience>().ReverseMap();
             CreateMap<DeleteExperienceRequest, Experience>().ReverseMap();

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Dtos.Profiles
+namespace Business.Profiles
 {
     public class EducationMappingProfile : Profile
     {

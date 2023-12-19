@@ -17,17 +17,24 @@ namespace DataAccess.Context
         public DbSet<Announcement> Announcements { get; set; }
         public DbSet<ForeignLanguage> Languages { get; set; }
         public DbSet<PersonalInformation> PersonalInformation { get; set; }
-        public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Certificate> Certificates { get; set; }
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<ProfileImage> ProfileImages { get; set; }
-
+        public DbSet<AccountPassword> AccountPasswords { get; set; }
+        public DbSet<SessionStatus> SessionStatuses { get; set; }
+        public DbSet<MembershipStatus> MembershipStatuses { get; set; }
+        public DbSet<SocialMediaPlatform> SocialMediaPlatforms { get; set; }
+        public DbSet<AccountSocialMedia> AccountSocialMedias { get; set; }
+        public DbSet<EducationStatus> EducationStatuses { get; set; }
+        public DbSet<University> Universities { get; set; }
+        public DbSet<EducationProgram> EducationPrograms { get; set; }
+        public DbSet<AccountEducation> AccountEducations { get; set; }
 
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
-            //Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
+            Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
         }
 
 

@@ -39,10 +39,10 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("Delete")]
-        public async Task<IActionResult> Delete([FromBody] DeletedLanguageRequest deletedLanguageRequest)
+        public async Task<IActionResult> Delete([FromBody] DeleteLanguageRequest deleteLanguageRequest)
         {
 
-            var result = await _languageService.Delete(deletedLanguageRequest);
+            var result = await _languageService.Delete(deleteLanguageRequest);
             return Ok(result);
         }
     }

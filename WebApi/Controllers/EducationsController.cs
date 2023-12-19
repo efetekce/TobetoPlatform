@@ -20,7 +20,7 @@ namespace WebApi.Controllers
 
         public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
-            var result = await _educationService.GetEducationListAsync(pageRequest);
+            var result = await _educationService.GetListEducation();
             return Ok(result);
         }
 

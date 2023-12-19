@@ -14,7 +14,7 @@ namespace Business.Abstract
     {
         Task<CreatedEducationResponse> Add(CreateEducationRequest createEducationRequest);
 
-        Task<IPaginate<GetListEducationResponse>> GetEducationListAsync(PageRequest pageRequest);
+        Task<IPaginate<GetListEducationResponse>> GetListEducation();
 
         Task<UpdatedEducationResponse> Update(UpdateEducationRequest updateEducationRequest);
 

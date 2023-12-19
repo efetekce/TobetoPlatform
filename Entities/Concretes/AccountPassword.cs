@@ -11,7 +11,7 @@ namespace Entities.Concretes
     {
         public int AccountId { get; set; }
         public int Priority { get; set; }
-        public int MyProperty { get; set; }
+        //public int MyProperty { get; set; }
         // sifre degistirme alani
     }
 }

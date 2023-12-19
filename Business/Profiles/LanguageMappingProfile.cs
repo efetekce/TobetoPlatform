@@ -17,7 +17,7 @@ namespace Business.Profiles
         {
             CreateMap<CreateLanguageRequest, ForeignLanguage>().ReverseMap();
             CreateMap<UpdateLanguageRequest, ForeignLanguage>().ReverseMap();
-            CreateMap<DeletedLanguageRequest, ForeignLanguage>().ReverseMap();
+            CreateMap<DeleteLanguageRequest, ForeignLanguage>().ReverseMap();
 
             CreateMap<ForeignLanguage, GetListLanguageResponse>().ReverseMap();
             CreateMap<Paginate<ForeignLanguage>, Paginate<GetListLanguageResponse>>().ReverseMap();

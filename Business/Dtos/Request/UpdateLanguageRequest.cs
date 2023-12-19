@@ -11,6 +11,5 @@ namespace Business.Dtos.Request
         public int Id { get; set; }
         public string? LanguageName { get; set; }
         public string? LanguageLevel { get; set; }
-
     }
 }

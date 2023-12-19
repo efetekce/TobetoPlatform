@@ -12,10 +12,9 @@ namespace DataAccess.Concretes
 {
     public class EfProfileImageDal : EfRepositoryBase<ProfileImage, int, TobetoContext>, IProfileImageDal
     {
-        TobetoContext _tobetoContext;
         public EfProfileImageDal(TobetoContext context) : base(context)
         {
-            _tobetoContext = context;
+            TobetoContext _context;
         }
     }
 }

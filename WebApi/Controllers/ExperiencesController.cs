@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
 
         public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
-            var result = await _experienceService.GetExperienceListAsync(pageRequest);
+            var result = await _experienceService.GetListExperience();
             return Ok(result);
         }
 

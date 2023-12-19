@@ -8,6 +8,8 @@ namespace Business.Dtos.Request
 {
     public class UpdateEducationRequest
     {
+        public int Id { get; set; }
+
         public int ProfileId { get; set; }
 
         public bool Status { get; set; }

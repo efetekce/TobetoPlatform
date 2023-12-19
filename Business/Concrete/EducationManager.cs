@@ -56,5 +56,10 @@ namespace Business.Concrete
             var mappedList = _mapper.Map<Paginate<GetListEducationResponse>>(educationList);
             return mappedList;
         }
+
+        public Task<IPaginate<GetListEducationResponse>> GetListEducation()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace Business.Concrete
 
         }
 
-        public async Task<DeletedLanguageResponse> Delete(DeletedLanguageRequest deletedLanguageRequest)
+        public async Task<DeletedLanguageResponse> Delete(DeleteLanguageRequest deletedLanguageRequest)
         {
             ForeignLanguage language = _mapper.Map<ForeignLanguage>(deletedLanguageRequest);
             var deletedLanguage = await _languageDal.DeleteAsync(language,true);
@@ -44,9 +44,6 @@ namespace Business.Concrete
             var languages = await _languageDal.GetListAsync();
             var result=_mapper.Map<Paginate<GetListLanguageResponse>>(languages);
             return result;
-
-
-
         }
 
         public async Task<UpdatedLanguageResponse> Update(UpdateLanguageRequest updateLanguageRequest)

@@ -12,10 +12,9 @@ namespace DataAccess.Concretes
 {
     public class EfEducationDal : EfRepositoryBase<Education, int, TobetoContext>, IEducationDal
     {
-        TobetoContext _tobetocontext;
         public EfEducationDal(TobetoContext context) : base(context)
         {
-            _tobetocontext = context;
+            TobetoContext  _context;
         }
     }
 }
