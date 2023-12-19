@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
+using Business.Rules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -18,13 +19,17 @@ namespace Business.Concrete
     {
         ICertificateDal _certificateDal;
         IMapper _mapper;
-        public CertificateManager(ICertificateDal certificateDal,IMapper mapper)
+        CertificateBusinessRules _certificateBusinessRules;
+        public CertificateManager(ICertificateDal certificateDal,IMapper mapper,CertificateBusinessRules certificateBusinessRules)
         {
             _certificateDal = certificateDal;
             _mapper = mapper;   
+            _certificateBusinessRules = certificateBusinessRules;
+
         }
         public async Task<CreatedCertificateResponse> Add(CreateCertitificateRequest createCertitificateRequest)
         {
+            await _certificateBusinessRules.MaximumCertificateCountIsFive();
             Certificate certificate = _mapper.Map<Certificate>(createCertitificateRequest);
             var createdCertificate = await _certificateDal.AddAsync(certificate);
             CreatedCertificateResponse result = _mapper.Map<CreatedCertificateResponse>(createdCertificate);
@@ -39,9 +44,11 @@ namespace Business.Concrete
             return result;
         }
 
-        public Task<IPaginate<GetListCertificateResponse>> GetListLanguage()
+        public async Task<IPaginate<GetListCertificateResponse>> GetListCertificate()
         {
-            throw new NotImplementedException();
+            var certificate = await _certificateDal.GetListAsync();
+            var result = _mapper.Map<Paginate<GetListCertificateResponse>>(certificate);
+            return result;
         }
 
         public async Task<UpdatedCertificateResponse> Update(UpdateCertitificateRequest updateCertitificateRequest)
