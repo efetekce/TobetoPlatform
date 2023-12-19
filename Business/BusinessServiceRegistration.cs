@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
+using Core.Security.JWT;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,28 @@ namespace Business
     {
         public static IServiceCollection AddBusinessServices(this IServiceCollection services)
         {
-            services.AddScoped<ILanguageService, LanguageManager>();
+
+
+
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
+            services.AddScoped<IAddressService, AddressManager>();
+            services.AddScoped<ICountryService, CountryManager>();
+            services.AddScoped<ICityService, CityManager>();
+            services.AddScoped<IDistrictService, DistrictManager>();
             services.AddScoped<IEducationService, EducationManager>();
             services.AddScoped<IExperienceService, ExperienceManager>();
-            services.AddScoped<IPersonalInformationService, PersonalInformationManager>();
+           
+
+                  
+
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
             services.AddScoped<ICertificateService, CertificateManager>();
             services.AddScoped<ISkillService, SkillManager>();
+            services.AddScoped<IUserService, UserManager>();
+            services.AddScoped<IAuthService, AuthManager>();
+            services.AddScoped<IAccountService, AccountManager>();
+            services.AddScoped<IForeignLanguageService, ForeignLanguageManager>();    
+            services.AddScoped<ITokenHelper,JwtHelper>();
 
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
