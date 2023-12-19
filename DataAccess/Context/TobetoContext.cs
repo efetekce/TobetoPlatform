@@ -31,6 +31,7 @@ namespace DataAccess.Context
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<ProfileImage> ProfileImages { get; set; }
+        public DbSet<Skill> Skills { get; set; }
 
         public DbSet<User> Users { get; set; }
      
@@ -38,6 +39,7 @@ namespace DataAccess.Context
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Core.Entities.Concrete.OperationClaim> OperationClaims { get; set; }
         public DbSet<ForeignLanguage> ForeignLanguages { get; set; }
+
 
 
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
