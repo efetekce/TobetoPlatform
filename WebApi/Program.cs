@@ -13,7 +13,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddBusinessServices();
-
 builder.Services.AddDataAccessServices(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -40,6 +39,7 @@ builder.Services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
 
 var app = builder.Build();
 
+<<<<<<< Updated upstream
        
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -54,6 +54,7 @@ var app = builder.Build();
 
         app.Run();
     
+=======
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -67,4 +68,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
+>>>>>>> Stashed changes

@@ -13,7 +13,6 @@ namespace Business.Abstract
     {
         Task<CreatedCertificateResponse> Add(CreateCertitificateRequest createCertitificateRequest);
         Task<IPaginate<GetListCertificateResponse>> GetListLanguage();
-        Task<IPaginate<GetListCertificateResponse>> GetListCertificate();
         Task<UpdatedCertificateResponse> Update(UpdateCertitificateRequest updateCertitificateRequest);
         Task<DeletedCertificateResponse> Delete(DeleteCertitificateRequest deleteCertitificateRequest);
     }

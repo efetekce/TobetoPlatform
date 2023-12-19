@@ -31,14 +31,20 @@ namespace DataAccess
           
 >>>>>>> Stashed changes
             services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
-
+<<<<<<< Updated upstream
             services.AddScoped<ICertificateDal, EfCertificateDal>();
-
+=======
             services.AddScoped<IProfileImageDal, EfProfileImageDal>();
             services.AddScoped<IUserDal, EfUserDal>();
             services.AddScoped<IAccountDal, EfAccountDal>();
             services.AddScoped<IForeignLanguageDal, EfForeignLanguageDal>();
 
+
+
+            //services.AddScoped<ICategoryDal, EfCategoryDal>();
+            //services.AddScoped<ICourseDal, EfCourseDal>();
+
+>>>>>>> Stashed changes
             services.AddScoped<IPlatformCatalogDal,EfPlatformCatalogDal>();
 
             return services;
