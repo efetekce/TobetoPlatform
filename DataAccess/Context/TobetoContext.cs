@@ -22,12 +22,12 @@ namespace DataAccess.Context
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<ProfileImage> ProfileImages { get; set; }
-
+        public DbSet<Skill> Skills { get; set; }
 
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
-            //Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
+            Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
         }
 
 

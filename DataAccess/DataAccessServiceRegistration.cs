@@ -25,6 +25,7 @@ namespace DataAccess
             services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
             services.AddScoped<ICertificateDal, EfCertificateDal>();
             services.AddScoped<IProfileImageDal, EfProfileImageDal>();
+            services.AddScoped<ISkillDal, EfSkillDal>();
 
             return services;
         }
