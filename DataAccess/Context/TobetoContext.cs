@@ -18,6 +18,11 @@ namespace DataAccess.Context
 
 
         public DbSet<Announcement> Announcements { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<District> Districts { get; set; }
+
         public DbSet<ForeignLanguage> Languages { get; set; }
         public DbSet<PersonalInformation> PersonalInformation { get; set; }
 
@@ -39,7 +44,9 @@ namespace DataAccess.Context
         {
             Configuration = configuration;
 
-            Database.EnsureCreated();
+            Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
+
+
         }
 
 
