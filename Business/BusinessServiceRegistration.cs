@@ -21,6 +21,8 @@ namespace Business
             services.AddScoped<IPersonalInformationService, PersonalInformationManager>();
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
             services.AddScoped<ICertificateService, CertificateManager>();
+            services.AddScoped<ISkillService, SkillManager>();
+
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
