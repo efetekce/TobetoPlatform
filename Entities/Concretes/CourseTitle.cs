@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,20 +12,5 @@ namespace Business.Dtos.Request
     {
         public string Name { get; set; }
 
-
-        public class Skills : Entity<int>
-        {
-            public int ProfileId { get; set; }
-            public string Skill { get; set; }
-
-            public class CreateForeignLanguageRequest
-            {
-                public string Name { get; set; }
-                public int Priority { get; set; }
-
-
-            }
-
-        }
     }
 }

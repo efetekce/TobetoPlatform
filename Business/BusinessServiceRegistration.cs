@@ -23,9 +23,7 @@ namespace Business
             services.AddScoped<IExperienceService, ExperienceManager>();
            
 
-            services.AddScoped<ISkillsService, SkillsManager>();
-
-        
+                  
 
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
             services.AddScoped<ICertificateService, CertificateManager>();

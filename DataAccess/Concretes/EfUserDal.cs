@@ -18,7 +18,7 @@ namespace DataAccess.Concretes
             TobetoContext _context;
         }
 
-        public List<OperationClaim> GetClaims(User user)
+        public List<Core.Entities.Concrete.OperationClaim> GetClaims(User user)
         {
             throw new NotImplementedException();
         }

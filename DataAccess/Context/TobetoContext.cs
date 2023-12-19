@@ -1,4 +1,5 @@
-﻿using Core.Entities.Concrete;
+﻿
+using Core.Entities.Concrete;
 using Entities.Concretes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,10 +28,10 @@ namespace DataAccess.Context
         public DbSet<ProfileImage> ProfileImages { get; set; }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<OperationClaim> OperationClaims { get; set; }
+     
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<Account> Accounts { get; set; }
-
+        public DbSet<Core.Entities.Concrete.OperationClaim> OperationClaims { get; set; }
         public DbSet<ForeignLanguage> ForeignLanguages { get; set; }
 
 
@@ -38,12 +39,9 @@ namespace DataAccess.Context
         {
             Configuration = configuration;
 
-            Database.EnsureCreated(); 
-
-
-        public TobetoContext()
-        {
+            Database.EnsureCreated();
         }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
