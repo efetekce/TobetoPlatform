@@ -6,9 +6,19 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
+
     public class DeleteSkillsRequest
+
+    public class DeletedSkillsRequest
+
     {
         public int Id { get; set; }
         public string Skill { get; set; }
+
+        public class CreateUserLoginRequest
+        {
+
+
+        }
     }
 }

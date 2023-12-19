@@ -19,7 +19,7 @@ namespace Business.Concrete
         {
             _profileImageDal = profileImage;
         }
-        public IResult Add(IFormFile file, ProfileImage profileImage)
+        public Core.Results.IResult Add(IFormFile file, ProfileImage profileImage)
         {
             profileImage.ImagePath = FileHelper.Add(file);
             profileImage.CreatedDate = DateTime.Now;
@@ -28,7 +28,7 @@ namespace Business.Concrete
             
         }
 
-        public IResult Delete(ProfileImage profileImage)
+        public Core.Results.IResult Delete(ProfileImage profileImage)
         {
             throw new NotImplementedException();
         }
@@ -48,7 +48,12 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-        public IResult Update(IFormFile file, ProfileImage profileImage)
+        public Core.Results.IResult Update(IFormFile file, ProfileImage profileImage)
+        {
+            throw new NotImplementedException();
+        }
+
+        Core.Results.IResult IProfileImageService.Update(IFormFile file, ProfileImage profileImage)
         {
             throw new NotImplementedException();
         }

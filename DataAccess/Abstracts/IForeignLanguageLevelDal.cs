@@ -1,12 +1,23 @@
-﻿using System;
+
+using System;
+
+using Core.DataAccess.Repositories;
+using Core.Entities.Concrete;
+using Entities.Concretes;
+
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccess.Abstracts
+
 {
-    internal interface IForeignLanguageLevelDal
+    public interface IForeignLanguageLevelDal : IRepository<ForeignLanguageLevel, int>, IAsyncRepository<User, int>
     {
+        List<OperationClaim> GetClaims(User user);
+
+
     }
 }
