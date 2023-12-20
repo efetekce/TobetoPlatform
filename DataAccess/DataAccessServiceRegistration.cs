@@ -24,16 +24,11 @@ namespace DataAccess
             services.AddScoped<ICityDal, EfCityDal>();
             services.AddScoped<IDistrictDal, EfDistrictDal>();
             services.AddScoped<ILanguageDal, EfLanguageDal>();
-
             services.AddScoped<IExperienceDal, EfExperienceDal>();
             services.AddScoped<IEducationDal, EfEducationDal>();
             services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
-
-
-           
-
             services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
-            services.AddScoped<ICertificateDal, EfCertificateDal>();
+            services.AddScoped<IAccountCertificateDal, EfAccountCertificateDal>();
             services.AddScoped<IProfileImageDal, EfProfileImageDal>();
             services.AddScoped<ISkillDal, EfSkillDal>();
             services.AddScoped<IUserDal, EfUserDal>();

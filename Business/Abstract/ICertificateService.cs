@@ -12,10 +12,7 @@ namespace Business.Abstract
     public interface ICertificateService 
     {
         Task<CreatedCertificateResponse> Add(CreateCertitificateRequest createCertitificateRequest);
-
-  
-        Task<IPaginate<GetListCertificateResponse>> GetListCertificate();
-
+        Task<IPaginate<GetListCertificateResponse>> GetListLanguage();
         Task<UpdatedCertificateResponse> Update(UpdateCertitificateRequest updateCertitificateRequest);
         Task<DeletedCertificateResponse> Delete(DeleteCertitificateRequest deleteCertitificateRequest);
     }

@@ -13,6 +13,6 @@ namespace Entities.Concretes
         public int ForeignLanguageId { get; set; }
 
         public int ForeignLanguageLevelId { get; set; }
-        public int Priority { get; set; }
+      
     }
 }
