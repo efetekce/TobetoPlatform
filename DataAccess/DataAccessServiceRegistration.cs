@@ -20,12 +20,26 @@ namespace DataAccess
             services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
             services.AddScoped<ILanguageDal, EfLanguageDal>();
             services.AddScoped<IExperienceDal, EfExperienceDal>();
-            services.AddScoped<IEducationDal, EfEducationDal>();
             services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
             services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
             services.AddScoped<ICertificateDal, EfCertificateDal>();
             services.AddScoped<IProfileImageDal, EfProfileImageDal>();
-
+            services.AddScoped<IMembershipStatusDal, EfMembershipStatusDal>();
+            services.AddScoped<IAccountPasswordDal, EfAccountPasswordDal>();
+            services.AddScoped<ISessionStatusDal, EfSessionStatusDal>();
+            services.AddScoped<ISocialMediaPlatformDal, EfSocialMediaPlatformDal>();
+            services.AddScoped<IAccountSocialMediaDal, EfAccountSocialMediaDal>();
+            services.AddScoped<IEducationStatusDal, EfEducationStatusDal>();
+            services.AddScoped<IUniversityDal, EfUniversityDal>();
+            services.AddScoped<IEducationProgramDal, EfEducationProgramDal>();
+            services.AddScoped<IAccountEducationDal, EfAccountEducationDal>();
+            services.AddScoped<IOrganizationDal, EfOrganizationDal>();
+            services.AddScoped<ISurveyDal, EfSurveyDal>();
+            services.AddScoped<ISurveyTypeDal, EfSurveyTypeDal>();
+            services.AddScoped<IApplicationDal, EfApplicationDal>();
+            services.AddScoped<IAccountApplicationDal, EfAccountApplicationDal>();
+            services.AddScoped<IApplicationStepDal, EfApplicationStepDal>();
+            
             return services;
         }
     }

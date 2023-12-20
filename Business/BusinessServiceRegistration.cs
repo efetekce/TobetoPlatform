@@ -16,11 +16,25 @@ namespace Business
         {
             services.AddScoped<ILanguageService, LanguageManager>();
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
-            services.AddScoped<IEducationService, EducationManager>();
             services.AddScoped<IExperienceService, ExperienceManager>();
             services.AddScoped<IPersonalInformationService, PersonalInformationManager>();
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
             services.AddScoped<ICertificateService, CertificateManager>();
+            services.AddScoped<IMembershipStatusService, MembershipStatusManager>();
+            services.AddScoped<ISessionStatusService, SessionStatusManager>();
+            services.AddScoped<IAccountPasswordService, AccountPasswordManager>();
+            services.AddScoped<ISocialMediaPlatformService, SocialMediaPlatformManager>();
+            services.AddScoped<IAccountSocialMediaService, AccountSocialMediaManager>();
+            services.AddScoped<IEducationStatusService, EducationStatusManager>();
+            services.AddScoped<IUniversityService, UniversityManager>();
+            services.AddScoped<IAccountEducationService, AccountEducationManager>();
+            services.AddScoped<IEducationProgramService, EducationProgramManager>();
+            services.AddScoped<IOrganizationService, OrganizationManager>();
+            services.AddScoped<ISurveyService, SurveyManager>();
+            services.AddScoped<ISurveyTypeService, SurveyTypeManager>();
+            services.AddScoped<IApplicationService, ApplicationManager>();
+            services.AddScoped<IAccountApplicationService, AccountApplicationManager>();
+            services.AddScoped<IApplicationStepService, ApplicationStepManager>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
