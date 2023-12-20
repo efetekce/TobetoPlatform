@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
 using Core.Security.JWT;
+using DataAccess.Abstracts;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,15 @@ namespace Business
             services.AddScoped<IAccountService, AccountManager>();
             services.AddScoped<IForeignLanguageService, ForeignLanguageManager>();    
             services.AddScoped<ITokenHelper,JwtHelper>();
-
+            services.AddScoped<IForeignLanguageLevelService,ForeignLanguageLevelManager>();
+            services.AddScoped<IAccountForeignLanguageService,AccountForeignLanguageManager>();
+            services.AddScoped<ICourseCategoryService,CourseCategoryManager>();
+            services.AddScoped<ICourseContentTypeService,CourseContentTypeManager>();
+            services.AddScoped<ICourseContentService,CourseContentManager>();
+            services.AddScoped<ILessonService, LessonManager>();
+            services.AddScoped<ICourseService, CourseManager>();
+            services.AddScoped<IAccountCourseLessonService, AccountCourseLessonManager>();
+            
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;

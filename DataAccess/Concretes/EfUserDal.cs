@@ -19,8 +19,8 @@ namespace DataAccess.Concretes
         }
 
 
-        public List<OperationClaim> GetClaims(User user)
-
+       
+        List<Core.Entities.Concrete.OperationClaim> IUserDal.GetClaims(User user)
         {
             throw new NotImplementedException();
         }

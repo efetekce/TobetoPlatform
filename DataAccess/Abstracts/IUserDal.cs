@@ -14,7 +14,7 @@ namespace DataAccess.Abstracts
 
     public interface IUserDal: IRepository<User, int>, IAsyncRepository<User, int>
     {
-        List<OperationClaim> GetClaims(User user);
+        List<Core.Entities.Concrete.OperationClaim> GetClaims(User user);
 
     }
 }

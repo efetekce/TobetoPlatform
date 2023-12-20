@@ -10,8 +10,11 @@ namespace Entities.Concretes
     public class Course : Entity<int>
     {
 
-        public int CourseDetailId { get; set; }
         public string Name { get; set; }
-        public DateTime PublishedDate { get; set; }
+        public int Duration { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public string ImagePath { get; set; }
+
     }
 }

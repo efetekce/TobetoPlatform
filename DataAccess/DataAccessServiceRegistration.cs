@@ -26,19 +26,11 @@ namespace DataAccess
             services.AddScoped<IExperienceDal, EfExperienceDal>();
             services.AddScoped<IEducationDal, EfEducationDal>();
             services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
+            //services.AddScoped<ISkillsDal, EfSkillsDal>();
 
-
-           
-
-
-            services.AddScoped<ISkillsDal, EfSkillsDal>();
-
-          
-
-            services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
-            
-            services.AddScoped<IExperienceDal, EfExperienceDal>();
-            services.AddScoped<IEducationDal, EfEducationDal>();
+            //services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
+            //services.AddScoped<IExperienceDal, EfExperienceDal>();
+            //services.AddScoped<IEducationDal, EfEducationDal>();
 
             services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
             services.AddScoped<ICertificateDal, EfCertificateDal>();
@@ -46,8 +38,19 @@ namespace DataAccess
             services.AddScoped<IUserDal, EfUserDal>();
             services.AddScoped<IAccountDal, EfAccountDal>();
             services.AddScoped<IForeignLanguageDal, EfForeignLanguageDal>();
+            services.AddScoped<IForeignLanguageLevelDal, EfForeignLanguageLevelDal>();
+            services.AddScoped<IAccountForeignLanguageDal, EfAccountForeignLanguageDal>();
+            services.AddScoped<ICourseCategoryDal, EfCourseCategoryDal>();
+            services.AddScoped<ICourseContentTypeDal, EfCourseContentTypeDal>();
+            services.AddScoped<ICourseContentDal, EfCourseContentDal>();
+            services.AddScoped<ILessonDal, EfLessonDal>();
+            services.AddScoped<ICourseDal, EfCourseDal>();
+            services.AddScoped<ICourseDetailDal, EfCourseDetailDal>();
+            services.AddScoped<IAccountCourseDal, EfAccountCourseDal>();
+            services.AddScoped<IAccountCourseLessonDal, EfAccountCourseLessonDal>();
 
-            services.AddScoped<IPlatformCatalogDal,EfPlatformCatalogDal>();
+
+            //services.AddScoped<IPlatformCatalogDal,EfPlatformCatalogDal>();
 
             return services;
         }

@@ -1,15 +1,14 @@
-﻿using Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concretes
+namespace Business.Dtos.Request
 {
-    public class Lecture : Entity<int>
+    public class CreateForeignLanguageLevelRequest
     {
-        public int CourseId { get; set; }
         public string Name { get; set; }
+
     }
 }

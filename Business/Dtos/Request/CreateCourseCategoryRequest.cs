@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concretes
+namespace Business.Dtos.Request
 {
-    public class Class
+    public class CreateCourseCategoryRequest
     {
-
+        public string Name { get; set; }
     }
 }

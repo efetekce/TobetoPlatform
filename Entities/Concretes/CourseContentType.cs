@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Business.Dtos.Request
 {
 
-    public class CourseTitle : Entity<int>
+    public class CourseContentType : Entity<int>
     {
         public string Name { get; set; }
 

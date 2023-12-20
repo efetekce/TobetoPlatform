@@ -9,11 +9,12 @@ namespace Entities.Concretes
 {
     public class CourseDetail : Entity<int>
     {
-        public string CoverPath { get; set; }
-        public string Name { get; set; }
-        public bool IsFavorite { get; set; }
-        public DateTime DueDate { get; set; }
-        public DateTime PublishedDate { get; set; }
-        public int ProgressPercentage { get; set; }
+        public int CourseId { get; set; }
+        public int CourseContentId { get; set; }
+        public int CategoryId { get; set; }
+        public int OrganizationId { get; set; }
+        public string Language { get; set; }
+        public string SubType { get; set; }
+
     }
 }
