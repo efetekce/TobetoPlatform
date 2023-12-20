@@ -25,9 +25,13 @@ namespace Business
             services.AddScoped<IDistrictService, DistrictManager>();
             services.AddScoped<IEducationService, EducationManager>();
             services.AddScoped<IExperienceService, ExperienceManager>();
-           
 
-                  
+            services.AddScoped<IAssessmentService, AssessmentManager>();
+            services.AddScoped<IQuestionCategoryService, QuestionCategoryManager>();
+            services.AddScoped<IQuestionService, QuestionManager>();
+            services.AddScoped<IAnswerService, AnswerManager>();
+
+
 
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
             services.AddScoped<ICertificateService, CertificateManager>();
@@ -35,8 +39,8 @@ namespace Business
             services.AddScoped<IUserService, UserManager>();
             services.AddScoped<IAuthService, AuthManager>();
             services.AddScoped<IAccountService, AccountManager>();
-            services.AddScoped<IForeignLanguageService, ForeignLanguageManager>();    
-            services.AddScoped<ITokenHelper,JwtHelper>();
+            services.AddScoped<IForeignLanguageService, ForeignLanguageManager>();
+            services.AddScoped<ITokenHelper, JwtHelper>();
 
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());

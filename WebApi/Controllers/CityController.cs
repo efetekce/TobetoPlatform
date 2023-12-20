@@ -18,9 +18,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
+        public async Task<IActionResult> GetList()
         {
-            var result = await _cityService.GetCityListAsync(pageRequest);
+            var result = await _cityService.GetCityListAsync();
             return Ok(result);
         }
 
