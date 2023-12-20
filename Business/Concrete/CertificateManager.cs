@@ -39,16 +39,9 @@ namespace Business.Concrete
             return result;
         }
 
-        public Task<IPaginate<GetListCertificateResponse>> GetListCertificate()
+        public Task<IPaginate<GetListCertificateResponse>> GetListLanguage()
         {
             throw new NotImplementedException();
-        }
-
-        public async Task<IPaginate<GetListCertificateResponse>> GetListLanguage()
-        {
-            var certificate = await _certificateDal.GetListAsync();
-            var result = _mapper.Map<Paginate<GetListCertificateResponse>>(certificate);
-            return result;
         }
 
         public async Task<UpdatedCertificateResponse> Update(UpdateCertitificateRequest updateCertitificateRequest)

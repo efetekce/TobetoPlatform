@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class AccountCourse:Entity<int>
+    public class Lesson : Entity<int>
     {
-        public int AccountId { get; set; }
         public int CourseId { get; set; }
-        public int PercentageofCompletion { get; set; }
-        public int Point { get; set; }
-        public bool Like { get; set; }
+        public int CourseContentId { get; set; }
+        public string Name { get; set; }
+        public int VideoDuration { get; set; }
     }
 }
