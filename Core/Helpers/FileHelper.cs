@@ -25,7 +25,7 @@ namespace Core.Helpers
             File.Move(sourcepath, result.newPath);
             return result.Path2.Replace("\\", "/");
         }
-        public static IResult Delete(string path)
+        public static Results.IResult Delete(string path)
         {
             path = path.Replace("/", "\\");
             try

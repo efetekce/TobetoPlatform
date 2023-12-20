@@ -1,4 +1,6 @@
-﻿using Entities.Concretes;
+﻿
+using Core.Entities.Concrete;
+using Entities.Concretes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -15,6 +17,14 @@ namespace DataAccess.Context
         protected IConfiguration Configuration { get; set; }
 
         public DbSet<Announcement> Announcements { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<District> Districts { get; set; }
+        public DbSet<Assessment> Assessments { get; set; }
+        public DbSet<QuestionCategory> QuestionCategories { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
         public DbSet<ForeignLanguage> Languages { get; set; }
         public DbSet<PersonalInformation> PersonalInformation { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
@@ -36,11 +46,19 @@ namespace DataAccess.Context
         public DbSet<Application> Applications { get; set; }
         public DbSet<AccountApplication> AccountApplications { get; set; }
         public DbSet<ApplicationStep> ApplicationSteps { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Core.Entities.Concrete.OperationClaim> OperationClaims { get; set; }
+        public DbSet<ForeignLanguage> ForeignLanguages { get; set; }
 
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
-            //Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
+
+            Database.EnsureCreated(); //migration'lar yönetilirken kullanılır.
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

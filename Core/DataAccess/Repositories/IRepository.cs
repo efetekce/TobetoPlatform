@@ -21,6 +21,8 @@ namespace Core.DataAccess.Repositories
             bool enableTracking = true
         );
 
+
+
         IPaginate<TEntity> GetList(
             Expression<Func<TEntity, bool>>? predicate = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
