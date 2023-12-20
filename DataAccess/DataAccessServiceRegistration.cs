@@ -30,7 +30,6 @@ namespace DataAccess
             services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
             services.AddScoped<IAccountCertificateDal, EfAccountCertificateDal>();
             services.AddScoped<IProfileImageDal, EfProfileImageDal>();
-            services.AddScoped<ISkillDal, EfSkillDal>();
             services.AddScoped<IUserDal, EfUserDal>();
             services.AddScoped<IAccountDal, EfAccountDal>();
             services.AddScoped<IForeignLanguageDal, EfForeignLanguageDal>();

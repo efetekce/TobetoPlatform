@@ -25,9 +25,7 @@ namespace Business
             services.AddScoped<IExperienceService, ExperienceManager>();
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
             services.AddScoped<IAccountCertificateService, AccountCertificateManager>();
-            services.AddScoped<ISkillService, SkillManager>();
             services.AddScoped<IUserService, UserManager>();
-            services.AddScoped<IAuthService, AuthManager>();
             services.AddScoped<IAccountService, AccountManager>();
             services.AddScoped<IForeignLanguageService, ForeignLanguageManager>();    
             services.AddScoped<ITokenHelper,JwtHelper>();

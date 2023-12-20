@@ -11,9 +11,9 @@ namespace Business.Abstract
 {
     public interface IAccountCertificateService 
     {
-        Task<CreatedAccountCertificateResponse> Add(CreateAccountCertificateRequest createCertificateRequest);
-        Task<IPaginate<GetListAccountCertificateResponse>> GetListCertificate(PageRequest pageRequest);
-        Task<UpdatedAccountCertificateResponse> Update(UpdateAccountCertificateRequest updateCertificateRequest);
-        Task<DeletedAccountCertificateResponse> Delete(DeleteAccountCertificateRequest deleteCertificateRequest);
+        Task<CreatedAccountCertificateResponse> Add(CreateAccountCertificateRequest createAccountCertificateRequest);
+        Task<IPaginate<GetListAccountCertificateResponse>> GetListAccountCertificate(PageRequest pageRequest);
+        Task<UpdatedAccountCertificateResponse> Update(UpdateAccountCertificateRequest updateAccountCertificateRequest);
+        Task<DeletedAccountCertificateResponse> Delete(DeleteAccountCertificateRequest deleteAccountCertificateRequest);
     }
 }

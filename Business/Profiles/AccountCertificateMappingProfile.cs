@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Business.Profiles
 {
-    public class AccountCertificateMappingProfile :Profile
+    public class AccountCertificateMappingProfile : Profile
     {
         public AccountCertificateMappingProfile()
         {

@@ -19,29 +19,29 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
-            var result = await _accountCertificateService.GetListCertificate(pageRequest);
+            var result = await _accountCertificateService.GetListAccountCertificate(pageRequest);
             return Ok(result);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CreateAccountCertificateRequest createCertitificateRequest)
+        public async Task<IActionResult> Add([FromBody] CreateAccountCertificateRequest createCertificateRequest)
         {
-            var result = await _accountCertificateService.Add(createCertitificateRequest);
+            var result = await _accountCertificateService.Add(createCertificateRequest);
             return Ok(result);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateAccountCertificateRequest updateCertitificateRequest)
+        public async Task<IActionResult> Update([FromBody] UpdateAccountCertificateRequest updateCertificateRequest)
         {
-            var result = await _accountCertificateService.Update(updateCertitificateRequest);
+            var result = await _accountCertificateService.Update(updateCertificateRequest);
             return Ok(result);
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] DeleteAccountCertificateRequest deleteCertitificateRequest)
+        public async Task<IActionResult> Delete([FromBody] DeleteAccountCertificateRequest deleteCertificateRequest)
         {
 
-            var result = await _accountCertificateService.Delete(deleteCertitificateRequest);
+            var result = await _accountCertificateService.Delete(deleteCertificateRequest);
             return Ok(result);
         }
     }
