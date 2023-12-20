@@ -1,13 +1,6 @@
-﻿using Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entities.Concretes
+﻿namespace Business.Dtos.Request
 {
-    public class Organization:Entity<int>
+    public class CreateOrganizationRequest
     {
         public int AddressId { get; set; }
         public int Priority { get; set; }

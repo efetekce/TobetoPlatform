@@ -19,7 +19,6 @@ namespace DataAccess.Context
         public DbSet<PersonalInformation> PersonalInformation { get; set; }
         public DbSet<Certificate> Certificates { get; set; }
         public DbSet<Experience> Experiences { get; set; }
-        public DbSet<Education> Educations { get; set; }
         public DbSet<ProfileImage> ProfileImages { get; set; }
         public DbSet<AccountPassword> AccountPasswords { get; set; }
         public DbSet<SessionStatus> SessionStatuses { get; set; }
@@ -30,6 +29,12 @@ namespace DataAccess.Context
         public DbSet<University> Universities { get; set; }
         public DbSet<EducationProgram> EducationPrograms { get; set; }
         public DbSet<AccountEducation> AccountEducations { get; set; }
+        public DbSet<Organization> Organizations { get; set; }
+        public DbSet<Survey> Surveys { get; set; }
+        public DbSet<SurveyType> SurveyTypes { get; set; }
+        public DbSet<Application> Applications { get; set; }
+        public DbSet<AccountApplication> AccountApplications { get; set; }
+        public DbSet<ApplicationStep> ApplicationSteps { get; set; }
 
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
