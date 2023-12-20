@@ -12,10 +12,9 @@ namespace DataAccess.Concretes
 {
     public class EfExperienceDal : EfRepositoryBase<Experience, int, TobetoContext>, IExperienceDal
     {
-        TobetoContext _tobetocontext;
         public EfExperienceDal(TobetoContext context) : base(context)
         {
-            _tobetocontext = context;
+            TobetoContext _context;
         }
     }
 }

@@ -12,10 +12,9 @@ namespace DataAccess.Concretes
 {
     public class EfLanguageDal : EfRepositoryBase<ForeignLanguage, int, TobetoContext>, ILanguageDal
     {
-        TobetoContext _tobetoContext;
         public EfLanguageDal(TobetoContext context) : base(context)
         {
-            _tobetoContext = context;
+            TobetoContext _context;
         }
     }
 }

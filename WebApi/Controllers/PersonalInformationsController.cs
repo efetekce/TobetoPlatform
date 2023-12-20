@@ -29,14 +29,14 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpPut]
+        [HttpPost("Update")]
         public async Task<IActionResult> Update([FromBody] UpdatePersonalInformationRequest updatePersonalInformationRequest)
         {
             var result = await _personalInformationService.Update(updatePersonalInformationRequest);
             return Ok(result);
         }
 
-        [HttpDelete]
+        [HttpPost("Delete")]
         public async Task<IActionResult> Delete([FromBody] DeletePersonalInformationRequest deletePersonalInformationRequest)
         {
 

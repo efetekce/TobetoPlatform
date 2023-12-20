@@ -9,6 +9,5 @@ namespace Business.Dtos.Request
     public class DeleteAddressRequest
     {
         public int Id { get; set; }
-
     }
 }

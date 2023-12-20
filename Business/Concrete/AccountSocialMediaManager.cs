@@ -1,0 +1,58 @@
+﻿using AutoMapper;
+using Business.Abstract;
+using Business.Dtos.Request;
+using Business.Dtos.Response;
+using Business.Rules;
+using Core.DataAccess.Paging;
+using DataAccess.Abstracts;
+using DataAccess.Concretes;
+using Entities.Concretes;
+
+namespace Business.Concrete
+{
+    public class AccountSocialMediaManager : IAccountSocialMediaService
+    {
+        IAccountSocialMediaDal _accountSocialMediaDal;
+        IMapper _mapper;
+        //AccountSocialMediaBusinessRules _accountSocialMediaBusinessRules;
+        
+        public AccountSocialMediaManager(IAccountSocialMediaDal accountSocialMediaDal,
+        IMapper mapper)
+        {
+            _accountSocialMediaDal = accountSocialMediaDal;
+            _mapper = mapper;
+            //_accountSocialMediaBusinessRuless = accountSocialMediaBusinessRules;
+        }
+
+        public async Task<CreatedAccountSocialMediaResponse> Add(CreateAccountSocialMediaRequest createAccountSocialMediaRequest)
+        {
+            AccountSocialMedia accountSocialMedia = _mapper.Map<AccountSocialMedia>(createAccountSocialMediaRequest);
+            var createdAccountSocialMedia = await _accountSocialMediaDal.AddAsync(accountSocialMedia);
+            CreatedAccountSocialMediaResponse result = _mapper.Map<CreatedAccountSocialMediaResponse>(createdAccountSocialMedia);
+            return result;
+        }
+
+        public async Task<DeletedAccountSocialMediaResponse> Delete(DeleteAccountSocialMediaRequest deleteAccountSocialMediaRequest)
+        {
+            AccountSocialMedia accountSocialMedia = _mapper.Map<AccountSocialMedia>(deleteAccountSocialMediaRequest);
+            var deletedAccountSocialMedia = await _accountSocialMediaDal.DeleteAsync(accountSocialMedia);
+            DeletedAccountSocialMediaResponse result = _mapper.Map<DeletedAccountSocialMediaResponse>(deletedAccountSocialMedia);
+            return result;
+        }
+
+        public async Task<IPaginate<GetListAccountSocialMediaResponse>> GetListAccountSocialMedia()
+        {
+            var accountSocialMedia = await _accountSocialMediaDal.GetListAsync();
+            var result = _mapper.Map<Paginate<GetListAccountSocialMediaResponse>>(accountSocialMedia);
+            return result;
+        }
+
+        public async Task<UpdatedAccountSocialMediaResponse> Update(UpdateAccountSocialMediaRequest updateAccountSocialMediaRequest)
+        {
+            AccountSocialMedia accountSocialMedia = _mapper.Map<AccountSocialMedia>(updateAccountSocialMediaRequest);
+            var updatedAccountSocialMedia = await _accountSocialMediaDal.UpdateAsync(accountSocialMedia);
+            UpdatedAccountSocialMediaResponse result = _mapper.Map<UpdatedAccountSocialMediaResponse>(updatedAccountSocialMedia);
+            return result;
+        }
+    }
+}

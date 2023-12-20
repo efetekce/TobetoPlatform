@@ -9,9 +9,5 @@ namespace Business.Dtos.Request
     public class DeleteAnnouncementRequest
     {
         public int Id { get; set; }
-
-        //public string? Subject { get; set; }
-        //public string? Description { get; set; }
-        //public DateTime AnnouncementDate { get; set; }
     }
 }

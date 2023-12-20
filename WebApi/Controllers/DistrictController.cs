@@ -38,10 +38,8 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost("Delete")]
         public async Task<IActionResult> Delete([FromBody] DeleteDistrictRequest deleteDistrictRequest)
         {
-
             var result = await _districtService.Delete(deleteDistrictRequest);
             return Ok(result);
         }
