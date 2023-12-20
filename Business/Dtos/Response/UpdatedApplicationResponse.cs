@@ -1,14 +1,8 @@
-﻿using Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entities.Concretes
+﻿namespace Business.Dtos.Response
 {
-    public class Application : Entity<int>
+    public class UpdatedApplicationResponse
     {
+        public int Id { get; set; }
         public int OrganizationId { get; set; }
         public int Priority { get; set; }
         public bool Visibility { get; set; }
