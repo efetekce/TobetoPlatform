@@ -16,6 +16,11 @@ namespace DataAccess.Context
     {
         protected IConfiguration Configuration { get; set; }
         public DbSet<Announcement> Announcements { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<District> Districts { get; set; }
+
         public DbSet<ForeignLanguage> Languages { get; set; }
         public DbSet<PersonalInformation> PersonalInformation { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
@@ -23,6 +28,10 @@ namespace DataAccess.Context
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<ProfileImage> ProfileImages { get; set; }
+
+        public DbSet<Skill> Skills { get; set; }
+
+
         public DbSet<User> Users { get; set; }
         public DbSet<CourseContent> CourseContents { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
@@ -42,11 +51,15 @@ namespace DataAccess.Context
 
 
 
+
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
 
             Database.EnsureCreated();
+
+
+
 
         }
 

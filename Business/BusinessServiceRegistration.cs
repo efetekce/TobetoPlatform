@@ -20,11 +20,16 @@ namespace Business
             
 
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
+            services.AddScoped<IAddressService, AddressManager>();
+            services.AddScoped<ICountryService, CountryManager>();
+            services.AddScoped<ICityService, CityManager>();
+            services.AddScoped<IDistrictService, DistrictManager>();
             services.AddScoped<IEducationService, EducationManager>();
             services.AddScoped<IExperienceService, ExperienceManager>();
 
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
             services.AddScoped<ICertificateService, CertificateManager>();
+            services.AddScoped<ISkillService, SkillManager>();
             services.AddScoped<IUserService, UserManager>();
             services.AddScoped<IAuthService, AuthManager>();
             services.AddScoped<IAccountService, AccountManager>();

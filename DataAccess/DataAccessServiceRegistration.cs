@@ -20,6 +20,10 @@ namespace DataAccess
 
             services.AddDbContext<TobetoContext>(options => options.UseSqlServer(configuration.GetConnectionString("Tobeto")));
             services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
+            services.AddScoped<IAddressDal, EfAddressDal>();
+            services.AddScoped<ICountryDal, EfCountryDal>();
+            services.AddScoped<ICityDal, EfCityDal>();
+            services.AddScoped<IDistrictDal, EfDistrictDal>();
             services.AddScoped<ILanguageDal, EfLanguageDal>();
 
 
@@ -35,6 +39,7 @@ namespace DataAccess
             services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
             services.AddScoped<ICertificateDal, EfCertificateDal>();
             services.AddScoped<IProfileImageDal, EfProfileImageDal>();
+            services.AddScoped<ISkillDal, EfSkillDal>();
             services.AddScoped<IUserDal, EfUserDal>();
             services.AddScoped<IAccountDal, EfAccountDal>();
             services.AddScoped<IForeignLanguageDal, EfForeignLanguageDal>();
