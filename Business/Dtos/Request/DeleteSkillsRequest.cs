@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
+
     public class DeleteSkillsRequest
+
     {
-        public int Id { get; set; }
-        public string Skill { get; set; }
     }
 }
