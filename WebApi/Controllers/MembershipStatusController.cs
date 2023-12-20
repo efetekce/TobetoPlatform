@@ -36,7 +36,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost("Delete")]
+        [HttpDelete("Delete")]
         public async Task<IActionResult> Delete([FromBody] DeleteMembershipStatusRequest deleteMembershipStatusRequest) 
         {
             var result = await _membershipStatusService.Delete(deleteMembershipStatusRequest);
