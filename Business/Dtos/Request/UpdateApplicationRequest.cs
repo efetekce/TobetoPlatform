@@ -1,14 +1,8 @@
-﻿using Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entities.Concretes
+﻿namespace Business.Dtos.Request
 {
-    public class Application : Entity<int>
+    public class UpdateApplicationRequest
     {
+        public int Id { get; set; }
         public int OrganizationId { get; set; }
         public int Priority { get; set; }
         public bool Visibility { get; set; }
