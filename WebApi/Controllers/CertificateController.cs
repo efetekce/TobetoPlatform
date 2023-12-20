@@ -20,7 +20,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetList()
         {
-            var result = await _certificateService.GetListLanguage();
+            var result = await _certificateService.GetListCertificate();
             return Ok(result);
         }
 
