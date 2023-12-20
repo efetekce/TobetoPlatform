@@ -1,0 +1,62 @@
+﻿using AutoMapper;
+using Business.Abstract;
+using Business.Dtos.Request;
+using Business.Dtos.Response;
+using Business.Rules;
+using Core.DataAccess.Paging;
+using DataAccess.Abstracts;
+using Entities.Concretes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Business.Concrete
+{
+    public class OrganizationManager : IOrganizationService
+    {
+        IOrganizationDal _organizationDal;
+        IMapper _mapper;
+        //OrganizationBusinessRules _organizationBusinessRules;
+
+        public OrganizationManager(IOrganizationDal organizationDal,
+        IMapper mapper)
+        {
+            _organizationDal = organizationDal;
+            _mapper = mapper;
+            //_organizationBusinessRules = organizationBusinessRules;
+        }
+
+        public async Task<CreatedOrganizationResponse> Add(CreateOrganizationRequest createOrganizationRequest)
+        {
+            Organization organization = _mapper.Map<Organization>(createOrganizationRequest);
+            var createdOrganization = await _organizationDal.AddAsync(organization);
+            CreatedOrganizationResponse result = _mapper.Map<CreatedOrganizationResponse>(createdOrganization);
+            return result;
+        }
+
+        public async Task<DeletedOrganizationResponse> Delete(DeleteOrganizationRequest deleteOrganizationRequest)
+        {
+            Organization organization = _mapper.Map<Organization>(deleteOrganizationRequest);
+            var deletedOrganization = await _organizationDal.DeleteAsync(organization);
+            DeletedOrganizationResponse result = _mapper.Map<DeletedOrganizationResponse>(deletedOrganization);
+            return result;
+        }
+
+        public async Task<IPaginate<GetListOrganizationResponse>> GetListOrganization()
+        {
+            var organization = await _organizationDal.GetListAsync();
+            var result = _mapper.Map<Paginate<GetListOrganizationResponse>>(organization);
+            return result;
+        }
+
+        public async Task<UpdatedOrganizationResponse> Update(UpdateOrganizationRequest updateOrganizationRequest)
+        {
+            Organization organization = _mapper.Map<Organization>(updateOrganizationRequest);
+            var updatedOrganization = await _organizationDal.UpdateAsync(organization);
+            UpdatedOrganizationResponse result = _mapper.Map<UpdatedOrganizationResponse>(updatedOrganization);
+            return result;
+        }
+    }
+}

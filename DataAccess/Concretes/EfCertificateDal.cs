@@ -12,7 +12,6 @@ namespace DataAccess.Concretes
 {
     public class EfCertificateDal : EfRepositoryBase<Certificate, int, TobetoContext>, ICertificateDal
     {
-     
         public EfCertificateDal(TobetoContext context) : base(context)
         {
             TobetoContext _context;

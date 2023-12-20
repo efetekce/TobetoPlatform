@@ -10,12 +10,10 @@ namespace WebApi.Controllers
     public class CertificateController : ControllerBase
     {
         ICertificateService _certificateService;
-        public CertificateController(ICertificateService certificate)
+        public CertificateController(ICertificateService certificateService)
         {
-            _certificateService = certificate;
-        }
-
-       
+            _certificateService = certificateService;
+        }     
 
         [HttpGet]
         public async Task<IActionResult> GetList()

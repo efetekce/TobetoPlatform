@@ -12,10 +12,9 @@ namespace DataAccess.Concretes
 {
     public class EfAnnouncementDal : EfRepositoryBase<Announcement, int, TobetoContext>, IAnnouncementDal
     {
-        TobetoContext _tobetoContext;
         public EfAnnouncementDal(TobetoContext context) : base(context)
         {
-            _tobetoContext = context;
+            TobetoContext _context;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Entities.Concretes
 {
     public class Question : Entity<int>
     {
-        public int TestId { get; set; }
+        public int AssessmentId { get; set; }
         public int SurveyId { get; set; }
         public int QuestionCategoryId { get; set; }
         public string Content { get; set; }

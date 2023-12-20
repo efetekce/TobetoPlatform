@@ -43,11 +43,16 @@ namespace Business.Concrete
 
         }
 
-        public async Task<IPaginate<GetListExperienceResponse>> GetExperienceListAsync(PageRequest pageRequest)
+        public async Task<IPaginate<GetListExperienceResponse>> GetListExperience(PageRequest pageRequest)
         {
             var experiences = await _experienceDal.GetListAsync();
             var mapped = _mapper.Map<Paginate<GetListExperienceResponse>>(experiences);
             return mapped;
+        }
+
+        public Task<IPaginate<GetListExperienceResponse>> GetListExperience()
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<UpdatedExperienceResponse> Update(UpdateExperienceRequest updateExperienceRequest)

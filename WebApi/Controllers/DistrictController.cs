@@ -18,9 +18,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
+        public async Task<IActionResult> GetList()
         {
-            var result = await _districtService.GetDistrictListAsync(pageRequest);
+            var result = await _districtService.GetDistrictListAsync();
             return Ok(result);
         }
 
@@ -38,10 +38,8 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost("Delete")]
         public async Task<IActionResult> Delete([FromBody] DeleteDistrictRequest deleteDistrictRequest)
         {
-
             var result = await _districtService.Delete(deleteDistrictRequest);
             return Ok(result);
         }
