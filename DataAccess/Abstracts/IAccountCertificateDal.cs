@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstracts
 {
-    public interface ICertificateDal : IRepository<Certificate, int>, IAsyncRepository<Certificate, int>
+    public interface IAccountCertificateDal : IRepository<AccountCertificate, int>, IAsyncRepository<AccountCertificate, int>
     {
     }
 }
