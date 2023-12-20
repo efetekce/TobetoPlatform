@@ -23,6 +23,12 @@ namespace DataAccess.Context
         public DbSet<City> Cities { get; set; }
         public DbSet<District> Districts { get; set; }
 
+        public DbSet<Assessment> Assessments { get; set; }
+        public DbSet<QuestionCategory> QuestionCategories { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+
+
         public DbSet<ForeignLanguage> Languages { get; set; }
         public DbSet<PersonalInformation> PersonalInformation { get; set; }
 
@@ -34,7 +40,7 @@ namespace DataAccess.Context
         public DbSet<Skill> Skills { get; set; }
 
         public DbSet<User> Users { get; set; }
-     
+
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Core.Entities.Concrete.OperationClaim> OperationClaims { get; set; }
