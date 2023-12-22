@@ -13,7 +13,7 @@ namespace Business.Abstract
     {
         Task<CreatedQuestionCategoryResponse> Add(CreateQuestionCategoryRequest createQuestionCategoryRequest);
 
-        Task<IPaginate<GetListQuestionCategoryResponse>> GetQuestionCategoryListAsync(PageRequest pageRequest);
+        Task<IPaginate<GetListQuestionCategoryResponse>> GetQuestionCategoryListAsync();
 
         Task<UpdatedQuestionCategoryResponse> Update(UpdateQuestionCategoryRequest updateQuestionCategoryRequest);
 

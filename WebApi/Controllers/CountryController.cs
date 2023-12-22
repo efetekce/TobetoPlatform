@@ -18,13 +18,13 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
+        public async Task<IActionResult> GetList()
         {
-            var result = await _countryService.GetCountryListAsync(pageRequest);
+            var result = await _countryService.GetCountryListAsync();
             return Ok(result);
         }
 
-        [HttpPost("Add")]
+        [HttpPost]
         public async Task<IActionResult> Add([FromBody] CreateCountryRequest createCountryRequest)
         {
             var result = await _countryService.Add(createCountryRequest);

@@ -13,7 +13,7 @@ namespace Business.Abstract
     {
         Task<CreatedAssessmentResponse> Add(CreateAssessmentRequest createAssessmentRequest);
 
-        Task<IPaginate<GetListAssessmentResponse>> GetAssessmentListAsync(PageRequest pageRequest);
+        Task<IPaginate<GetListAssessmentResponse>> GetAssessmentListAsync();
 
         Task<UpdatedAssessmentResponse> Update(UpdateAssessmentRequest updateAssessmentRequest);
 

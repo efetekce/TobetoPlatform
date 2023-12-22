@@ -12,7 +12,7 @@ namespace Business.Abstract
     public interface IForeignLanguageLevelService
     {
         Task<CreatedForeignLanguageLevelResponse> Add(CreateForeignLanguageLevelRequest createForeignLanguageLevelRequest);
-        Task<IPaginate<GetListForeignLanguageLevelResponse>> GetListForeignLanguageLevel(PageRequest pageRequest);
+        Task<IPaginate<GetListForeignLanguageLevelResponse>> GetListForeignLanguageLevel();
         Task<UpdatedForeignLanguageLevelResponse> Update(UpdateForeignLanguageLevelRequest updateForeignLanguageLevelRequest);
         Task<DeletedForeignLanguageLevelResponse> Delete(DeleteForeignLanguageLevelRequest deleteForeignLanguageLevelRequest);
     }

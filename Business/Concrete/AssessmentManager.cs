@@ -41,7 +41,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListAssessmentResponse>> GetAssessmentListAsync(PageRequest pageRequest)
+        public async Task<IPaginate<GetListAssessmentResponse>> GetAssessmentListAsync()
         {
             var assessments = await _assessmentDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListAssessmentResponse>>(assessments);

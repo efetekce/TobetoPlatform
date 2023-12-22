@@ -12,7 +12,7 @@ namespace Business.Abstract
 {
     public interface IAccountSocialMediaService
     {
-        Task<IPaginate<GetListAccountSocialMediaResponse>> GetListAccountSocialMedia(PageRequest pageRequest);
+        Task<IPaginate<GetListAccountSocialMediaResponse>> GetListAccountSocialMedia();
         Task<CreatedAccountSocialMediaResponse> Add(CreateAccountSocialMediaRequest createAccountSocialMediaRequest);
         Task<UpdatedAccountSocialMediaResponse> Update(UpdateAccountSocialMediaRequest updateAccountSocialMediaRequest);
         Task<DeletedAccountSocialMediaResponse> Delete(DeleteAccountSocialMediaRequest deleteAccountSocialMediaRequest);

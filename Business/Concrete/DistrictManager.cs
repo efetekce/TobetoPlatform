@@ -41,7 +41,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListDistrictResponse>> GetDistrictListAsync(PageRequest pageRequest)
+        public async Task<IPaginate<GetListDistrictResponse>> GetDistrictListAsync()
         {
             var districts = await _districtDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListDistrictResponse>>(districts);

@@ -18,13 +18,13 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
+        public async Task<IActionResult> GetList()
         {
-            var result = await _cityService.GetCityListAsync(pageRequest);
+            var result = await _cityService.GetCityListAsync();
             return Ok(result);
         }
 
-        [HttpPost("Add")]
+        [HttpPost]
         public async Task<IActionResult> Add([FromBody] CreateCityRequest createCityRequest)
         {
             var result = await _cityService.Add(createCityRequest);

@@ -14,6 +14,6 @@ namespace Business.Abstract
         Task<CreatedSurveyResponse> Add(CreateSurveyRequest createSurveyRequest);
         Task<UpdatedSurveyResponse> Update(UpdateSurveyRequest updateSurveyRequest);
         Task<DeletedSurveyResponse> Delete(DeleteSurveyRequest deleteSurveyRequest);
-        Task<IPaginate<GetListSurveyResponse>> GetListSurvey(PageRequest pageRequest);
+        Task<IPaginate<GetListSurveyResponse>> GetListSurvey();
     }
 }

@@ -12,7 +12,7 @@ namespace Business.Abstract
     public interface IAccountCourseLessonService
     {
         Task<CreatedAccountCourseLessonResponse> Add(CreateAccountCourseLessonRequest createAccountCourseLessonRequest);
-        Task<IPaginate<GetListAccountCourseLessonResponse>> GetListAccountCourseLesson(PageRequest pageRequest);
+        Task<IPaginate<GetListAccountCourseLessonResponse>> GetListAccountCourseLesson();
         Task<UpdatedAccountCourseLessonResponse> Update(UpdateAccountCourseLessonRequest updateAccountCourseLessonRequest);
         Task<DeletedAccountCourseLessonResponse> Delete(DeleteAccountCourseLessonRequest deleteAccountCourseLessonRequest);
     }

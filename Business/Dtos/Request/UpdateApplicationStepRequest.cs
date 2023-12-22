@@ -1,6 +1,6 @@
-﻿namespace Business.Dtos.Response
+﻿namespace Business.Dtos.Request
 {
-    public class UpdatedApplicationStatusResponse
+    public class UpdateApplicationStepRequest
     {
         public int Id { get; set; }
         public string Name { get; set; }

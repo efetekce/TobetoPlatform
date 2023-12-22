@@ -1,6 +1,5 @@
 ﻿using Business.Abstract;
 using Business.Dtos.Request;
-using Core.DataAccess.Paging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,14 +15,16 @@ namespace WebApi.Controllers
             _lessonService = lessonService;
         }
 
+
+
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
+        public async Task<IActionResult> GetList()
         {
-            var result = await _lessonService.GetListLesson(pageRequest);
+            var result = await _lessonService.GetListLesson();
             return Ok(result);
         }
 
-        [HttpPost("Add")]
+        [HttpPost]
         public async Task<IActionResult> Add([FromBody] CreateLessonRequest createLessonRequest)
         {
             var result = await _lessonService.Add(createLessonRequest);

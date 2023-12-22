@@ -18,13 +18,13 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
+        public async Task<IActionResult> GetList()
         {
-            var result = await _questionCategoryService.GetQuestionCategoryListAsync(pageRequest);
+            var result = await _questionCategoryService.GetQuestionCategoryListAsync();
             return Ok(result);
         }
 
-        [HttpPost("Add")]
+        [HttpPost]
         public async Task<IActionResult> Add([FromBody] CreateQuestionCategoryRequest createQuestionCategoryRequest)
         {
             var result = await _questionCategoryService.Add(createQuestionCategoryRequest);

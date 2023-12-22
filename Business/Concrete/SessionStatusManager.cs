@@ -44,7 +44,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListSessionStatusResponse>> GetListSessionStatus(PageRequest pageRequest)
+        public async Task<IPaginate<GetListSessionStatusResponse>> GetListSessionStatus()
         {
             var sessionStatus = await _sessionStatusDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListSessionStatusResponse>>(sessionStatus);

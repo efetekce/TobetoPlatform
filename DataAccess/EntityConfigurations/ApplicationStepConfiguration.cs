@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.EntityConfigurations
 {
-    public class ApplicationStatusConfiguration : IEntityTypeConfiguration<ApplicationStatus>
+    public class ApplicationStepConfiguration : IEntityTypeConfiguration<ApplicationStep>
     {
-        public void Configure(EntityTypeBuilder<ApplicationStatus> builder)
+        public void Configure(EntityTypeBuilder<ApplicationStep> builder)
         {
-            builder.ToTable("ApplicationStatus").HasKey(a => a.Id);
+            builder.ToTable("ApplicationSteps").HasKey(a => a.Id);
             builder.Property(a => a.Id).IsRequired();
             builder.Property(a => a.Name);
             builder.Property(a => a.Priority);

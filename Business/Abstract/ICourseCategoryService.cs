@@ -12,7 +12,7 @@ namespace Business.Abstract
     public interface ICourseCategoryService
     {
         Task<CreatedCourseCategoryResponse> Add(CreateCourseCategoryRequest createCourseCategoryRequest);
-        Task<IPaginate<GetListCourseCategoryResponse>> GetListCourseCategory(PageRequest pageRequest);
+        Task<IPaginate<GetListCourseCategoryResponse>> GetListCourseCategory();
         Task<UpdatedCourseCategoryResponse> Update(UpdateCourseCategoryRequest updateCourseCategoryRequest);
         Task<DeletedCourseCategoryResponse> Delete(DeleteCourseCategoryRequest deleteCourseCategoryRequest);
     }

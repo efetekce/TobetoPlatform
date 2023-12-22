@@ -42,7 +42,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListSkillResponse>> GetListSkillInformation(PageRequest pageRequest)
+        public async Task<IPaginate<GetListSkillResponse>> GetListSkillInformation()
         {
             var skill = await _skillDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListSkillResponse>>(skill);

@@ -12,6 +12,5 @@ namespace Entities.Concretes
         public int AccountId { get; set; }
         public int ApplicationId { get; set; }
         public int ApplicationStepId { get; set; }
-        public List<Application> Applications { get; set; }
     }
 }

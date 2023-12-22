@@ -12,7 +12,7 @@ namespace Business.Abstract
     public interface ICourseContentTypeService
     {
         Task<CreatedCourseContentTypeResponse> Add(CreateCourseContentTypeRequest createCourseContentTypeRequest);
-        Task<IPaginate<GetListCourseContentTypeResponse>> GetListCourseContentType(PageRequest pageRequest);
+        Task<IPaginate<GetListCourseContentTypeResponse>> GetListCourseContentType();
         Task<UpdatedCourseContentTypeResponse> Update(UpdateCourseContentTypeRequest updateCourseContentTypeRequest);
         Task<DeletedCourseContentTypeResponse> Delete(DeleteCourseContentTypeRequest deleteCourseContentTypeRequest);
     }

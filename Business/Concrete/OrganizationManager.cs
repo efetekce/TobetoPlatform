@@ -30,7 +30,7 @@ namespace Business.Concrete
 
         public async Task<CreatedOrganizationResponse> Add(CreateOrganizationRequest createOrganizationRequest)
         {
-            await _organizationBusinessRules.OrganizationRule();
+            await _organizationBusinessRules.OrganizationRule(createOrganizationRequest.Id,createOrganizationRequest.Name,createOrganizationRequest.ContactNumber);
             Organization organization = _mapper.Map<Organization>(createOrganizationRequest);
             var createdOrganization = await _organizationDal.AddAsync(organization);
             CreatedOrganizationResponse result = _mapper.Map<CreatedOrganizationResponse>(createdOrganization);
@@ -45,7 +45,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListOrganizationResponse>> GetListOrganization(PageRequest pageRequest)
+        public async Task<IPaginate<GetListOrganizationResponse>> GetListOrganization()
         {
             var organization = await _organizationDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListOrganizationResponse>>(organization);

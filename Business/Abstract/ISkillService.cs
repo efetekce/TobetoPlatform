@@ -11,7 +11,7 @@ namespace Business.Abstract
 {
     public interface ISkillService
     {
-        Task<IPaginate<GetListSkillResponse>> GetListSkillInformation(PageRequest pageRequest);
+        Task<IPaginate<GetListSkillResponse>> GetListSkillInformation();
         Task<CreatedSkillsResponse> Add(CreateSkillRequest createSkillRequest);
         Task<UpdatedSkillsResponse> Update(UpdateSkillsRequest updateSkillsRequest);
         Task<DeletedSkillsResponse> Delete(DeleteSkillsRequest deleteSkillsRequest);

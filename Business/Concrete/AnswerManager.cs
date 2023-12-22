@@ -41,7 +41,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListAnswerResponse>> GetAnswerListAsync(PageRequest pageRequest)
+        public async Task<IPaginate<GetListAnswerResponse>> GetAnswerListAsync()
         {
             var answers = await _answerDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListAnswerResponse>>(answers);

@@ -14,6 +14,6 @@ namespace Business.Abstract
         Task<CreatedEducationStatusResponse> Add(CreateEducationStatusRequest createEducationStatusRequest);
         Task<UpdatedEducationStatusResponse> Update(UpdateEducationStatusRequest updateEducationStatusRequest);
         Task<DeletedEducationStatusResponse> Delete(DeleteEducationStatusRequest deleteEducationStatusRequest);
-        Task<IPaginate<GetListEducationStatusResponse>> GetListEducationStatus(PageRequest pageRequest); 
+        Task<IPaginate<GetListEducationStatusResponse>> GetListEducationStatus(); 
     }
 }

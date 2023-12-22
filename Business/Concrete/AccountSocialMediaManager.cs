@@ -41,7 +41,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListAccountSocialMediaResponse>> GetListAccountSocialMedia(PageRequest pageRequest)
+        public async Task<IPaginate<GetListAccountSocialMediaResponse>> GetListAccountSocialMedia()
         {
             var accountSocialMedia = await _accountSocialMediaDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListAccountSocialMediaResponse>>(accountSocialMedia);

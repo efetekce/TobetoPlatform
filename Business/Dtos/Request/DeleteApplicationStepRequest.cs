@@ -1,6 +1,6 @@
 ﻿namespace Business.Dtos.Request
 {
-    public class DeleteApplicationStatusRequest
+    public class DeleteApplicationStepRequest
     {
         public int Id { get; set; }
     }

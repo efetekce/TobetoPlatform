@@ -11,7 +11,7 @@ namespace Business.Abstract
 {
     public interface IMembershipStatusService
     {
-        Task<IPaginate<GetListMembershipStatusResponse>> GetListMembershipStatus(PageRequest pageRequest);
+        Task<IPaginate<GetListMembershipStatusResponse>> GetListMembershipStatus();
         Task<CreatedMembershipStatusResponse> Add(CreateMembershipStatusRequest createMembershipStatusRequest);
         Task<UpdatedMembershipStatusResponse> Update(UpdateMembershipStatusRequest updateMembershipStatusRequest);
         Task<DeletedMembershipStatusResponse> Delete(DeleteMembershipStatusRequest deleteMembershipStatusRequest);

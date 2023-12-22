@@ -13,7 +13,7 @@ namespace Business.Abstract
 {
     public interface IPersonalInformationService
     {
-        Task<IPaginate<GetListPersonalInformationResponse>> GetListPersonalInformation(PageRequest pageRequest);
+        Task<IPaginate<GetListPersonalInformationResponse>> GetListPersonalInformation();
         Task<CreatedPersonalInformationResponse> Add(CreatePersonalInformationRequest createPersonalInformationRequest);
         Task<UpdatedPersonalInformationResponse> Update(UpdatePersonalInformationRequest updatePersonalInformationRequest);
         Task<DeletedPersonalInformationResponse> Delete(DeletePersonalInformationRequest deletePersonalInformationRequest);       

@@ -6,7 +6,7 @@ namespace Business.Abstract
 {
     public interface IAccountApplicationService
     {
-        Task<IPaginate<GetListAccountApplicationResponse>> GetListAccountApplication(PageRequest pageRequest);
+        Task<IPaginate<GetListAccountApplicationResponse>> GetListAccountApplication();
         Task<CreatedAccountApplicationResponse> Add(CreateAccountApplicationRequest createAccountApplicationRequest);
         Task<UpdatedAccountApplicationResponse> Update(UpdateAccountApplicationRequest updateAccountApplicationRequest);
         Task<DeletedAccountApplicationResponse> Delete(DeleteAccountApplicationRequest deleteAccountApplicationRequest);

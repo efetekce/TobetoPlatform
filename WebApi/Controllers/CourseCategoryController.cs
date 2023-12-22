@@ -1,6 +1,5 @@
 ﻿using Business.Abstract;
 using Business.Dtos.Request;
-using Core.DataAccess.Paging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,14 +15,16 @@ namespace WebApi.Controllers
             _courseCategoryService = courseCategoryService;
         }
 
+
+
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
+        public async Task<IActionResult> GetList()
         {
-            var result = await _courseCategoryService.GetListCourseCategory(pageRequest);
+            var result = await _courseCategoryService.GetListCourseCategory();
             return Ok(result);
         }
 
-        [HttpPost("Add")]
+        [HttpPost]
         public async Task<IActionResult> Add([FromBody] CreateCourseCategoryRequest createCourseCategoryRequest)
         {
             var result = await _courseCategoryService.Add(createCourseCategoryRequest);

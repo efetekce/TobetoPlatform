@@ -14,7 +14,7 @@ namespace Business.Abstract
     {
         Task<CreatedExperienceResponse> Add(CreateExperienceRequest createExperienceRequest);
 
-        Task<IPaginate<GetListExperienceResponse>> GetListExperience(PageRequest pageRequest);
+        Task<IPaginate<GetListExperienceResponse>> GetListExperience();
 
         Task<UpdatedExperienceResponse> Update(UpdateExperienceRequest updateExperienceRequest);
 

@@ -45,7 +45,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListEducationStatusResponse>> GetListEducationStatus(PageRequest pageRequest)
+        public async Task<IPaginate<GetListEducationStatusResponse>> GetListEducationStatus()
         {
             var educationStatus = await _educationStatusDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListEducationStatusResponse>>(educationStatus);
