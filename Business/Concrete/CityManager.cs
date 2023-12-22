@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
+using Business.Rules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -18,15 +19,18 @@ namespace Business.Concrete
     {
         ICityDal _cityDal;
         IMapper _mapper;
+        CityBusinessRules _cityBusinessRules;
 
-        public CityManager(ICityDal cityDal, IMapper mapper)
+        public CityManager(ICityDal cityDal, IMapper mapper,CityBusinessRules cityBusinessRules)
         {
             _cityDal = cityDal;
             _mapper = mapper;
+            _cityBusinessRules = cityBusinessRules;
         }
 
         public async Task<CreatedCityResponse> Add(CreateCityRequest createCityRequest)
         {
+            await _cityBusinessRules.SameCityName(createCityRequest.Name,createCityRequest.CountryId);
             City city = _mapper.Map<City>(createCityRequest);
             var createdCity = await _cityDal.AddAsync(city);
             CreatedCityResponse result = _mapper.Map<CreatedCityResponse>(createdCity);

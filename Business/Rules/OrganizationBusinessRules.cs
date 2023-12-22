@@ -1,4 +1,7 @@
-﻿using Business.Constants.Messages;
+
+using Business.Messages;
+using Core.Business.Rules;
+using Business.Constants.Messages;
 using Core.CrossCuttingConcerns.Exceptions.Types;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -10,9 +13,17 @@ using System.Threading.Tasks;
 
 namespace Business.Rules
 {
-    public class OrganizationBusinessRules
+    public class OrganizationBusinessRules : BaseBusinessRules
     {
         private readonly IOrganizationDal _organizationDal;
+        public OrganizationBusinessRules(IOrganizationDal organizationDal)
+        {
+            _organizationDal = organizationDal;
+        }
+
+        public async Task OrganizationRule()
+        {
+           
         private readonly IAddressDal _addressDal;
         /*public int AddressId { get; set; }
         public string Name { get; set; }

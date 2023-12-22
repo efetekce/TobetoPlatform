@@ -2,6 +2,7 @@
 {
     public class CreateOrganizationRequest
     {
+        public int Id { get; set; }
         public int AddressId { get; set; }
         public int Priority { get; set; }
         public bool Visibility { get; set; }

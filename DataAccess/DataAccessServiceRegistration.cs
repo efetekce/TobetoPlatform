@@ -16,9 +16,6 @@ namespace DataAccess
     {
         public static IServiceCollection AddDataAccessServices(this IServiceCollection services, IConfiguration configuration)
         {
-
-
-
             services.AddDbContext<TobetoContext>(options => options.UseSqlServer(configuration.GetConnectionString("Tobeto")));
             
             services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
@@ -27,19 +24,14 @@ namespace DataAccess
             services.AddScoped<ICityDal, EfCityDal>();
             services.AddScoped<IDistrictDal, EfDistrictDal>();
             services.AddScoped<ILanguageDal, EfLanguageDal>();
-
-
-
-            services.AddScoped<IExperienceDal, EfExperienceDal>();
             services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
-
-
+            services.AddScoped<IExperienceDal, EfExperienceDal>();
             services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
             services.AddScoped<IAssessmentDal, EfAssessmentDal>();
             services.AddScoped<IQuestionCategoryDal, EfQuestionCategoryDal>();
             services.AddScoped<IQuestionDal, EfQuestionDal>();
             services.AddScoped<IAnswerDal, EfAnswerDal>();
-
+            services.AddScoped<ICertificateDal, EfCertificateDal>();
             services.AddScoped<IProfileImageDal, EfProfileImageDal>();
             services.AddScoped<IMembershipStatusDal, EfMembershipStatusDal>();
             services.AddScoped<IAccountPasswordDal, EfAccountPasswordDal>();
@@ -72,9 +64,9 @@ namespace DataAccess
             services.AddScoped<IAccountCourseDal, EfAccountCourseDal>();
             services.AddScoped<IAccountCourseLessonDal, EfAccountCourseLessonDal>();
             services.AddScoped<IAccountCertificateDal, EfAccountCertificateDal>();
-
-
             //services.AddScoped<IPlatformCatalogDal,EfPlatformCatalogDal>();
+            //services.AddScoped<ISkillsDal, EfSkillsDal>();
+            //services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
 
             return services;
         }

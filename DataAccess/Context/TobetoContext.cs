@@ -26,7 +26,7 @@ namespace DataAccess.Context
         public DbSet<Answer> Answers { get; set; }
         public DbSet<ForeignLanguage> Languages { get; set; }
         public DbSet<PersonalInformation> PersonalInformation { get; set; }
-        public DbSet<SocialMediaPlatform> SocialMedias { get; set; }
+        public DbSet<Certificate> Certificates { get; set; }
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<ProfileImage> ProfileImages { get; set; }
         public DbSet<Skill> Skills { get; set; }
@@ -52,8 +52,6 @@ namespace DataAccess.Context
         public DbSet<ForeignLanguage> ForeignLanguages { get; set; }
         public DbSet<ForeignLanguageLevel> ForeignLanguagesLevels { get; set; }
         public DbSet<AccountForeignLanguage> AccountForeignLanguages { get; set; }
-
-
         public DbSet<Course> Courses { get; set; }
         public DbSet<CourseCategory> CourseCategories { get; set; }
         public DbSet<CourseContent> CourseContents { get; set; }
@@ -63,17 +61,12 @@ namespace DataAccess.Context
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<LessonStatus> LessonStates { get; set; }
         public DbSet<AccountCourseLesson> AccountCourseLesson { get; set; }
-
         public DbSet<AccountCertificate> AccountCertificates { get; set; }
 
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
-
-
             Database.EnsureCreated();
-
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

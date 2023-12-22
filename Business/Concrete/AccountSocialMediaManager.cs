@@ -14,18 +14,19 @@ namespace Business.Concrete
     {
         IAccountSocialMediaDal _accountSocialMediaDal;
         IMapper _mapper;
-        //AccountSocialMediaBusinessRules _accountSocialMediaBusinessRules;
+        AccountSocialMediaBusinessRules _accountSocialMediaBusinessRules;
         
         public AccountSocialMediaManager(IAccountSocialMediaDal accountSocialMediaDal,
-        IMapper mapper)
+        IMapper mapper, AccountSocialMediaBusinessRules accountSocialMediaBusinessRules)
         {
             _accountSocialMediaDal = accountSocialMediaDal;
             _mapper = mapper;
-            //_accountSocialMediaBusinessRuless = accountSocialMediaBusinessRules;
+            _accountSocialMediaBusinessRules = accountSocialMediaBusinessRules;
         }
 
         public async Task<CreatedAccountSocialMediaResponse> Add(CreateAccountSocialMediaRequest createAccountSocialMediaRequest)
         {
+            await _accountSocialMediaBusinessRules.SameAccountSocialMediaLink(createAccountSocialMediaRequest.Link);
             AccountSocialMedia accountSocialMedia = _mapper.Map<AccountSocialMedia>(createAccountSocialMediaRequest);
             var createdAccountSocialMedia = await _accountSocialMediaDal.AddAsync(accountSocialMedia);
             CreatedAccountSocialMediaResponse result = _mapper.Map<CreatedAccountSocialMediaResponse>(createdAccountSocialMedia);

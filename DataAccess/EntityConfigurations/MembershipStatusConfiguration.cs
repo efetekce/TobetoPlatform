@@ -15,7 +15,7 @@ namespace DataAccess.EntityConfigurations
         {
             builder.ToTable("MembershipStatus").HasKey(m=>m.Id);
             builder.Property(m=>m.Id).HasColumnName("Id").IsRequired();
-            builder.Property(m => m.AccountId).HasColumnName("AccountId");
+            builder.Property(m => m.AccountId).HasColumnName("AccountId").IsRequired();
             builder.Property(m=>m.Status).HasColumnName("Status");
             builder.Property(m => m.JoinDate).HasColumnName("JoinDate");
             builder.Property(m => m.EndDate).HasColumnName("EndDate");

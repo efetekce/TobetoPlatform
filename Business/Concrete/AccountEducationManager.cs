@@ -14,18 +14,20 @@ namespace Business.Concrete
     {
         IAccountEducationDal _accountEducationDal;
         IMapper _mapper;
-        //AccountEducationBusinessRules _accountEducationBusinessRules;
+        AccountEducationBusinessRules _accountEducationBusinessRules;
 
         public AccountEducationManager(IAccountEducationDal accountEducationDal,
-        IMapper mapper)
+        IMapper mapper,
+        AccountEducationBusinessRules accountEducationBusinessRules)
         {
             _accountEducationDal = accountEducationDal;
             _mapper = mapper;
-            //_accountEducationBusinessRules= accountEducationBusinessRules;
+            _accountEducationBusinessRules = accountEducationBusinessRules;
         }
 
         public async Task<CreatedAccountEducationResponse> Add(CreateAccountEducationRequest createAccountEducationRequest)
         {
+            await _accountEducationBusinessRules.AccountEducationNotEmpty(createAccountEducationRequest.AccountId,createAccountEducationRequest.EducationStatusId,createAccountEducationRequest.UniversityId,createAccountEducationRequest.EducationProgramId);
             AccountEducation accountEducation = _mapper.Map<AccountEducation>(createAccountEducationRequest);
             var createdAccountEducation = await _accountEducationDal.AddAsync(accountEducation);
             CreatedAccountEducationResponse result = _mapper.Map<CreatedAccountEducationResponse>(createdAccountEducation);

@@ -14,18 +14,20 @@ namespace Business.Concrete
     {
         IUniversityDal _universityDal;
         IMapper _mapper;
-        //UniversityBusinessRules _universityBusinessRules;
+        UniversityBusinessRules _universityBusinessRules;
 
         public UniversityManager(IUniversityDal universityDal,
-        IMapper mapper)
+        IMapper mapper,
+        UniversityBusinessRules universityBusinessRules)
         {
-            _universityDal= universityDal;
-            _mapper= mapper;
-            //_universityBusinessRules = universityBusinessRules;
+            _universityDal = universityDal;
+            _mapper = mapper;
+            _universityBusinessRules = universityBusinessRules;
         }
 
         public async Task<CreatedUniversityResponse> Add(CreateUniversityRequest createUniversityRequest)
         {
+            await _universityBusinessRules.SameUniversityName(createUniversityRequest.Name);
             University university = _mapper.Map<University>(createUniversityRequest);
             var createdUniversity = await _universityDal.AddAsync(university);
             CreatedUniversityResponse result = _mapper.Map<CreatedUniversityResponse>(createdUniversity);

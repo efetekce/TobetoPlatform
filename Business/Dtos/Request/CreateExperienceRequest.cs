@@ -16,7 +16,7 @@ namespace Business.Dtos.Request
 
         public string Field { get; set; }
 
-        public string City { get; set; }
+        public int CityId { get; set; }
 
         public DateTime StartDate { get; set; }
 

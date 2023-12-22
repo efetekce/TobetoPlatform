@@ -16,7 +16,7 @@ namespace DataAccess.EntityConfigurations
         {
             builder.ToTable("Applications").HasKey(a=>a.Id);
             builder.Property(a => a.Id).IsRequired();
-            builder.Property(a => a.OrganizationId);
+            builder.Property(a => a.OrganizationId).IsRequired();
             builder.Property(a => a.Priority);
             builder.Property(a => a.Visibility);
             builder.Property(a => a.Title).HasMaxLength(255);
