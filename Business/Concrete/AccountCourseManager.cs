@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
+using Business.Rules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using Entities.Concretes;
@@ -18,14 +19,19 @@ namespace Business.Concrete
 
         IAccountCourseDal _accountCourseDal;
         IMapper _mapper;
-        public AccountCourseManager(IAccountCourseDal accountCourseDal, IMapper mapper)
+        AccountCourseBusinessRules _accountCourseBusinessRules;
+        public AccountCourseManager(IAccountCourseDal accountCourseDal, IMapper mapper, AccountCourseBusinessRules accountCourseBusinessRules)
         {
             _accountCourseDal = accountCourseDal;
             _mapper = mapper;
+            _accountCourseBusinessRules = accountCourseBusinessRules;
         }
 
         public async Task<CreatedAccountCourseResponse> Add(CreateAccountCourseRequest createAccountCourseRequest)
         {
+            await _accountCourseBusinessRules.MustBeAccountDefined(createAccountCourseRequest.AccountId);
+            await _accountCourseBusinessRules.MustBeCourseDefined(createAccountCourseRequest.CourseId);
+
             AccountCourse accountCourse = _mapper.Map<AccountCourse>(createAccountCourseRequest);
             var createdAccountCourse = await _accountCourseDal.AddAsync(accountCourse);
             CreatedAccountCourseResponse result = _mapper.Map<CreatedAccountCourseResponse>(createdAccountCourse);
@@ -49,6 +55,9 @@ namespace Business.Concrete
 
         public async Task<UpdatedAccountCourseResponse> Update(UpdateAccountCourseRequest updateAccountCourseRequest)
         {
+            await _accountCourseBusinessRules.MustBeAccountDefined(updateAccountCourseRequest.AccountId);
+            await _accountCourseBusinessRules.MustBeCourseDefined(updateAccountCourseRequest.CourseId);
+
             AccountCourse accountCourse = _mapper.Map<AccountCourse>(updateAccountCourseRequest);
             var updatedAccountCourse = await _accountCourseDal.UpdateAsync(accountCourse);
             UpdatedAccountCourseResponse result = _mapper.Map<UpdatedAccountCourseResponse>(updatedAccountCourse);

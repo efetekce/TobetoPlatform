@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
+using Business.Rules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using Entities.Concretes;
@@ -18,14 +19,20 @@ namespace Business.Concrete
 
         ICourseContentDal _courseContentDal;
         IMapper _mapper;
-        public CourseContentManager(ICourseContentDal courseContentDal, IMapper mapper)
+        CourseContentBusinessRules _courseContentBusinessRules;
+        public CourseContentManager(ICourseContentDal courseContentDal, IMapper mapper, CourseContentBusinessRules courseContentBusinessRules)
         {
             _courseContentDal = courseContentDal;
             _mapper = mapper;
+            _courseContentBusinessRules = courseContentBusinessRules;
         }
 
         public async Task<CreatedCourseContentResponse> Add(CreateCourseContentRequest createCourseContentRequest)
         {
+            await _courseContentBusinessRules.MustBeCourseDefined(createCourseContentRequest.CourseId);
+            await _courseContentBusinessRules.MustBeContentTypeDefined(createCourseContentRequest.CourseContentTypeId);
+            await _courseContentBusinessRules.ContentNameCantBeNull(createCourseContentRequest.Name);
+
             CourseContent courseContent = _mapper.Map<CourseContent>(createCourseContentRequest);
             var createdCourseContent = await _courseContentDal.AddAsync(courseContent);
             CreatedCourseContentResponse result = _mapper.Map<CreatedCourseContentResponse>(createdCourseContent);
@@ -49,6 +56,10 @@ namespace Business.Concrete
 
         public async Task<UpdatedCourseContentResponse> Update(UpdateCourseContentRequest updateCourseContentRequest)
         {
+            await _courseContentBusinessRules.MustBeCourseDefined(updateCourseContentRequest.CourseId);
+            await _courseContentBusinessRules.MustBeContentTypeDefined(updateCourseContentRequest.CourseContentTypeId);
+            await _courseContentBusinessRules.ContentNameCantBeNull(updateCourseContentRequest.Name);
+
             CourseContent courseContent = _mapper.Map<CourseContent>(updateCourseContentRequest);
             var updatedCourseContent = await _courseContentDal.UpdateAsync(courseContent);
             UpdatedCourseContentResponse result = _mapper.Map<UpdatedCourseContentResponse>(updatedCourseContent);

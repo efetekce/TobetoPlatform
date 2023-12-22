@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
-    public class CreateCertitificateRequest
+    public class CreateAccountCertificateRequest
     {
-      
-        public int ProfileId { get; set; }
-        public string? CertificateName { get; set; }
-
+        public int AccountId { get; set; }
+        public string Name { get; set; }
     }
 }

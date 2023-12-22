@@ -10,9 +10,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concretes
 {
-    public class EfCertificateDal : EfRepositoryBase<Certificate, int, TobetoContext>, ICertificateDal
+    public class EfAccountCertificateDal : EfRepositoryBase<AccountCertificate, int, TobetoContext>, IAccountCertificateDal
     {
-        public EfCertificateDal(TobetoContext context) : base(context)
+     
+        public EfAccountCertificateDal(TobetoContext context) : base(context)
         {
             TobetoContext _context;
         }

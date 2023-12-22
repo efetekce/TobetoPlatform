@@ -33,12 +33,6 @@ namespace DataAccess
             services.AddScoped<IExperienceDal, EfExperienceDal>();
             services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
 
-            //services.AddScoped<ISkillsDal, EfSkillsDal>();
-
-            //services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
-            //services.AddScoped<IExperienceDal, EfExperienceDal>();
-            //services.AddScoped<IEducationDal, EfEducationDal>();
-
 
             services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
             services.AddScoped<IAssessmentDal, EfAssessmentDal>();
@@ -46,8 +40,6 @@ namespace DataAccess
             services.AddScoped<IQuestionDal, EfQuestionDal>();
             services.AddScoped<IAnswerDal, EfAnswerDal>();
 
-            services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
-            services.AddScoped<ICertificateDal, EfCertificateDal>();
             services.AddScoped<IProfileImageDal, EfProfileImageDal>();
             services.AddScoped<IMembershipStatusDal, EfMembershipStatusDal>();
             services.AddScoped<IAccountPasswordDal, EfAccountPasswordDal>();
@@ -74,10 +66,12 @@ namespace DataAccess
             services.AddScoped<ICourseContentTypeDal, EfCourseContentTypeDal>();
             services.AddScoped<ICourseContentDal, EfCourseContentDal>();
             services.AddScoped<ILessonDal, EfLessonDal>();
+            services.AddScoped<ILessonStatusDal, EfLessonStatusDal>();
             services.AddScoped<ICourseDal, EfCourseDal>();
             services.AddScoped<ICourseDetailDal, EfCourseDetailDal>();
             services.AddScoped<IAccountCourseDal, EfAccountCourseDal>();
             services.AddScoped<IAccountCourseLessonDal, EfAccountCourseLessonDal>();
+            services.AddScoped<IAccountCertificateDal, EfAccountCertificateDal>();
 
 
             //services.AddScoped<IPlatformCatalogDal,EfPlatformCatalogDal>();

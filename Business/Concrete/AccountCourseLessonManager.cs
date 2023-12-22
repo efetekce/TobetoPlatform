@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
+using Business.Rules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using Entities.Concretes;
@@ -18,14 +19,20 @@ namespace Business.Concrete
 
         IAccountCourseLessonDal _accountCourseLessonDal;
         IMapper _mapper;
-        public AccountCourseLessonManager(IAccountCourseLessonDal accountCourseLessonDal, IMapper mapper)
+        AccountCourseLessonBusinessRules _accountCourseLessonBusinessRules;
+        public AccountCourseLessonManager(IAccountCourseLessonDal accountCourseLessonDal, IMapper mapper, AccountCourseLessonBusinessRules accountCourseLessonBusinessRules)
         {
             _accountCourseLessonDal = accountCourseLessonDal;
             _mapper = mapper;
+            _accountCourseLessonBusinessRules = accountCourseLessonBusinessRules;
         }
 
         public async Task<CreatedAccountCourseLessonResponse> Add(CreateAccountCourseLessonRequest createAccountCourseLessonRequest)
         {
+            await _accountCourseLessonBusinessRules.MustBeAccountDefined(createAccountCourseLessonRequest.AccountId);
+            await _accountCourseLessonBusinessRules.MustBeLessonDefined(createAccountCourseLessonRequest.LessonId);
+            await _accountCourseLessonBusinessRules.MustBeLessonStatusDefined(createAccountCourseLessonRequest.LessonStatusId);
+
             AccountCourseLesson accountCourseLesson = _mapper.Map<AccountCourseLesson>(createAccountCourseLessonRequest);
             var createdAccountCourseLesson = await _accountCourseLessonDal.AddAsync(accountCourseLesson);
             CreatedAccountCourseLessonResponse result = _mapper.Map<CreatedAccountCourseLessonResponse>(createdAccountCourseLesson);
@@ -49,6 +56,10 @@ namespace Business.Concrete
 
         public async Task<UpdatedAccountCourseLessonResponse> Update(UpdateAccountCourseLessonRequest updateAccountCourseLessonRequest)
         {
+            await _accountCourseLessonBusinessRules.MustBeAccountDefined(updateAccountCourseLessonRequest.AccountId);
+            await _accountCourseLessonBusinessRules.MustBeLessonDefined(updateAccountCourseLessonRequest.LessonId);
+            await _accountCourseLessonBusinessRules.MustBeLessonStatusDefined(updateAccountCourseLessonRequest.LessonStatusId);
+
             AccountCourseLesson accountCourseLesson = _mapper.Map<AccountCourseLesson>(updateAccountCourseLessonRequest);
             var updatedAccountCourseLesson = await _accountCourseLessonDal.UpdateAsync(accountCourseLesson);
             UpdatedAccountCourseLessonResponse result = _mapper.Map<UpdatedAccountCourseLessonResponse>(updatedAccountCourseLesson);
