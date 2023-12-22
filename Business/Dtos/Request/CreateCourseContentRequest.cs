@@ -9,6 +9,7 @@ namespace Business.Dtos.Request
     public class CreateCourseContentRequest
     {
         public int CourseId { get; set; }
+        public int CourseContentTypeId { get; set; }
         public string Name { get; set; }
     }
 

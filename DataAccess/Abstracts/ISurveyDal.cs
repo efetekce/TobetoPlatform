@@ -8,11 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstracts
 {
-<<<<<<<< HEAD:DataAccess/Abstracts/ISurveyDal.cs
-    public interface ISurveyDal:IRepository<Survey,int>,IAsyncRepository<Survey,int>
-========
-    public interface IAccountDal: IRepository<Account, int>, IAsyncRepository<Account, int>
->>>>>>>> master:DataAccess/Abstracts/IAccountDal.cs
+   public interface ISurveyDal:IRepository<Survey,int>,IAsyncRepository<Survey,int>
     {
     }
 }

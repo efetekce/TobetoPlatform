@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
+using Business.Rules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using System;
@@ -17,14 +18,18 @@ namespace Business.Concrete
 
         ICourseContentTypeDal _courseContentTypeDal;
         IMapper _mapper;
-        public CourseContentTypeManager(ICourseContentTypeDal courseContentTypeDal, IMapper mapper)
+        CourseContentTypeBusinessRules _courseContentTypeBusinessRules;
+        public CourseContentTypeManager(ICourseContentTypeDal courseContentTypeDal, IMapper mapper, CourseContentTypeBusinessRules courseContentTypeBusinessRules)
         {
             _courseContentTypeDal = courseContentTypeDal;
             _mapper = mapper;
+            _courseContentTypeBusinessRules = courseContentTypeBusinessRules;
         }
 
         public async Task<CreatedCourseContentTypeResponse> Add(CreateCourseContentTypeRequest createCourseContentTypeRequest)
         {
+            await _courseContentTypeBusinessRules.ContentTypeNameCantBeNull(createCourseContentTypeRequest.Name);
+
             CourseContentType courseContentType = _mapper.Map<CourseContentType>(createCourseContentTypeRequest);
             var createdCourseContentType = await _courseContentTypeDal.AddAsync(courseContentType);
             CreatedCourseContentTypeResponse result = _mapper.Map<CreatedCourseContentTypeResponse>(createdCourseContentType);
@@ -48,6 +53,8 @@ namespace Business.Concrete
 
         public async Task<UpdatedCourseContentTypeResponse> Update(UpdateCourseContentTypeRequest updateCourseContentTypeRequest)
         {
+            await _courseContentTypeBusinessRules.ContentTypeNameCantBeNull(updateCourseContentTypeRequest.Name);
+
             CourseContentType courseContentType = _mapper.Map<CourseContentType>(updateCourseContentTypeRequest);
             var updatedCourseContentType = await _courseContentTypeDal.UpdateAsync(courseContentType);
             UpdatedCourseContentTypeResponse result = _mapper.Map<UpdatedCourseContentTypeResponse>(updatedCourseContentType);

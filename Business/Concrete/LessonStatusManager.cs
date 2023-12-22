@@ -1,0 +1,64 @@
+﻿using AutoMapper;
+using Business.Abstract;
+using Business.Dtos.Request;
+using Business.Dtos.Response;
+using Business.Rules;
+using Core.DataAccess.Paging;
+using DataAccess.Abstracts;
+using Entities.Concretes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Business.Concrete
+{
+    public class LessonStatusManager : ILessonStatusService
+    {
+        ILessonStatusDal _lessonStatusDal;
+        IMapper _mapper;
+        LessonStatusBusinessRules _lessonStatusBusinessRules;
+        public LessonStatusManager(ILessonStatusDal lessonStatusDal, IMapper mapper, LessonStatusBusinessRules lessonStatusBusinessRules)
+        {
+            _lessonStatusDal = lessonStatusDal;
+            _mapper = mapper;
+            _lessonStatusBusinessRules = lessonStatusBusinessRules;
+        }
+
+        public async Task<CreatedLessonStatusResponse> Add(CreateLessonStatusRequest createLessonStatusRequest)
+        {
+            await _lessonStatusBusinessRules.StatusNameCantBeNull(createLessonStatusRequest.Name);
+
+            LessonStatus lessonStatus = _mapper.Map<LessonStatus>(createLessonStatusRequest);
+            var createdLessonStatus = await _lessonStatusDal.AddAsync(lessonStatus);
+            CreatedLessonStatusResponse result = _mapper.Map<CreatedLessonStatusResponse>(createdLessonStatus);
+            return result;
+        }
+
+        public async Task<DeletedLessonStatusResponse> Delete(DeleteLessonStatusRequest deleteLessonStatusRequest)
+        {
+            LessonStatus lessonStatus = _mapper.Map<LessonStatus>(deleteLessonStatusRequest);
+            var deletedLessonStatus = await _lessonStatusDal.DeleteAsync(lessonStatus, false);
+            DeletedLessonStatusResponse result = _mapper.Map<DeletedLessonStatusResponse>(deletedLessonStatus);
+            return result;
+        }
+
+        public async Task<IPaginate<GetListLessonStatusResponse>> GetListLesson()
+        {
+            var lessonStatus = await _lessonStatusDal.GetListAsync();
+            var result = _mapper.Map<Paginate<GetListLessonStatusResponse>>(lessonStatus);
+            return result;
+        }
+
+        public async Task<UpdatedLessonStatusResponse> Update(UpdateLessonStatusRequest updateLessonStatusRequest)
+        {
+            await _lessonStatusBusinessRules.StatusNameCantBeNull(updateLessonStatusRequest.Name);
+
+            LessonStatus lessonStatus = _mapper.Map<LessonStatus>(updateLessonStatusRequest);
+            var updatedLessonStatus = await _lessonStatusDal.UpdateAsync(lessonStatus);
+            UpdatedLessonStatusResponse result = _mapper.Map<UpdatedLessonStatusResponse>(updatedLessonStatus);
+            return result;
+        }
+    }
+}

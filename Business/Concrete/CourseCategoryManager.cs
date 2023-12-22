@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
+using Business.Rules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using Entities.Concretes;
@@ -17,14 +18,18 @@ namespace Business.Concrete
     {
         ICourseCategoryDal _courseCategoryDal;
         IMapper _mapper;
-        public CourseCategoryManager(ICourseCategoryDal courseCategoryDal,IMapper mapper)
+        CourseCategoryBusinessRules _courseCategoryBusinessRules;
+        public CourseCategoryManager(ICourseCategoryDal courseCategoryDal,IMapper mapper, CourseCategoryBusinessRules courseCategoryBusinessRules)
         {
             _courseCategoryDal = courseCategoryDal;
             _mapper = mapper;
+            _courseCategoryBusinessRules = courseCategoryBusinessRules;
         }
 
         public async Task<CreatedCourseCategoryResponse> Add(CreateCourseCategoryRequest createCourseCategoryRequest)
         {
+            await _courseCategoryBusinessRules.CategoryNameCantBeNull(createCourseCategoryRequest.Name);
+
             CourseCategory courseCategory = _mapper.Map<CourseCategory>(createCourseCategoryRequest);
             var createdCourseCategory = await _courseCategoryDal.AddAsync(courseCategory);
             CreatedCourseCategoryResponse result = _mapper.Map<CreatedCourseCategoryResponse>(createdCourseCategory);
@@ -48,6 +53,8 @@ namespace Business.Concrete
 
         public async Task<UpdatedCourseCategoryResponse> Update(UpdateCourseCategoryRequest updateCourseCategoryRequest)
         {
+            await _courseCategoryBusinessRules.CategoryNameCantBeNull(updateCourseCategoryRequest.Name);
+
             CourseCategory CourseCategory = _mapper.Map<CourseCategory>(updateCourseCategoryRequest);
             var updatedCourseCategory = await _courseCategoryDal.UpdateAsync(CourseCategory);
             UpdatedCourseCategoryResponse result = _mapper.Map<UpdatedCourseCategoryResponse>(updatedCourseCategory);
