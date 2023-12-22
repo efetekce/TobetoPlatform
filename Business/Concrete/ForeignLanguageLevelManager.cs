@@ -40,7 +40,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListForeignLanguageLevelResponse>> GetListForeignLanguageLevel()
+        public async Task<IPaginate<GetListForeignLanguageLevelResponse>> GetListForeignLanguageLevel(PageRequest pageRequest)
         {
             
             var foreignLanguageLevel = await _foreignLanguageLevelDal.GetListAsync();

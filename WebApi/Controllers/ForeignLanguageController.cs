@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Dtos.Request;
+using Core.DataAccess.Paging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,13 +18,13 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetList()
+        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
-            var result = await _foreignLanguageService.GetListForeignLanguage();
+            var result = await _foreignLanguageService.GetListForeignLanguage(pageRequest);
             return Ok(result);
         }
 
-        [HttpPost]
+        [HttpPost("Add")]
         public async Task<IActionResult> Add([FromBody] CreateForeignLanguageRequest createForeignLanguageRequest)
         {
             var result = await _foreignLanguageService.Add(createForeignLanguageRequest);

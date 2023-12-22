@@ -14,7 +14,7 @@ namespace Entities.Concretes
         public int Duration { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public string ImagePath { get; set; }
+        //public string ImagePath { get; set; }
 
     }
 }

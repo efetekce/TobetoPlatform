@@ -45,7 +45,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListMembershipStatusResponse>> GetListMembershipStatus()
+        public async Task<IPaginate<GetListMembershipStatusResponse>> GetListMembershipStatus(PageRequest pageRequest)
         {
             var membershipStatus = await _membershipStatusDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListMembershipStatusResponse>>(membershipStatus);

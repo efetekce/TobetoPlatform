@@ -8,6 +8,7 @@ namespace DataAccess.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<AccountApplication> builder)
         {
+            //accounts table,application table,applicationstep table bağlantı 
             builder.ToTable("AccountApplications").HasKey(a => a.Id);
             builder.Property(a => a.Id).IsRequired();
             builder.Property(a => a.AccountId).IsRequired();

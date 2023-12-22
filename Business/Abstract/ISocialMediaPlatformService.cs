@@ -11,7 +11,7 @@ namespace Business.Abstract
 {
     public interface ISocialMediaPlatformService
     {
-        Task<IPaginate<GetListSocialMediaPlatformResponse>> GetListSocialMediaPlatform();
+        Task<IPaginate<GetListSocialMediaPlatformResponse>> GetListSocialMediaPlatform(PageRequest pageRequest);
         Task<CreatedSocialMediaPlatformResponse> Add(CreateSocialMediaPlatformRequest createSocialMediaPlatformRequest);
         Task<UpdatedSocialMediaPlatformResponse> Update(UpdateSocialMediaPlatformRequest updateSocialMediaPlatformRequest);
         Task<DeletedSocialMediaPlatformResponse> Delete(DeleteSocialMediaPlatformRequest deleteSocialMediaPlatformRequest);

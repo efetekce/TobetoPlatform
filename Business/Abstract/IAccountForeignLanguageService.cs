@@ -12,7 +12,7 @@ namespace Business.Abstract
     public interface IAccountForeignLanguageService
     {
         Task<CreatedAccountForeignLanguageResponse> Add(CreateAccountForeignLanguageRequest createAccountForeignLanguageRequest);
-        Task<IPaginate<GetListAccountForeignLanguageResponse>> GetListAccount();
+        Task<IPaginate<GetListAccountForeignLanguageResponse>> GetListAccount(PageRequest pageRequest);
         Task<UpdatedAccountForeignLanguageResponse> Update(UpdateAccountForeignLanguageRequest updateAccountForeignLanguageRequest);
         Task<DeletedAccountForeignLanguageResponse> Delete(DeleteAccountForeignLanguageRequest deleteAccountForeignLanguageRequest);
     }

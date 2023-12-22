@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class ApplicationStep:Entity<int>
+    public class ApplicationStatus:Entity<int>
     {
         public string Name { get; set; }
         public int Priority { get; set; }

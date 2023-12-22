@@ -43,7 +43,7 @@ namespace Business
             services.AddScoped<ISurveyTypeService, SurveyTypeManager>();
             services.AddScoped<IApplicationService, ApplicationManager>();
             services.AddScoped<IAccountApplicationService, AccountApplicationManager>();
-            services.AddScoped<IApplicationStepService, ApplicationStepManager>();
+            services.AddScoped<IApplicationStatusService, ApplicationStatusManager>();
             services.AddScoped<ISkillService, SkillManager>();
             services.AddScoped<IUserService, UserManager>();
             services.AddScoped<IAuthService, AuthManager>();

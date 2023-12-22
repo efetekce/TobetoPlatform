@@ -3,8 +3,5 @@
     public class DeleteCourseRequest
     {
         public int Id { get; set; }
-
-    }
-
-    
+    }   
 }

@@ -47,7 +47,7 @@ namespace DataAccess
             services.AddScoped<ISurveyTypeDal, EfSurveyTypeDal>();
             services.AddScoped<IApplicationDal, EfApplicationDal>();
             services.AddScoped<IAccountApplicationDal, EfAccountApplicationDal>();
-            services.AddScoped<IApplicationStepDal, EfApplicationStepDal>();
+            services.AddScoped<IApplicationStatusDal, EfApplicationStatusDal>();
             services.AddScoped<ISkillDal, EfSkillDal>();
             services.AddScoped<IUserDal, EfUserDal>();
             services.AddScoped<IAccountDal, EfAccountDal>();

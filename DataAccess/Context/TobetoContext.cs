@@ -46,7 +46,7 @@ namespace DataAccess.Context
         public DbSet<SurveyType> SurveyTypes { get; set; }
         public DbSet<Application> Applications { get; set; }
         public DbSet<AccountApplication> AccountApplications { get; set; }
-        public DbSet<ApplicationStep> ApplicationSteps { get; set; }
+        public DbSet<ApplicationStatus> ApplicationStatus { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }

@@ -1,8 +1,7 @@
-﻿namespace Business.Dtos.Response
+﻿namespace Business.Dtos.Request
 {
-    public class CreatedApplicationStepResponse
+    public class CreateApplicationStatusRequest
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public int Priority { get; set; }
         public bool Visibility { get; set; }

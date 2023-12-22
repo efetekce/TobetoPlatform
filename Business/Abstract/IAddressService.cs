@@ -13,7 +13,7 @@ namespace Business.Abstract
     {
         Task<CreatedAddressResponse> Add(CreateAddressRequest createAddressRequest);
 
-        Task<IPaginate<GetListAddressResponse>> GetAddressListAsync();
+        Task<IPaginate<GetListAddressResponse>> GetAddressListAsync(PageRequest pageRequest);
 
         Task<UpdatedAddressResponse> Update(UpdateAddressRequest updateAddressRequest);
 

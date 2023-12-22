@@ -5,9 +5,9 @@ using Entities.Concretes;
 
 namespace DataAccess.Concretes
 {
-    public class EfApplicationStepDal:EfRepositoryBase<ApplicationStep,int,TobetoContext>,IApplicationStepDal
+    public class EfApplicationStatusDal:EfRepositoryBase<ApplicationStatus,int,TobetoContext>,IApplicationStatusDal
     {
-        public EfApplicationStepDal(TobetoContext context):base(context)
+        public EfApplicationStatusDal(TobetoContext context):base(context)
         {
             TobetoContext _context;
         }

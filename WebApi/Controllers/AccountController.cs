@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Dtos.Request;
+using Core.DataAccess.Paging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,16 +16,14 @@ namespace WebApi.Controllers
             _accountService = accountService;
         }
 
-
-
         [HttpGet]
-        public async Task<IActionResult> GetList()
+        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
-            var result = await _accountService.GetListAccount();
+            var result = await _accountService.GetListAccount(pageRequest);
             return Ok(result);
         }
 
-        [HttpPost]
+        [HttpPost("Add")]
         public async Task<IActionResult> Add([FromBody] CreateAccountRequest createAccountRequest)
         {
             var result = await _accountService.Add(createAccountRequest);

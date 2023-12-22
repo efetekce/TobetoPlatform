@@ -14,6 +14,6 @@ namespace Business.Abstract
         Task<CreatedUniversityResponse> Add(CreateUniversityRequest createUniversityRequest);
         Task<UpdatedUniversityResponse> Update(UpdateUniversityRequest updateUniversityRequest);
         Task<DeletedUniversityResponse> Delete(DeleteUniversityRequest deleteUniversityRequest);
-        Task<IPaginate<GetListUniversityResponse>> GetListUniversity();
+        Task<IPaginate<GetListUniversityResponse>> GetListUniversity(PageRequest pageRequest);
     }
 }

@@ -16,14 +16,14 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetList()
+        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
-            var result = await _skillService.GetListSkillInformation();
+            var result = await _skillService.GetListSkillInformation(pageRequest);
             return Ok(result);
         }
 
 
-        [HttpPost]
+        [HttpPost("Add")]
 
         public async Task<IActionResult> Add([FromBody] CreateSkillRequest createSkillRequest)
         {
@@ -31,7 +31,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpPut]
+        [HttpPost("Update")]
 
         public async Task<IActionResult> Update([FromBody] UpdateSkillsRequest updateSkillRequest)
         {
@@ -39,7 +39,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpDelete]
+        [HttpPost("Delete")]
 
         public async Task<IActionResult> Delete([FromBody] DeleteSkillsRequest deleteSkillRequest)
         {

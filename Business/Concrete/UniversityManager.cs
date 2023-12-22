@@ -42,7 +42,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListUniversityResponse>> GetListUniversity()
+        public async Task<IPaginate<GetListUniversityResponse>> GetListUniversity(PageRequest pageRequest)
         {
             var university = await _universityDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListUniversityResponse>>(university);

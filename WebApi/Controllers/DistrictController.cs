@@ -18,13 +18,13 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetList()
+        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
-            var result = await _districtService.GetDistrictListAsync();
+            var result = await _districtService.GetDistrictListAsync(pageRequest);
             return Ok(result);
         }
 
-        [HttpPost]
+        [HttpPost("Add")]
         public async Task<IActionResult> Add([FromBody] CreateDistrictRequest createDistrictRequest)
         {
             var result = await _districtService.Add(createDistrictRequest);

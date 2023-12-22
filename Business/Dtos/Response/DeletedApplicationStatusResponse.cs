@@ -1,6 +1,6 @@
 ﻿namespace Business.Dtos.Response
 {
-    public class DeletedApplicationStepResponse
+    public class DeletedApplicationStatusResponse
     {
         public int Id { get; set; }
         public string Name { get; set; }

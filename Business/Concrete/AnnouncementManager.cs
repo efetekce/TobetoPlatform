@@ -41,7 +41,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListAnnouncementResponse>> GetListAnnouncement()
+        public async Task<IPaginate<GetListAnnouncementResponse>> GetListAnnouncement(PageRequest pageRequest)
         {
             var announcements = await _announcementDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListAnnouncementResponse>>(announcements);

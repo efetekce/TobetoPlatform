@@ -14,6 +14,6 @@ namespace Business.Abstract
         Task<CreatedOrganizationResponse> Add(CreateOrganizationRequest createOrganizationRequest);
         Task<UpdatedOrganizationResponse> Update(UpdateOrganizationRequest updateOrganizationRequest);
         Task<DeletedOrganizationResponse> Delete(DeleteOrganizationRequest deleteOrganizationRequest);
-        Task<IPaginate<GetListOrganizationResponse>> GetListOrganization();
+        Task<IPaginate<GetListOrganizationResponse>> GetListOrganization(PageRequest pageRequest);
     }
 }

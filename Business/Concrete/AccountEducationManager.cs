@@ -42,7 +42,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListAccountEducationResponse>> GetListAccountEducation()
+        public async Task<IPaginate<GetListAccountEducationResponse>> GetListAccountEducation(PageRequest pageRequest)
         {
             var accountEducation = await _accountEducationDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListAccountEducationResponse>>(accountEducation);

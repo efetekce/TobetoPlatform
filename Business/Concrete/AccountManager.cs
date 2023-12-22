@@ -39,7 +39,7 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListAccountResponse>> GetListAccount()
+        public async Task<IPaginate<GetListAccountResponse>> GetListAccount(PageRequest pageRequest)
         {
             var account = await _accountDal.GetListAsync();
             var result = _mapper.Map<Paginate<GetListAccountResponse>>(account);
