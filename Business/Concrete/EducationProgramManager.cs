@@ -14,18 +14,19 @@ namespace Business.Concrete
     {
         IEducationProgramDal _educationProgramDal;
         IMapper _mapper;
-        //EducationProgramBusinessRules _educationProgramBusinessRules;
+        EducationProgramBusinessRules _educationProgramBusinessRules;
 
         public EducationProgramManager(IEducationProgramDal educationProgramDal,
-        IMapper mapper)
+        IMapper mapper, EducationProgramBusinessRules educationProgramBusinessRules)
         {
             _educationProgramDal = educationProgramDal;
             _mapper = mapper;
-            //_educationProgramBusinessRules = educationProgramBusinessRules;
+            _educationProgramBusinessRules = educationProgramBusinessRules;
         }
 
         public async Task<CreatedEducationProgramResponse> Add(CreateEducationProgramRequest createEducationProgramRequest)
         {
+            await _educationProgramBusinessRules.SameProgramName(createEducationProgramRequest.UniversityId, createEducationProgramRequest.Name);
             EducationProgram educationProgram = _mapper.Map<EducationProgram>(createEducationProgramRequest);
             var createdEducationProgram = await _educationProgramDal.AddAsync(educationProgram);
             CreatedEducationProgramResponse result = _mapper.Map<CreatedEducationProgramResponse>(createdEducationProgram);

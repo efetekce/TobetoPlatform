@@ -1,4 +1,5 @@
-﻿using Core.Business.Rules;
+﻿using Business.Messages;
+using Core.Business.Rules;
 using Core.CrossCuttingConcerns.Exceptions.Types;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -7,17 +8,19 @@ namespace Business.Rules
 {
     public class EducationProgramBusinessRules : BaseBusinessRules
     {
-        IEducationProgramDal _educationProgramDal;
+        private readonly IEducationProgramDal _educationProgramDal;
         public EducationProgramBusinessRules(IEducationProgramDal educationProgramDal)
         {
             _educationProgramDal = educationProgramDal;
         }
 
-        public async Task MinimumEducationProgramName(string name)
+        public async Task SameProgramName(int universityId, string name)
         {
-            if (name.Length < 5)
+            var result = await _educationProgramDal.GetListAsync(p => p.UniversityId == universityId && p.Name == name);
+
+            if (result.Count > 0)
             {
-                throw new BusinessException("");
+                throw new BusinessException(BusinessMessages.SameProgramNameError);
             }
         }
     }

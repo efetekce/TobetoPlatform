@@ -10,8 +10,8 @@ namespace DataAccess.EntityConfigurations
         {
             builder.ToTable("Surveys").HasKey(s=>s.Id);
             builder.Property(s => s.Id).HasColumnName("Id").IsRequired();
-            builder.Property(s => s.OrganizationId).HasColumnName("OrganizationId");
-            builder.Property(s => s.SurveyTypeId).HasColumnName("SurveyTypeId");
+            builder.Property(s => s.OrganizationId).HasColumnName("OrganizationId").IsRequired();
+            builder.Property(s => s.SurveyTypeId).HasColumnName("SurveyTypeId").IsRequired();
             builder.Property(s => s.Title).HasColumnName("Title");
             builder.Property(s => s.Content).HasColumnName("Content");
             builder.Property(s => s.Link).HasColumnName("Link");

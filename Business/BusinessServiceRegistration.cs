@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
+using Business.Rules;
 using Core.Security.JWT;
 using DataAccess.Abstracts;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,22 +17,17 @@ namespace Business
     {
         public static IServiceCollection AddBusinessServices(this IServiceCollection services)
         {
-
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
             services.AddScoped<IExperienceService, ExperienceManager>();
             services.AddScoped<IPersonalInformationService, PersonalInformationManager>();
             services.AddScoped<IAddressService, AddressManager>();
             services.AddScoped<ICountryService, CountryManager>();
             services.AddScoped<ICityService, CityManager>();
-            services.AddScoped<IDistrictService, DistrictManager>();
-
-           
+            services.AddScoped<IDistrictService, DistrictManager>();         
             services.AddScoped<IAssessmentService, AssessmentManager>();
             services.AddScoped<IQuestionCategoryService, QuestionCategoryManager>();
             services.AddScoped<IQuestionService, QuestionManager>();
             services.AddScoped<IAnswerService, AnswerManager>();
-
-            services.AddScoped<ISocialMediaService, SocialMediaManager>();
             services.AddScoped<ICertificateService, CertificateManager>();
             services.AddScoped<IMembershipStatusService, MembershipStatusManager>();
             services.AddScoped<ISessionStatusService, SessionStatusManager>();
@@ -52,7 +48,6 @@ namespace Business
             services.AddScoped<IUserService, UserManager>();
             services.AddScoped<IAuthService, AuthManager>();
             services.AddScoped<IAccountService, AccountManager>();
-
             services.AddScoped<IForeignLanguageService, ForeignLanguageManager>();    
             services.AddScoped<ITokenHelper,JwtHelper>();
             services.AddScoped<IForeignLanguageLevelService,ForeignLanguageLevelManager>();
@@ -63,10 +58,20 @@ namespace Business
             services.AddScoped<ILessonService, LessonManager>();
             services.AddScoped<ICourseService, CourseManager>();
             services.AddScoped<IAccountCourseLessonService, AccountCourseLessonManager>();
-            
-
             services.AddScoped<IForeignLanguageService, ForeignLanguageManager>();
             services.AddScoped<ITokenHelper, JwtHelper>();
+
+            //----------------------FOR RULES-----------------------
+            services.AddScoped<AccountSocialMediaBusinessRules>();
+            services.AddScoped<UniversityBusinessRules>();
+            services.AddScoped<EducationProgramBusinessRules>();
+            services.AddScoped<OrganizationBusinessRules>();
+            services.AddScoped<SocialMediaPlatformBusinessRules>();
+            services.AddScoped<ExperienceBusinessRules>();
+            services.AddScoped<CountryBusinessRules>();
+            services.AddScoped<CityBusinessRules>();
+            services.AddScoped<AccountApplicationBusinessRules>();
+            services.AddScoped<AccountEducationBusinessRules>();
 
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());

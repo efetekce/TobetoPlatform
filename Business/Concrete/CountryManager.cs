@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
+using Business.Rules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -18,15 +19,18 @@ namespace Business.Concrete
     {
         ICountryDal _countryDal;
         IMapper _mapper;
+        CountryBusinessRules _countryBusinessRules;
 
-        public CountryManager(ICountryDal countryDal, IMapper mapper)
+        public CountryManager(ICountryDal countryDal, IMapper mapper, CountryBusinessRules countryBusinessRules)
         {
             _countryDal = countryDal;
             _mapper = mapper;
+            _countryBusinessRules = countryBusinessRules;
         }
 
         public async Task<CreatedCountryResponse> Add(CreateCountryRequest createCountryRequest)
         {
+            await _countryBusinessRules.SameCountryName(createCountryRequest.Name);
             Country country = _mapper.Map<Country>(createCountryRequest);
             var createdCountry = await _countryDal.AddAsync(country);
             CreatedCountryResponse result = _mapper.Map<CreatedCountryResponse>(createdCountry);

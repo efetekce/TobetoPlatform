@@ -18,18 +18,19 @@ namespace Business.Concrete
     {
         IOrganizationDal _organizationDal;
         IMapper _mapper;
-        //OrganizationBusinessRules _organizationBusinessRules;
+        OrganizationBusinessRules _organizationBusinessRules;
 
         public OrganizationManager(IOrganizationDal organizationDal,
-        IMapper mapper)
+        IMapper mapper, OrganizationBusinessRules organizationBusinessRules)
         {
             _organizationDal = organizationDal;
             _mapper = mapper;
-            //_organizationBusinessRules = organizationBusinessRules;
+            _organizationBusinessRules = organizationBusinessRules;
         }
 
         public async Task<CreatedOrganizationResponse> Add(CreateOrganizationRequest createOrganizationRequest)
         {
+            await _organizationBusinessRules.OrganizationRule(createOrganizationRequest.Id,createOrganizationRequest.Name,createOrganizationRequest.ContactNumber);
             Organization organization = _mapper.Map<Organization>(createOrganizationRequest);
             var createdOrganization = await _organizationDal.AddAsync(organization);
             CreatedOrganizationResponse result = _mapper.Map<CreatedOrganizationResponse>(createdOrganization);

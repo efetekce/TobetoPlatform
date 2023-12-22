@@ -14,18 +14,19 @@ namespace Business.Concrete
     {
         ISocialMediaPlatformDal _socialMediaPlatformDal;
         IMapper _mapper;
-        //SocialMediaPlatformBusinessRules _socialMediaPlatformBusinessRules;
+        SocialMediaPlatformBusinessRules _socialMediaPlatformBusinessRules;
 
         public SocialMediaPlatformManager(ISocialMediaPlatformDal socialMediaPlatformDal,
-        IMapper mapper)
+        IMapper mapper,SocialMediaPlatformBusinessRules socialMediaPlatformBusinessRules)
         {
             _socialMediaPlatformDal = socialMediaPlatformDal;
             _mapper = mapper;
-            //_socialMediaPlatformBusinessRules = socialMediaPlatformBusinessRules;
+            _socialMediaPlatformBusinessRules = socialMediaPlatformBusinessRules;
         }
 
         public async Task<CreatedSocialMediaPlatformResponse> Add(CreateSocialMediaPlatformRequest createSocialMediaPlatformRequest)
         {
+            await _socialMediaPlatformBusinessRules.SameSocialMediaName(createSocialMediaPlatformRequest.Name);
             SocialMediaPlatform socialMediaPlatform = _mapper.Map<SocialMediaPlatform>(createSocialMediaPlatformRequest);
             var createdSocialMediaPlatform = await _socialMediaPlatformDal.AddAsync(socialMediaPlatform);
             CreatedSocialMediaPlatformResponse result = _mapper.Map<CreatedSocialMediaPlatformResponse>(createdSocialMediaPlatform);

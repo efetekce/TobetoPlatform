@@ -14,18 +14,20 @@ namespace Business.Concrete
     {
         IAccountApplicationDal _accountApplicationDal;
         IMapper _mapper;
-        //AccountApplicationBusinessRules _accountApplicationBusinessRules;
+        AccountApplicationBusinessRules _accountApplicationBusinessRules;
 
         public AccountApplicationManager(IAccountApplicationDal accountApplicationDal,
-        IMapper mapper)
+        IMapper mapper,
+        AccountApplicationBusinessRules accountApplicationBusinessRules)
         {
             _accountApplicationDal = accountApplicationDal;
             _mapper = mapper;
-            //_accountApplicationBusinessRules = accountApplicationBusinessRules;
+            _accountApplicationBusinessRules = accountApplicationBusinessRules;
         }
 
         public async Task<CreatedAccountApplicationResponse> Add(CreateAccountApplicationRequest createAccountApplicationRequest)
         {
+            await _accountApplicationBusinessRules.AccountApplicationNotEmpty(createAccountApplicationRequest.AccountId,createAccountApplicationRequest.ApplicationId,createAccountApplicationRequest.ApplicationStepId);
             AccountApplication accountApplication = _mapper.Map<AccountApplication>(createAccountApplicationRequest);
             var createdAccountApplication = await _accountApplicationDal.AddAsync(accountApplication);
             CreatedAccountApplicationResponse result = _mapper.Map<CreatedAccountApplicationResponse>(createdAccountApplication);

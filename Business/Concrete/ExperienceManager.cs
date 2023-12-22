@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
+using Business.Rules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using Entities.Concretes;
@@ -17,17 +18,18 @@ namespace Business.Concrete
     {
         IExperienceDal _experienceDal;
         IMapper _mapper;
-        //ExperienceBusinessRules _experienceBusinessRules;
+        ExperienceBusinessRules _experienceBusinessRules;
 
-        public ExperienceManager(IExperienceDal experienceDal, IMapper mapper)
+        public ExperienceManager(IExperienceDal experienceDal, IMapper mapper,ExperienceBusinessRules experienceBusinessRules)
         {
             _experienceDal = experienceDal;
             _mapper = mapper;
-            //_experienceBusinessRules = experienceBusinessRules;
+            _experienceBusinessRules = experienceBusinessRules;
         }
 
         public async Task<CreatedExperienceResponse> Add(CreateExperienceRequest createExperienceRequest)
         {
+            await _experienceBusinessRules.ExperienceRule(createExperienceRequest.Position,createExperienceRequest.CompanyName,createExperienceRequest.CityId);
             var category = _mapper.Map<Experience>(createExperienceRequest);
             var createdCategory = await _experienceDal.AddAsync(category);
             var createdCategoryResponse = _mapper.Map<CreatedExperienceResponse>(createdCategory);
@@ -43,16 +45,11 @@ namespace Business.Concrete
 
         }
 
-        public async Task<IPaginate<GetListExperienceResponse>> GetListExperience(PageRequest pageRequest)
+        public async Task<IPaginate<GetListExperienceResponse>> GetListExperience()
         {
             var experiences = await _experienceDal.GetListAsync();
             var mapped = _mapper.Map<Paginate<GetListExperienceResponse>>(experiences);
             return mapped;
-        }
-
-        public Task<IPaginate<GetListExperienceResponse>> GetListExperience()
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<UpdatedExperienceResponse> Update(UpdateExperienceRequest updateExperienceRequest)

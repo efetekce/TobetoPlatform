@@ -10,5 +10,6 @@ namespace DataAccess.Abstracts
 {
     public interface IAccountSocialMediaDal:IRepository<AccountSocialMedia,int>,IAsyncRepository<AccountSocialMedia,int>
     {
+       
     }
 }

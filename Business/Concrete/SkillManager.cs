@@ -45,8 +45,8 @@ namespace Business.Concrete
         public async Task<IPaginate<GetListSkillResponse>> GetListSkillInformation()
         {
             var skill = await _skillDal.GetListAsync();
-            var result = _mapper.Map<Paginate<GetListCertificateResponse>>(skill);
-            return (IPaginate<GetListSkillResponse>)result;
+            var result = _mapper.Map<Paginate<GetListSkillResponse>>(skill);
+            return result;
         }
 
         public async Task<UpdatedSkillsResponse> Update(UpdateSkillsRequest updateSkillsRequest)

@@ -15,7 +15,7 @@ namespace DataAccess.EntityConfigurations
         {
             builder.ToTable("SessionStatus").HasKey(s => s.Id);
             builder.Property(s => s.Id).HasColumnName("Id").IsRequired();
-            builder.Property(s => s.AccountId).HasColumnName("AccountId");
+            builder.Property(s => s.AccountId).HasColumnName("AccountId").IsRequired();
             builder.Property(s => s.Status).HasColumnName("Status");
             builder.Property(s => s.LoginTime).HasColumnName("LoginTime").IsRequired();
             builder.Property(s => s.LogoutTime).HasColumnName("LogoutTime").IsRequired();

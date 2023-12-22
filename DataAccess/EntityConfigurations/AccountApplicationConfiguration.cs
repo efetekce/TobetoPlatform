@@ -10,9 +10,9 @@ namespace DataAccess.EntityConfigurations
         {
             builder.ToTable("AccountApplications").HasKey(a => a.Id);
             builder.Property(a => a.Id).IsRequired();
-            builder.Property(a => a.AccountId);
-            builder.Property(a => a.ApplicationId);
-            builder.Property(a => a.ApplicationStepId);
+            builder.Property(a => a.AccountId).IsRequired();
+            builder.Property(a => a.ApplicationId).IsRequired();
+            builder.Property(a => a.ApplicationStepId).IsRequired();
         }
     }
 }
