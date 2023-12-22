@@ -52,12 +52,28 @@ namespace Business
             services.AddScoped<ITokenHelper,JwtHelper>();
             services.AddScoped<IForeignLanguageLevelService,ForeignLanguageLevelManager>();
             services.AddScoped<IAccountForeignLanguageService,AccountForeignLanguageManager>();
+            services.AddScoped<IAccountCourseService, AccountCourseManager>();
             services.AddScoped<ICourseCategoryService,CourseCategoryManager>();
             services.AddScoped<ICourseContentTypeService,CourseContentTypeManager>();
             services.AddScoped<ICourseContentService,CourseContentManager>();
             services.AddScoped<ILessonService, LessonManager>();
+            services.AddScoped<ILessonStatusService, LessonStatusManager>();
             services.AddScoped<ICourseService, CourseManager>();
             services.AddScoped<IAccountCourseLessonService, AccountCourseLessonManager>();
+            services.AddScoped<IAccountCertificateService, AccountCertificateManager>();
+            services.AddScoped<ICourseDetailService, CourseDetailManager>();
+            services.AddScoped<IOrganizationService, OrganizationManager>();
+            services.AddScoped<AccountCertificateBusinessRules>();
+            services.AddScoped<AccountCourseBusinessRules>();
+            services.AddScoped<AccountCourseLessonBusinessRules>();
+            services.AddScoped<CourseCategoryBusinessRules>();
+            services.AddScoped<CourseContentBusinessRules>();
+            services.AddScoped<CourseContentTypeBusinessRules>();
+            services.AddScoped<LessonBusinessRules>();
+            services.AddScoped<LessonStatusBusinessRules>();
+            services.AddScoped<CourseBusinessRules>();
+            services.AddScoped<CourseDetailBusinessRules>();
+            services.AddScoped<OrganizationBusinessRules>();
             services.AddScoped<IForeignLanguageService, ForeignLanguageManager>();
             services.AddScoped<ITokenHelper, JwtHelper>();
 
@@ -72,7 +88,6 @@ namespace Business
             services.AddScoped<CityBusinessRules>();
             services.AddScoped<AccountApplicationBusinessRules>();
             services.AddScoped<AccountEducationBusinessRules>();
-
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;

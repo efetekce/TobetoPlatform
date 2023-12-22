@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public int CourseId { get; set; }
-        public string CourseContentType { get; set; }
+        public int CourseContentTypeId { get; set; }
         public string Name { get; set; }
     }
 

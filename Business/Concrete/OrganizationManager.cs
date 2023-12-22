@@ -22,6 +22,9 @@ namespace Business.Concrete
 
         public OrganizationManager(IOrganizationDal organizationDal,
         IMapper mapper, OrganizationBusinessRules organizationBusinessRules)
+
+        public OrganizationManager(IOrganizationDal organizationDal, IMapper mapper, OrganizationBusinessRules organizationBusinessRules)
+
         {
             _organizationDal = organizationDal;
             _mapper = mapper;
@@ -31,6 +34,9 @@ namespace Business.Concrete
         public async Task<CreatedOrganizationResponse> Add(CreateOrganizationRequest createOrganizationRequest)
         {
             await _organizationBusinessRules.OrganizationRule(createOrganizationRequest.Id,createOrganizationRequest.Name,createOrganizationRequest.ContactNumber);
+            await _organizationBusinessRules.OrganizationNameCantBeNull(createOrganizationRequest.Name);
+            await _organizationBusinessRules.ContactNumberCantBeNull(createOrganizationRequest.ContactNumber);
+            await _organizationBusinessRules.MustBeAddressDefined(createOrganizationRequest.AddressId);
             Organization organization = _mapper.Map<Organization>(createOrganizationRequest);
             var createdOrganization = await _organizationDal.AddAsync(organization);
             CreatedOrganizationResponse result = _mapper.Map<CreatedOrganizationResponse>(createdOrganization);
@@ -54,6 +60,9 @@ namespace Business.Concrete
 
         public async Task<UpdatedOrganizationResponse> Update(UpdateOrganizationRequest updateOrganizationRequest)
         {
+            await _organizationBusinessRules.OrganizationNameCantBeNull(updateOrganizationRequest.Name);
+            await _organizationBusinessRules.ContactNumberCantBeNull(updateOrganizationRequest.ContactNumber);
+            await _organizationBusinessRules.MustBeAddressDefined(updateOrganizationRequest.AddressId);
             Organization organization = _mapper.Map<Organization>(updateOrganizationRequest);
             var updatedOrganization = await _organizationDal.UpdateAsync(organization);
             UpdatedOrganizationResponse result = _mapper.Map<UpdatedOrganizationResponse>(updatedOrganization);

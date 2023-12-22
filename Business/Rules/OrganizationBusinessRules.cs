@@ -1,5 +1,7 @@
-﻿using Business.Messages;
+
+using Business.Messages;
 using Core.Business.Rules;
+using Business.Constants.Messages;
 using Core.CrossCuttingConcerns.Exceptions.Types;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -22,6 +24,41 @@ namespace Business.Rules
         public async Task OrganizationRule()
         {
            
+        private readonly IAddressDal _addressDal;
+        /*public int AddressId { get; set; }
+        public string Name { get; set; }
+        public string ContactNumber { get; set; }*/
+        public OrganizationBusinessRules(IOrganizationDal organizationDal, IAddressDal addressDal)
+        {
+            _organizationDal = organizationDal;
+            _addressDal = addressDal;
+        }
+
+        public async Task OrganizationNameCantBeNull(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new BusinessException(BusinessMessages.NotNullableOrganizationName);
+            }
+        }
+
+        public async Task ContactNumberCantBeNull(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new BusinessException(BusinessMessages.NotNullableContactNumber);
+            }
+        }
+
+        public async Task MustBeAddressDefined(int addressId)
+        {
+            var result = await _addressDal.GetListAsync(
+                predicate: p => p.Id == addressId
+                );
+            if (result.Count == 0)
+            {
+                throw new BusinessException(BusinessMessages.RequiredAddress);
+            }
         }
     }
 }

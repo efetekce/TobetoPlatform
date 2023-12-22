@@ -58,10 +58,12 @@ namespace DataAccess
             services.AddScoped<ICourseContentTypeDal, EfCourseContentTypeDal>();
             services.AddScoped<ICourseContentDal, EfCourseContentDal>();
             services.AddScoped<ILessonDal, EfLessonDal>();
+            services.AddScoped<ILessonStatusDal, EfLessonStatusDal>();
             services.AddScoped<ICourseDal, EfCourseDal>();
             services.AddScoped<ICourseDetailDal, EfCourseDetailDal>();
             services.AddScoped<IAccountCourseDal, EfAccountCourseDal>();
             services.AddScoped<IAccountCourseLessonDal, EfAccountCourseLessonDal>();
+            services.AddScoped<IAccountCertificateDal, EfAccountCertificateDal>();
             //services.AddScoped<IPlatformCatalogDal,EfPlatformCatalogDal>();
             //services.AddScoped<ISkillsDal, EfSkillsDal>();
             //services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
