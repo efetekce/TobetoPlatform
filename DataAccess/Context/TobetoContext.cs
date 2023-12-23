@@ -26,7 +26,6 @@ namespace DataAccess.Context
         public DbSet<Answer> Answers { get; set; }
         public DbSet<ForeignLanguage> Languages { get; set; }
         public DbSet<PersonalInformation> PersonalInformation { get; set; }
-        public DbSet<Certificate> Certificates { get; set; }
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<ProfileImage> ProfileImages { get; set; }
         public DbSet<Skill> Skills { get; set; }
