@@ -26,12 +26,10 @@ namespace DataAccess
             services.AddScoped<ILanguageDal, EfLanguageDal>();
             services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
             services.AddScoped<IExperienceDal, EfExperienceDal>();
-            services.AddScoped<IPersonalInformationDal, EfPersonalInformationDal>();
             services.AddScoped<IAssessmentDal, EfAssessmentDal>();
             services.AddScoped<IQuestionCategoryDal, EfQuestionCategoryDal>();
             services.AddScoped<IQuestionDal, EfQuestionDal>();
             services.AddScoped<IAnswerDal, EfAnswerDal>();
-            services.AddScoped<ICertificateDal, EfCertificateDal>();
             services.AddScoped<IProfileImageDal, EfProfileImageDal>();
             services.AddScoped<IMembershipStatusDal, EfMembershipStatusDal>();
             services.AddScoped<IAccountPasswordDal, EfAccountPasswordDal>();
@@ -65,8 +63,6 @@ namespace DataAccess
             services.AddScoped<IAccountCourseLessonDal, EfAccountCourseLessonDal>();
             services.AddScoped<IAccountCertificateDal, EfAccountCertificateDal>();
             //services.AddScoped<IPlatformCatalogDal,EfPlatformCatalogDal>();
-            //services.AddScoped<ISkillsDal, EfSkillsDal>();
-            //services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
 
             return services;
         }
