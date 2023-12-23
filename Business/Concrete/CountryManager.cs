@@ -45,9 +45,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListCountryResponse>> GetCountryListAsync()
+        public async Task<IPaginate<GetListCountryResponse>> GetCountryListAsync(PageRequest pageRequest)
         {
-            var countries = await _countryDal.GetListAsync();
+            var countries = await _countryDal.GetListAsync(
+                orderBy: c => c.OrderBy(c => c.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListCountryResponse>>(countries);
             return result;
 

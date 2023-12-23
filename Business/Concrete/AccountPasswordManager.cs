@@ -45,9 +45,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListAccountPasswordResponse>> GetListAccountPassword()
+        public async Task<IPaginate<GetListAccountPasswordResponse>> GetListAccountPassword(PageRequest pageRequest)
         {
-            var accountPassword = await _accountPasswordDal.GetListAsync();
+            var accountPassword = await _accountPasswordDal.GetListAsync(
+                orderBy: a => a.OrderBy(a => a.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListAccountPasswordResponse>>(accountPassword);
             return result;
         }

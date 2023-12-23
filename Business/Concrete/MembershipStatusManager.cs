@@ -45,9 +45,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListMembershipStatusResponse>> GetListMembershipStatus()
+        public async Task<IPaginate<GetListMembershipStatusResponse>> GetListMembershipStatus(PageRequest pageRequest)
         {
-            var membershipStatus = await _membershipStatusDal.GetListAsync();
+            var membershipStatus = await _membershipStatusDal.GetListAsync(
+                orderBy: m => m.OrderBy(m => m.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListMembershipStatusResponse>>(membershipStatus);
             return result;
         }

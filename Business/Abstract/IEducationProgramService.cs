@@ -9,6 +9,6 @@ namespace Business.Abstract
         Task<CreatedEducationProgramResponse> Add(CreateEducationProgramRequest createEducationProgramRequest);
         Task<UpdatedEducationProgramResponse> Update(UpdateEducationProgramRequest updateEducationProgramRequest);
         Task<DeletedEducationProgramResponse> Delete(DeleteEducationProgramRequest deleteEducationProgramRequest);
-        Task<IPaginate<GetListEducationProgramResponse>> GetListEducationProgram();
+        Task<IPaginate<GetListEducationProgramResponse>> GetListEducationProgram(PageRequest pageRequest);
     }
 }

@@ -1,4 +1,4 @@
-﻿using Business.Messages;
+﻿using Business.Constants.Messages;
 using Core.Business.Rules;
 using Core.CrossCuttingConcerns.Exceptions.Types;
 using Core.Entities;

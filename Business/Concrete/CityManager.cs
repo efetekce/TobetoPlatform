@@ -45,9 +45,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListCityResponse>> GetCityListAsync()
+        public async Task<IPaginate<GetListCityResponse>> GetCityListAsync(PageRequest pageRequest)
         {
-            var cities = await _cityDal.GetListAsync();
+            var cities = await _cityDal.GetListAsync(
+                orderBy: c => c.OrderBy(c => c.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListCityResponse>>(cities);
             return result;
         }

@@ -45,9 +45,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListSurveyResponse>> GetListSurvey()
+        public async Task<IPaginate<GetListSurveyResponse>> GetListSurvey(PageRequest pageRequest)
         {
-            var survey = await _surveyDal.GetListAsync();
+            var survey = await _surveyDal.GetListAsync(
+                orderBy: s => s.OrderBy(s => s.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListSurveyResponse>>(survey);
             return result;
         }

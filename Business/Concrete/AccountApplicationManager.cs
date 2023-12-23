@@ -42,9 +42,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListAccountApplicationResponse>> GetListAccountApplication()
+        public async Task<IPaginate<GetListAccountApplicationResponse>> GetListAccountApplication(PageRequest pageRequest)
         {
-            var application = await _accountApplicationDal.GetListAsync();
+            var application = await _accountApplicationDal.GetListAsync(
+                orderBy: a => a.OrderBy(a => a.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListAccountApplicationResponse>>(application);
             return result;
         }

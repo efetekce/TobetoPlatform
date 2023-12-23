@@ -40,9 +40,12 @@ namespace Business.Concrete
             return deletedPersonalInformationResponse;
         }
 
-        public async Task<IPaginate<GetListPersonalInformationResponse>> GetListPersonalInformation()
+        public async Task<IPaginate<GetListPersonalInformationResponse>> GetListPersonalInformation(PageRequest pageRequest)
         {
-            var data = await _personalInformationDal.GetListAsync();
+            var data = await _personalInformationDal.GetListAsync(
+                orderBy: p => p.OrderBy(p => p.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var responseList = _mapper.Map<Paginate<GetListPersonalInformationResponse>>(data);
             return responseList;
         }

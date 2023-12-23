@@ -18,7 +18,7 @@ namespace Business.Concrete
     {
         IAccountForeignLanguageDal _accountForeignLanguageDal;
         IMapper _mapper;
-        public AccountForeignLanguageManager(IAccountForeignLanguageDal accountForeignLanguageDal,IMapper mapper)
+        public AccountForeignLanguageManager(IAccountForeignLanguageDal accountForeignLanguageDal, IMapper mapper)
         {
             _accountForeignLanguageDal = accountForeignLanguageDal;
             _mapper = mapper;
@@ -39,9 +39,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListAccountForeignLanguageResponse>> GetListAccount()
+        public async Task<IPaginate<GetListAccountForeignLanguageResponse>> GetListAccount(PageRequest pageRequest)
         {
-            var accountForeignLanguage = await _accountForeignLanguageDal.GetListAsync();
+            var accountForeignLanguage = await _accountForeignLanguageDal.GetListAsync(
+                orderBy: a => a.OrderBy(a => a.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListAccountForeignLanguageResponse>>(accountForeignLanguage);
             return result;
         }

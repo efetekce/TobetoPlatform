@@ -18,30 +18,33 @@ namespace Business.Concrete
     {
         IAccountDal _accountDal;
         IMapper _mapper;
-        public AccountManager(IAccountDal accountDal,IMapper mapper)
+        public AccountManager(IAccountDal accountDal, IMapper mapper)
         {
             _accountDal = accountDal;
-            _mapper = mapper;   
+            _mapper = mapper;
         }
         public async Task<CreatedAccountResponse> Add(CreateAccountRequest createAccountRequest)
         {
             Account account = _mapper.Map<Account>(createAccountRequest);
-        var createdAccount=await _accountDal.AddAsync(account);
-            CreatedAccountResponse result=_mapper.Map<CreatedAccountResponse>(createdAccount);
+            var createdAccount = await _accountDal.AddAsync(account);
+            CreatedAccountResponse result = _mapper.Map<CreatedAccountResponse>(createdAccount);
             return result;
         }
 
         public async Task<DeletedAccountResponse> Delete(DeleteAccountRequest deleteAccountRequest)
         {
             Account account = _mapper.Map<Account>(deleteAccountRequest);
-            var deletedAccount = await _accountDal.DeleteAsync(account,false);
+            var deletedAccount = await _accountDal.DeleteAsync(account, false);
             DeletedAccountResponse result = _mapper.Map<DeletedAccountResponse>(deletedAccount);
             return result;
         }
 
-        public async Task<IPaginate<GetListAccountResponse>> GetListAccount()
+        public async Task<IPaginate<GetListAccountResponse>> GetListAccount(PageRequest pageRequest)
         {
-            var account = await _accountDal.GetListAsync();
+            var account = await _accountDal.GetListAsync(
+                orderBy: a => a.OrderBy(a => a.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListAccountResponse>>(account);
             return result;
         }

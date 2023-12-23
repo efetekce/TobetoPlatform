@@ -13,7 +13,7 @@ namespace Business.Abstract
     {
         Task<CreatedCityResponse> Add(CreateCityRequest createCityRequest);
 
-        Task<IPaginate<GetListCityResponse>> GetCityListAsync();
+        Task<IPaginate<GetListCityResponse>> GetCityListAsync(PageRequest pageRequest);
 
         Task<UpdatedCityResponse> Update(UpdateCityRequest updateCityRequest);
 

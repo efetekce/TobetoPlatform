@@ -14,6 +14,6 @@ namespace Business.Abstract
         Task<CreatedAccountEducationResponse> Add(CreateAccountEducationRequest createAccountEducationRequest);
         Task<UpdatedAccountEducationResponse> Update(UpdateAccountEducationRequest updateAccountEducationRequest);
         Task<DeletedAccountEducationResponse> Delete(DeleteAccountEducationRequest deleteAccountEducationRequest);
-        Task<IPaginate<GetListAccountEducationResponse> >GetListAccountEducation();
+        Task<IPaginate<GetListAccountEducationResponse> >GetListAccountEducation(PageRequest pageRequest);
     }
 }

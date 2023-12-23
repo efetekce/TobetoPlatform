@@ -12,7 +12,7 @@ namespace Business.Abstract
     public interface ILessonStatusService
     {
         Task<CreatedLessonStatusResponse> Add(CreateLessonStatusRequest createLessonStatusRequest);
-        Task<IPaginate<GetListLessonStatusResponse>> GetListLesson();
+        Task<IPaginate<GetListLessonStatusResponse>> GetListLesson(PageRequest pageRequest);
         Task<UpdatedLessonStatusResponse> Update(UpdateLessonStatusRequest updateLessonStatusRequest);
         Task<DeletedLessonStatusResponse> Delete(DeleteLessonStatusRequest deleteLessonStatusRequest);
     }

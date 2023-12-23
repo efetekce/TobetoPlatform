@@ -13,7 +13,7 @@ namespace Business.Abstract
     {
         Task<CreatedCountryResponse> Add(CreateCountryRequest createCountryRequest);
 
-        Task<IPaginate<GetListCountryResponse>> GetCountryListAsync();
+        Task<IPaginate<GetListCountryResponse>> GetCountryListAsync(PageRequest pageRequest);
 
         Task<UpdatedCountryResponse> Update(UpdateCountryRequest updateCountryRequest);
 

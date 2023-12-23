@@ -16,9 +16,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetList()
+        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
-            var result = await _skillService.GetListSkillInformation();
+            var result = await _skillService.GetListSkillInformation(pageRequest);
             return Ok(result);
         }
 

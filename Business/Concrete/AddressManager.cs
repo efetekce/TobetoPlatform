@@ -40,9 +40,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListAddressResponse>> GetAddressListAsync()
+        public async Task<IPaginate<GetListAddressResponse>> GetAddressListAsync(PageRequest pageRequest)
         {
-            var addresses = await _addressDal.GetListAsync();
+            var addresses = await _addressDal.GetListAsync(
+                orderBy: a => a.OrderBy(a => a.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListAddressResponse>>(addresses);
             return result;
         }

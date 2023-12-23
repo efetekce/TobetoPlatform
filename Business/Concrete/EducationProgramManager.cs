@@ -41,9 +41,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListEducationProgramResponse>> GetListEducationProgram()
+        public async Task<IPaginate<GetListEducationProgramResponse>> GetListEducationProgram(PageRequest pageRequest)
         {
-            var educationProgram = await _educationProgramDal.GetListAsync();
+            var educationProgram = await _educationProgramDal.GetListAsync(
+                orderBy: e => e.OrderBy(e => e.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListEducationProgramResponse>>(educationProgram);
             return result;
         }

@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Dtos.Request;
+using Core.DataAccess.Paging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,12 +16,10 @@ namespace WebApi.Controllers
             _accountCourseLessonService = accountCourseLessonService;
         }
 
-
-
         [HttpGet]
-        public async Task<IActionResult> GetList()
+        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
-            var result = await _accountCourseLessonService.GetListAccountCourseLesson();
+            var result = await _accountCourseLessonService.GetListAccountCourseLesson(pageRequest);
             return Ok(result);
         }
 

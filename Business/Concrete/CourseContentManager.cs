@@ -47,9 +47,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListCourseContentResponse>> GetListCourseContent()
+        public async Task<IPaginate<GetListCourseContentResponse>> GetListCourseContent(PageRequest pageRequest)
         {
-            var courseContent = await _courseContentDal.GetListAsync();
+            var courseContent = await _courseContentDal.GetListAsync(
+                orderBy: c => c.OrderBy(c => c.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListCourseContentResponse>>(courseContent);
             return result;
         }
