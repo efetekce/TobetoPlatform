@@ -9,6 +9,6 @@ namespace Business.Abstract
         Task<CreatedApplicationStepResponse> Add(CreateApplicationStepRequest createApplicationStepRequest);
         Task<UpdatedApplicationStepResponse> Update(UpdateApplicationStepRequest updateApplicationStepRequest);
         Task<DeletedApplicationStepResponse> Delete(DeleteApplicationStepRequest deleteApplicationStepRequest);
-        Task<IPaginate<GetListApplicationStepResponse>> GetListApplicationStep();
+        Task<IPaginate<GetListApplicationStepResponse>> GetListApplicationStep(PageRequest pageRequest);
     }
 }

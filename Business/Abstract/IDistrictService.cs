@@ -13,7 +13,7 @@ namespace Business.Abstract
     {
         Task<CreatedDistrictResponse> Add(CreateDistrictRequest createDistrictRequest);
 
-        Task<IPaginate<GetListDistrictResponse>> GetDistrictListAsync();
+        Task<IPaginate<GetListDistrictResponse>> GetDistrictListAsync(PageRequest pageRequest);
 
         Task<UpdatedDistrictResponse> Update(UpdateDistrictRequest updateDistrictRequest);
 

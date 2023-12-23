@@ -40,9 +40,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListApplicationStepResponse>> GetListApplicationStep()
+        public async Task<IPaginate<GetListApplicationStepResponse>> GetListApplicationStep(PageRequest pageRequest)
         {
-            var applicationStep = await _applicationStepDal.GetListAsync();
+            var applicationStep = await _applicationStepDal.GetListAsync(
+                orderBy: a => a.OrderBy(a => a.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListApplicationStepResponse>>(applicationStep);
             return result;
         }

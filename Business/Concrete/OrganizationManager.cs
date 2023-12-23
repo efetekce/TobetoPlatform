@@ -47,9 +47,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListOrganizationResponse>> GetListOrganization()
+        public async Task<IPaginate<GetListOrganizationResponse>> GetListOrganization(PageRequest pageRequest)
         {
-            var organization = await _organizationDal.GetListAsync();
+            var organization = await _organizationDal.GetListAsync(
+                orderBy: o => o.OrderBy(o => o.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListOrganizationResponse>>(organization);
             return result;
         }

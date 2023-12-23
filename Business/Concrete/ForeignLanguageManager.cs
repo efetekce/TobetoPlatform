@@ -39,10 +39,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListForeignLanguageResponse>> GetListForeignLanguage()
-        {
-         
-            var foreignLanguage = await _foreignLanguageDal.GetListAsync();
+        public async Task<IPaginate<GetListForeignLanguageResponse>> GetListForeignLanguage(PageRequest pageRequest)
+        {        
+            var foreignLanguage = await _foreignLanguageDal.GetListAsync(
+                orderBy: f => f.OrderBy(f => f.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListForeignLanguageResponse>>(foreignLanguage);
             return result;
         }

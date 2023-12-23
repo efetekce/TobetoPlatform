@@ -77,6 +77,7 @@ namespace Business
             services.AddScoped<LessonStatusBusinessRules>();
             services.AddScoped<OrganizationBusinessRules>();
             services.AddScoped<SocialMediaPlatformBusinessRules>();
+            services.AddScoped<UniversityBusinessRules>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;

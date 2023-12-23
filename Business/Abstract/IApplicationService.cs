@@ -14,6 +14,6 @@ namespace Business.Abstract
         Task<CreatedApplicationResponse> Add(CreateApplicationRequest createApplicationRequest);
         Task<UpdatedApplicationResponse> Update(UpdateApplicationRequest updateApplicationRequest);
         Task<DeletedApplicationResponse> Delete(DeleteApplicationRequest deleteApplicationRequest);
-        Task<IPaginate<GetListApplicationResponse>> GetListApplication();
+        Task<IPaginate<GetListApplicationResponse>> GetListApplication(PageRequest pageRequest);
     }
 }

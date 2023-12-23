@@ -11,7 +11,7 @@ namespace Business.Abstract
 {
     public interface ISessionStatusService
     {
-        Task<IPaginate<GetListSessionStatusResponse>> GetListSessionStatus();
+        Task<IPaginate<GetListSessionStatusResponse>> GetListSessionStatus(PageRequest pageRequest);
         Task<CreatedSessionStatusResponse> Add(CreateSessionStatusRequest createSessionStatusRequest);
         Task<UpdatedSessionStatusResponse> Update(UpdateSessionStatusRequest updateSessionStatusRequest);
         Task<DeletedSessionStatusResponse> Delete(DeleteSessionStatusRequest deleteSessionStatusRequest);

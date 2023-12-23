@@ -12,7 +12,7 @@ namespace Business.Abstract
     public interface IAnnouncementService
     {
         Task<CreatedAnnouncementResponse> Add(CreateAnnouncementRequest createAnnouncementRequest);
-        Task<IPaginate<GetListAnnouncementResponse>> GetListAnnouncement();
+        Task<IPaginate<GetListAnnouncementResponse>> GetListAnnouncement(PageRequest pageRequest);
         Task<UpdatedAnnouncementResponse> Update(UpdateAnnouncementRequest updateAnnouncementRequest);
         Task<DeletedAnnouncementResponse> Delete(DeleteAnnouncementRequest deleteAnnouncementRequest);
     }

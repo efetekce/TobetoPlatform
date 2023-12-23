@@ -12,7 +12,7 @@ namespace Business.Abstract
     public interface IAccountPasswordService
     {
         Task<CreatedAccountPasswordResponse> Add(CreateAccountPasswordRequest createAccountPasswordRequest);
-        Task<IPaginate<GetListAccountPasswordResponse>> GetListAccountPassword();
+        Task<IPaginate<GetListAccountPasswordResponse>> GetListAccountPassword(PageRequest pageRequest);
         Task<UpdatedAccountPasswordResponse> Update(UpdateAccountPasswordRequest updateAccountPasswordRequest);
         Task<DeletedAccountPasswordResponse> Delete(DeleteAccountPasswordRequest deleteAccountPasswordRequest);
     }

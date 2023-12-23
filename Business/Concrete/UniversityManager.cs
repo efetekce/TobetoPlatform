@@ -42,9 +42,11 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListUniversityResponse>> GetListUniversity()
+        public async Task<IPaginate<GetListUniversityResponse>> GetListUniversity(PageRequest pageRequest)
         {
-            var university = await _universityDal.GetListAsync();
+            var university = await _universityDal.GetListAsync(orderBy: u => u.OrderBy(u=>u.Name),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListUniversityResponse>>(university);
             return result;
         }

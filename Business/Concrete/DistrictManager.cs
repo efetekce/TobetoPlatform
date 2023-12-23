@@ -41,9 +41,12 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<IPaginate<GetListDistrictResponse>> GetDistrictListAsync()
+        public async Task<IPaginate<GetListDistrictResponse>> GetDistrictListAsync(PageRequest pageRequest)
         {
-            var districts = await _districtDal.GetListAsync();
+            var districts = await _districtDal.GetListAsync(
+                orderBy: d => d.OrderBy(d => d.Id),
+                index: pageRequest.PageIndex,
+                size: pageRequest.PageSize);
             var result = _mapper.Map<Paginate<GetListDistrictResponse>>(districts);
             return result;
         }
