@@ -56,6 +56,7 @@ namespace Business
             services.AddScoped<ITokenHelper, JwtHelper>();
             services.AddScoped<IUniversityService, UniversityManager>();
             services.AddScoped<IUserService, UserManager>();
+            services.AddScoped<IAccountService,AccountManager>();
 
             // ----------------------FOR RULES-----------------------
             services.AddScoped<AccountApplicationBusinessRules>();
@@ -78,6 +79,8 @@ namespace Business
             services.AddScoped<OrganizationBusinessRules>();
             services.AddScoped<SocialMediaPlatformBusinessRules>();
             services.AddScoped<UniversityBusinessRules>();
+            services.AddScoped<AccountBusinessRules>();
+            
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;

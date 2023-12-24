@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,18 @@ namespace Entities.Concretes
         public string? PhoneNumber { get; set; }
         public string? ProfilePhotoPath { get; set; }
         public bool Status { get; set; }
+        public ICollection<Skill> Skills { get; set; }
+        public ICollection<AccountForeignLanguage> AccountForeignLanguages { get; set; }
+        //public ICollection<AccountSocialMedia> AccountSocialMedias { get; set; }
+        public ICollection<AccountEducation> AccountEducations { get; set; }
+        public ICollection<AccountCourse> AccountCourses { get; set; }
+        public ICollection<AccountCourseLesson> AccountCoursesLessons { get; set; }
+        public ICollection<AccountCertificate> AccountCertificates { get; set; }
+        public ICollection<AccountTestResult> AccountTestResult { get; set; }
+        public ICollection<Address> Address { get; set; }
+
+
+
 
 
 

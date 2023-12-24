@@ -15,5 +15,6 @@ namespace Entities.Concretes
         public int Point { get; set; }
         public bool Like { get; set; }
         public bool Favorite { get; set; }
+        
     }
 }
