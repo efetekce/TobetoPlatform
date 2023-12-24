@@ -26,7 +26,7 @@ namespace Business.Concrete
             _universityBusinessRules = universityBusinessRules;
         }
 
-        [ValidationAspect(typeof(UniversityValidator))]
+       [ValidationAspect(typeof(UniversityValidator))]
         public async Task<CreatedUniversityResponse> Add(CreateUniversityRequest createUniversityRequest)
         {
             await _universityBusinessRules.SameUniversityName(createUniversityRequest.Name);
