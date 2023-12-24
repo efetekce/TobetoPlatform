@@ -10,6 +10,7 @@ namespace Entities.Concretes
     public class University : Entity<int>
     {
         public string Name { get; set; }
+        //public int EducationStatusId { get; set; }
         public bool Visibility { get; set; }
     }
 }

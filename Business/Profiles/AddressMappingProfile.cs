@@ -19,7 +19,7 @@ namespace Business.Profiles
             CreateMap<UpdateAddressRequest, Address>().ReverseMap();
             CreateMap<DeleteAddressRequest, Address>().ReverseMap();
 
-            CreateMap<Address, GetListAddressResponse>().ReverseMap();
+            CreateMap<Address, GetListAddressResponse>();
             CreateMap<Paginate<Address>, Paginate<GetListAddressResponse>>().ReverseMap();
             CreateMap<CreatedAddressResponse, Address>().ReverseMap();
 
