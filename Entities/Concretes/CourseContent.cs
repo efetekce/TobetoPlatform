@@ -10,7 +10,8 @@ namespace Entities.Concretes
     public class CourseContent:Entity<int>
     {
         public int CourseId { get; set; }
-        public int CourseContentTypeId { get; set; }
+        public int ContentTypeId { get; set; }
         public string Name { get; set; }
+        public ICollection<Course> Courses { get; set; }
     }
 }
