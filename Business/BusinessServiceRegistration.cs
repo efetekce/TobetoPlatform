@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
 using Business.Rules;
+using Business.ValidationRules.FluentValidation;
 using Core.Security.JWT;
 using DataAccess.Abstracts;
 using Microsoft.Extensions.DependencyInjection;
@@ -82,7 +83,6 @@ namespace Business
             services.AddScoped<SocialMediaPlatformBusinessRules>();
             services.AddScoped<UniversityBusinessRules>();
             services.AddScoped<AccountBusinessRules>();
-            
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
