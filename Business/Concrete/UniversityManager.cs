@@ -4,6 +4,7 @@ using Business.Dtos.Request;
 using Business.Dtos.Response;
 using Business.Rules;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -26,7 +27,7 @@ namespace Business.Concrete
             _universityBusinessRules = universityBusinessRules;
         }
 
-       [ValidationAspect(typeof(UniversityValidator))]
+        [ValidationAspect(typeof(UniversityValidator))]
         public async Task<CreatedUniversityResponse> Add(CreateUniversityRequest createUniversityRequest)
         {
             await _universityBusinessRules.SameUniversityName(createUniversityRequest.Name);
