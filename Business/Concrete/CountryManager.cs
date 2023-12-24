@@ -40,7 +40,7 @@ namespace Business.Concrete
         public async Task<DeletedCountryResponse> Delete(DeleteCountryRequest deleteCountryRequest)
         {
             Country country = _mapper.Map<Country>(deleteCountryRequest);
-            var deletedCountry = await _countryDal.DeleteAsync(country, true);
+            var deletedCountry = await _countryDal.DeleteAsync(country, false);
             DeletedCountryResponse result = _mapper.Map<DeletedCountryResponse>(deletedCountry);
             return result;
         }

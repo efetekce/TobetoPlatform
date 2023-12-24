@@ -35,7 +35,7 @@ namespace Business.Concrete
         public async Task<DeletedApplicationStepResponse> Delete(DeleteApplicationStepRequest deleteApplicationStepRequest)
         {
             ApplicationStep applicationStep = _mapper.Map<ApplicationStep>(deleteApplicationStepRequest);
-            var deletedApplicationStep = await _applicationStepDal.DeleteAsync(applicationStep);
+            var deletedApplicationStep = await _applicationStepDal.DeleteAsync(applicationStep,false);
             DeletedApplicationStepResponse result = _mapper.Map<DeletedApplicationStepResponse>(deletedApplicationStep);
             return result;
         }

@@ -36,7 +36,7 @@ namespace Business.Concrete
         public async Task<DeletedAssessmentResponse> Delete(DeleteAssessmentRequest deleteAssessmentRequest)
         {
             Assessment assessment = _mapper.Map<Assessment>(deleteAssessmentRequest);
-            var deletedAssessment = await _assessmentDal.DeleteAsync(assessment, true);
+            var deletedAssessment = await _assessmentDal.DeleteAsync(assessment, false);
             DeletedAssessmentResponse result = _mapper.Map<DeletedAssessmentResponse>(deletedAssessment);
             return result;
         }

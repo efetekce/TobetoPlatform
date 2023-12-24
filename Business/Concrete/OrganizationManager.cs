@@ -42,7 +42,7 @@ namespace Business.Concrete
         public async Task<DeletedOrganizationResponse> Delete(DeleteOrganizationRequest deleteOrganizationRequest)
         {
             Organization organization = _mapper.Map<Organization>(deleteOrganizationRequest);
-            var deletedOrganization = await _organizationDal.DeleteAsync(organization);
+            var deletedOrganization = await _organizationDal.DeleteAsync(organization, false);
             DeletedOrganizationResponse result = _mapper.Map<DeletedOrganizationResponse>(deletedOrganization);
             return result;
         }

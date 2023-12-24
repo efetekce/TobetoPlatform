@@ -37,7 +37,7 @@ namespace Business.Concrete
         public async Task<DeletedSkillsResponse> Delete(DeleteSkillsRequest deleteSkillsRequest)
         {
             Skill skill = _mapper.Map<Skill>(deleteSkillsRequest);
-            var deletedSkill = await _skillDal.AddAsync(skill);
+            var deletedSkill = await _skillDal.DeleteAsync(skill, false);
             DeletedSkillsResponse result = _mapper.Map<DeletedSkillsResponse>(deletedSkill);
             return result;
         }

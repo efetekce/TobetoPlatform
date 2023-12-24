@@ -35,7 +35,7 @@ namespace Business.Concrete
         public async Task<DeletedSurveyTypeResponse> Delete(DeleteSurveyTypeRequest deleteSurveyTypeRequest)
         {
             SurveyType surveyType = _mapper.Map<SurveyType>(deleteSurveyTypeRequest);
-            var deletedSurveyType = await _surveyTypeDal.DeleteAsync(surveyType);
+            var deletedSurveyType = await _surveyTypeDal.DeleteAsync(surveyType, false);
             DeletedSurveyTypeResponse result = _mapper.Map<DeletedSurveyTypeResponse>(deletedSurveyType);
             return result;
         }

@@ -3,6 +3,7 @@ using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
 using Business.Rules;
+using Business.ValidationRules.FluentValidation;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -25,6 +26,7 @@ namespace Business.Concrete
             _universityBusinessRules = universityBusinessRules;
         }
 
+        [ValidationAspect(typeof(UniversityValidator))]
         public async Task<CreatedUniversityResponse> Add(CreateUniversityRequest createUniversityRequest)
         {
             await _universityBusinessRules.SameUniversityName(createUniversityRequest.Name);
@@ -37,7 +39,7 @@ namespace Business.Concrete
         public async Task<DeletedUniversityResponse> Delete(DeleteUniversityRequest deleteUniversityRequest)
         {
             University university = _mapper.Map<University>(deleteUniversityRequest);
-            var deletedUniversity = await _universityDal.DeleteAsync(university);
+            var deletedUniversity = await _universityDal.DeleteAsync(university,false);
             DeletedUniversityResponse result = _mapper.Map<DeletedUniversityResponse>(deletedUniversity);
             return result;
         }

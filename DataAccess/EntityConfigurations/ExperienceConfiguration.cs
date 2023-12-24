@@ -23,10 +23,6 @@ namespace DataAccess.EntityConfigurations
             builder.Property(e => e.StartDate).HasColumnName("StartDate");
             builder.Property(e => e.EndDate).HasColumnName("EndDate");
             builder.Property(e => e.JobDescription).HasColumnName("JobDescription");
-            builder.Property(e => e.CreatedDate).HasColumnName("CreatedDate").IsRequired();
-            builder.Property(e => e.UpdatedDate).HasColumnName("UpdatedDate");
-            builder.Property(e => e.DeletedDate).HasColumnName("DeletedDate");
-
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }

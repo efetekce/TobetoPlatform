@@ -14,5 +14,7 @@ namespace Entities.Concretes
         public bool Visibility { get; set; }
         public string Name { get; set; }
         public string ContactNumber { get; set; }
+        public Address Address { get; set; }
+        public ICollection<Survey> Surveys { get; set; }
     }
 }

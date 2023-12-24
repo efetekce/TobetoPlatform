@@ -40,7 +40,7 @@ namespace Business.Concrete
         public async Task<DeletedAccountPasswordResponse> Delete(DeleteAccountPasswordRequest deleteAccountPasswordRequest)
         {
             AccountPassword accountPassword = _mapper.Map<AccountPassword>(deleteAccountPasswordRequest);
-            var deletedAccountPassword = await _accountPasswordDal.DeleteAsync(accountPassword);
+            var deletedAccountPassword = await _accountPasswordDal.DeleteAsync(accountPassword, false);
             DeletedAccountPasswordResponse result = _mapper.Map<DeletedAccountPasswordResponse>(deletedAccountPassword);
             return result;
         }

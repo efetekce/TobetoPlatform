@@ -9,17 +9,15 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfigurations
 {
-    public class AccountPasswordConfiguration:IEntityTypeConfiguration<AccountPassword>
+    public class AccountPasswordConfiguration : IEntityTypeConfiguration<AccountPassword>
     {
         public void Configure(EntityTypeBuilder<AccountPassword> builder)
         {
-            builder.ToTable("AccountPasswords").HasKey(a=>a.Id);
+            builder.ToTable("AccountPasswords").HasKey(a => a.Id);
             builder.Property(a => a.Id).HasColumnName("Id").IsRequired();
             builder.Property(a => a.AccountId).HasColumnName("AccountId");
             builder.Property(a => a.Priority).HasColumnName("Priority");
-            builder.Property(e => e.CreatedDate).HasColumnName("CreatedDate").IsRequired();
-            builder.Property(e => e.UpdatedDate).HasColumnName("UpdatedDate");
-            builder.Property(e => e.DeletedDate).HasColumnName("DeletedDate");
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
 }

@@ -37,7 +37,7 @@ namespace Business.Concrete
         public async Task<DeletedAccountApplicationResponse> Delete(DeleteAccountApplicationRequest deleteAccountApplicationRequest)
         {
             AccountApplication accountApplication = _mapper.Map<AccountApplication>(deleteAccountApplicationRequest);
-            var deletedAccountApplication = await _accountApplicationDal.DeleteAsync(accountApplication);
+            var deletedAccountApplication = await _accountApplicationDal.DeleteAsync(accountApplication, false);
             DeletedAccountApplicationResponse result = _mapper.Map<DeletedAccountApplicationResponse>(deletedAccountApplication);
             return result;
         }

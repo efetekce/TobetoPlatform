@@ -36,7 +36,7 @@ namespace Business.Concrete
         public async Task<DeletedSocialMediaPlatformResponse> Delete(DeleteSocialMediaPlatformRequest deleteSocialMediaPlatformRequest)
         {
             SocialMediaPlatform socialMediaPlatform = _mapper.Map<SocialMediaPlatform>(deleteSocialMediaPlatformRequest);
-            var deletedSocialMediaPlatform = await _socialMediaPlatformDal.DeleteAsync(socialMediaPlatform);
+            var deletedSocialMediaPlatform = await _socialMediaPlatformDal.DeleteAsync(socialMediaPlatform, false);
             DeletedSocialMediaPlatformResponse result = _mapper.Map<DeletedSocialMediaPlatformResponse>(deletedSocialMediaPlatform);
             return result;
         }

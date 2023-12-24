@@ -13,6 +13,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(e=>e.UniversityId).HasColumnName("UniversityId").IsRequired();
             builder.Property(e=>e.Name).HasColumnName("Name");
             builder.Property(e=>e.Visibility).HasColumnName("Visibility");
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
 }

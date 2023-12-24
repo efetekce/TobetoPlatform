@@ -39,7 +39,7 @@ namespace Business.Concrete
         public async Task<DeletedExperienceResponse> Delete(DeleteExperienceRequest deleteExperienceRequest)
         {
             var experience = _mapper.Map<Experience>(deleteExperienceRequest);
-            var deletedExperience = await _experienceDal.DeleteAsync(experience, true);
+            var deletedExperience = await _experienceDal.DeleteAsync(experience, false);
             var deletedExperienceResponse = _mapper.Map<DeletedExperienceResponse>(deletedExperience);
             return deletedExperienceResponse;
 

@@ -21,5 +21,4 @@ namespace Entities.Concretes
         public string NeighborhoodStreet { get; set; }
         public string AboutMe { get; set; }
     }
-
 }

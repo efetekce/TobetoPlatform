@@ -35,7 +35,7 @@ namespace Business.Concrete
         public async Task<DeletedAddressResponse> Delete(DeleteAddressRequest deleteAddressRequest)
         {
             Address address = _mapper.Map<Address>(deleteAddressRequest);
-            var deletedAddress = await _addressDal.DeleteAsync(address, true);
+            var deletedAddress = await _addressDal.DeleteAsync(address, false);
             DeletedAddressResponse result = _mapper.Map<DeletedAddressResponse>(deletedAddress);
             return result;
         }

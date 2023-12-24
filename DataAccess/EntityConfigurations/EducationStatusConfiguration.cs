@@ -18,6 +18,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(e => e.Name).HasColumnName("Name").IsRequired();
             builder.Property(e => e.Priority).HasColumnName("Priority");
             builder.Property(e => e.Visibility).HasColumnName("Visibility");
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
 }

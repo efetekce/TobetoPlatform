@@ -37,7 +37,7 @@ namespace Business.Concrete
         public async Task<DeletedAccountEducationResponse> Delete(DeleteAccountEducationRequest deleteAccountEducationRequest)
         {
             AccountEducation accountEducation = _mapper.Map<AccountEducation>(deleteAccountEducationRequest);
-            var deletedAccountEducation = await _accountEducationDal.DeleteAsync(accountEducation);
+            var deletedAccountEducation = await _accountEducationDal.DeleteAsync(accountEducation, false);
             DeletedAccountEducationResponse result = _mapper.Map<DeletedAccountEducationResponse>(deletedAccountEducation);
             return result;
         }

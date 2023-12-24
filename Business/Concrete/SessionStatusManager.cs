@@ -39,7 +39,7 @@ namespace Business.Concrete
         public async Task<DeletedSessionStatusResponse> Delete(DeleteSessionStatusRequest deleteSessionStatusRequest)
         {
             SessionStatus sessionStatus = _mapper.Map<SessionStatus>(deleteSessionStatusRequest);
-            var deletedSessionStatus = await _sessionStatusDal.DeleteAsync(sessionStatus);
+            var deletedSessionStatus = await _sessionStatusDal.DeleteAsync(sessionStatus, false);
             DeletedSessionStatusResponse result = _mapper.Map<DeletedSessionStatusResponse>(deletedSessionStatus);
             return result;
         }

@@ -13,6 +13,6 @@ namespace Entities.Concretes
         public string Name { get; set; }
         public int Priority { get; set; }
         public bool Visibility { get; set; }
-
+        public City City { get; set; }
     }
 }

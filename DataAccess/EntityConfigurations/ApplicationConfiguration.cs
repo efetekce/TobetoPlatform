@@ -10,18 +10,19 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfigurations
 {
-    public class ApplicationConfiguration:IEntityTypeConfiguration<Application>
+    public class ApplicationConfiguration : IEntityTypeConfiguration<Application>
     {
-        public void Configure(EntityTypeBuilder<Application>builder)
+        public void Configure(EntityTypeBuilder<Application> builder)
         {
-            builder.ToTable("Applications").HasKey(a=>a.Id);
-            builder.Property(a => a.Id).IsRequired();
-            builder.Property(a => a.OrganizationId).IsRequired();
-            builder.Property(a => a.Priority);
-            builder.Property(a => a.Visibility);
-            builder.Property(a => a.Title).HasMaxLength(255);
-            builder.Property(a => a.Content);
-            builder.Property(a => a.PublishedDate);
+            builder.ToTable("Applications").HasKey(a => a.Id);
+            builder.Property(a => a.Id).HasColumnName("Id").IsRequired();
+            builder.Property(a => a.OrganizationId).HasColumnName("OrganizationId").IsRequired();
+            builder.Property(a => a.Priority).HasColumnName("Priority");
+            builder.Property(a => a.Visibility).HasColumnName("Visibility");
+            builder.Property(a => a.Title).HasColumnName("Title").HasMaxLength(255);
+            builder.Property(a => a.Content).HasColumnName("Content");
+            builder.Property(a => a.PublishedDate).HasColumnName("PublishedDate");
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
 }

@@ -16,12 +16,10 @@ namespace DataAccess.EntityConfigurations
             builder.ToTable("MembershipStatus").HasKey(m=>m.Id);
             builder.Property(m=>m.Id).HasColumnName("Id").IsRequired();
             builder.Property(m => m.AccountId).HasColumnName("AccountId").IsRequired();
-            builder.Property(m=>m.Status).HasColumnName("Status");
-            builder.Property(m => m.JoinDate).HasColumnName("JoinDate");
+            builder.Property(m=>m.Status).HasColumnName("Status").IsRequired();
+            builder.Property(m => m.JoinDate).HasColumnName("JoinDate").IsRequired();
             builder.Property(m => m.EndDate).HasColumnName("EndDate");
-            builder.Property(m => m.CreatedDate).HasColumnName("CreatedDate").IsRequired();
-            builder.Property(m => m.UpdatedDate).HasColumnName("UpdatedDate");
-            builder.Property(m => m.DeletedDate).HasColumnName("DeletedDate");
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
 }

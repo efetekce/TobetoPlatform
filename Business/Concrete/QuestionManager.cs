@@ -36,7 +36,7 @@ namespace Business.Concrete
         public async Task<DeletedQuestionResponse> Delete(DeleteQuestionRequest deleteQuestionRequest)
         {
             Question question = _mapper.Map<Question>(deleteQuestionRequest);
-            var deletedQuestion = await _questionDal.DeleteAsync(question, true);
+            var deletedQuestion = await _questionDal.DeleteAsync(question, false);
             DeletedQuestionResponse result = _mapper.Map<DeletedQuestionResponse>(deletedQuestion);
             return result;
         }
