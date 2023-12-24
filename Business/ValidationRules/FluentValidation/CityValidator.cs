@@ -13,7 +13,6 @@ namespace Business.ValidationRules.FluentValidation
     {
         public CityValidator()
         {
-            //RuleFor(c => c.Name).NotEmpty().WithMessage("Doldurulması zorunlu alan!");
             RuleFor(c => c.Name).NotEmpty().WithMessage("Doldurulması zorunlu alan!");
         }
     }
