@@ -34,7 +34,7 @@ namespace Business.Concrete
         public async Task<DeletedAccountForeignLanguageResponse> Delete(DeleteAccountForeignLanguageRequest deleteAccountForeignLanguageRequest)
         {
             AccountForeignLanguage accountForeignLanguage = _mapper.Map<AccountForeignLanguage>(deleteAccountForeignLanguageRequest);
-            var deletedAccountForeignLanguage = await _accountForeignLanguageDal.DeleteAsync(accountForeignLanguage);
+            var deletedAccountForeignLanguage = await _accountForeignLanguageDal.DeleteAsync(accountForeignLanguage, false);
             DeletedAccountForeignLanguageResponse result = _mapper.Map<DeletedAccountForeignLanguageResponse>(deletedAccountForeignLanguage);
             return result;
         }

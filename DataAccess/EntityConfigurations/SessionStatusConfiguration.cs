@@ -19,10 +19,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(s => s.Status).HasColumnName("Status");
             builder.Property(s => s.LoginTime).HasColumnName("LoginTime").IsRequired();
             builder.Property(s => s.LogoutTime).HasColumnName("LogoutTime").IsRequired();
-            builder.Property(s => s.CreatedDate).HasColumnName("CreatedDate").IsRequired();
-            builder.Property(s => s.UpdatedDate).HasColumnName("UpdatedDate");
-            builder.Property(s => s.DeletedDate).HasColumnName("DeletedDate");
-
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
 }

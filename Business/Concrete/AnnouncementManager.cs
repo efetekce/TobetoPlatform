@@ -36,7 +36,7 @@ namespace Business.Concrete
         public async Task<DeletedAnnouncementResponse> Delete(DeleteAnnouncementRequest deleteAnnouncementRequest)
         {
             Announcement announcement = _mapper.Map<Announcement>(deleteAnnouncementRequest);
-            var deletedAnnouncement = await _announcementDal.DeleteAsync(announcement, true);
+            var deletedAnnouncement = await _announcementDal.DeleteAsync(announcement, false);
             DeletedAnnouncementResponse result = _mapper.Map<DeletedAnnouncementResponse>(deletedAnnouncement);
             return result;
         }

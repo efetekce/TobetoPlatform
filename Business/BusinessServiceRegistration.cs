@@ -25,6 +25,7 @@ namespace Business
             services.AddScoped<IAccountForeignLanguageService, AccountForeignLanguageManager>();
             services.AddScoped<IAccountPasswordService, AccountPasswordManager>();
             services.AddScoped<IAccountService, AccountManager>();
+            services.AddScoped<IAddressService, AddressManager>();
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
             services.AddScoped<IAnswerService, AnswerManager>();
             services.AddScoped<IApplicationService, ApplicationManager>();
@@ -37,6 +38,7 @@ namespace Business
             services.AddScoped<ICourseContentTypeService, CourseContentTypeManager>();
             services.AddScoped<ICourseDetailService, CourseDetailManager>();
             services.AddScoped<ICourseService, CourseManager>();
+            services.AddScoped<IDistrictService, DistrictManager>();
             services.AddScoped<IEducationProgramService, EducationProgramManager>();
             services.AddScoped<IEducationStatusService, EducationStatusManager>();
             services.AddScoped<IExperienceService, ExperienceManager>();

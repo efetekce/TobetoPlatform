@@ -17,9 +17,6 @@ namespace DataAccess.EntityConfigurations
             builder.Property(e => e.Id).HasColumnName("Id").IsRequired();
             builder.Property(e => e.AccountId).HasColumnName("AccountId").IsRequired();
             builder.Property(e => e.Name).HasColumnName("Name").IsRequired();
-            builder.Property(e => e.CreatedDate).HasColumnName("CreatedDate").IsRequired();
-            builder.Property(e => e.UpdatedDate).HasColumnName("UpdatedDate");
-            builder.Property(e => e.DeletedDate).HasColumnName("DeletedDate");
 
             builder.HasIndex(indexExpression: e => e.AccountId, name: "FK_AccountCertificates_Accounts");
             //one to many

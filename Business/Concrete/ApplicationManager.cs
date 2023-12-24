@@ -40,7 +40,7 @@ namespace Business.Concrete
         public async Task<DeletedApplicationResponse> Delete(DeleteApplicationRequest deleteApplicationRequest)
         {
             Application application = _mapper.Map<Application>(deleteApplicationRequest);
-            var deletedApplication = await _applicationDal.DeleteAsync(application);
+            var deletedApplication = await _applicationDal.DeleteAsync(application, false);
             DeletedApplicationResponse result = _mapper.Map<DeletedApplicationResponse>(deletedApplication);
             return result;
         }

@@ -36,7 +36,7 @@ namespace Business.Concrete
         public async Task<DeletedDistrictResponse> Delete(DeleteDistrictRequest deleteDistrictRequest)
         {
             District district = _mapper.Map<District>(deleteDistrictRequest);
-            var deletedDistrict = await _districtDal.DeleteAsync(district, true);
+            var deletedDistrict = await _districtDal.DeleteAsync(district, false);
             DeletedDistrictResponse result = _mapper.Map<DeletedDistrictResponse>(deletedDistrict);
             return result;
         }

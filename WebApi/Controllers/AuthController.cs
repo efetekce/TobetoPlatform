@@ -53,7 +53,6 @@ namespace WebApi.Controllers
             {
                 return Ok(result.Data);
             }
-
             return BadRequest(result.Message);
         }
     }

@@ -40,7 +40,7 @@ namespace Business.Concrete
         public async Task<DeletedSurveyResponse> Delete(DeleteSurveyRequest deleteSurveyRequest)
         {
             Survey survey = _mapper.Map<Survey>(deleteSurveyRequest);
-            var deletedSurvey = await _surveyDal.DeleteAsync(survey);
+            var deletedSurvey = await _surveyDal.DeleteAsync(survey, false);
             DeletedSurveyResponse result = _mapper.Map<DeletedSurveyResponse>(deletedSurvey);
             return result;
         }

@@ -18,6 +18,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(a => a.StartYear).HasColumnName("StartYear"); 
             builder.Property(a => a.GraduationYear).HasColumnName("GraduationYear");
             builder.Property(a => a.IsGraduated).HasColumnName("IsGraduated");
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
 }

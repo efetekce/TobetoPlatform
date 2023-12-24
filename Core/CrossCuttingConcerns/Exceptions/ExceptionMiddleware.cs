@@ -29,7 +29,6 @@ public class ExceptionMiddleware
         {
             await HandleExceptionAsync(context.Response, exception);
         }
-
     }
 
     private Task HandleExceptionAsync(HttpResponse response, Exception exception)

@@ -35,7 +35,7 @@ namespace Business.Concrete
         public async Task<DeletedPersonalInformationResponse> Delete(DeletePersonalInformationRequest deletePersonalInformationRequest)
         {
             PersonalInformation personalInformation = _mapper.Map<PersonalInformation>(deletePersonalInformationRequest);
-            var deletedPersonalInformation = await _personalInformationDal.DeleteAsync(personalInformation, true);
+            var deletedPersonalInformation = await _personalInformationDal.DeleteAsync(personalInformation, false);
             DeletedPersonalInformationResponse deletedPersonalInformationResponse = _mapper.Map<DeletedPersonalInformationResponse>(deletedPersonalInformation);
             return deletedPersonalInformationResponse;
         }

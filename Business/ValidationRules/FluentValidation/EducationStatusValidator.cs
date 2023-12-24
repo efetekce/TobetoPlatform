@@ -1,0 +1,18 @@
+﻿using Entities.Concretes;
+using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Business.ValidationRules.FluentValidation
+{
+    public class EducationStatusValidator : AbstractValidator<EducationStatus>
+    {
+        public EducationStatusValidator()
+        {
+            RuleFor(e => e.Name).NotEmpty().WithMessage("Doldurulması zorunlu alan!");
+        }
+    }
+}

@@ -17,5 +17,7 @@ namespace Entities.Concretes
         public DateTime PublishedDate { get; set; }
         public int Priority { get; set; }
         public bool Visibility { get; set; }
+        public Organization Organization { get; set; }
+        public SurveyType SurveyTypes { get; set; }
     }
 }

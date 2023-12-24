@@ -9,10 +9,11 @@ namespace DataAccess.EntityConfigurations
         public void Configure(EntityTypeBuilder<AccountApplication> builder)
         {
             builder.ToTable("AccountApplications").HasKey(a => a.Id);
-            builder.Property(a => a.Id).IsRequired();
-            builder.Property(a => a.AccountId).IsRequired();
-            builder.Property(a => a.ApplicationId).IsRequired();
-            builder.Property(a => a.ApplicationStepId).IsRequired();
+            builder.Property(a => a.Id).HasColumnName("Id").IsRequired();
+            builder.Property(a => a.AccountId).HasColumnName("AccountId").IsRequired();
+            builder.Property(a => a.ApplicationId).HasColumnName("ApplicationId").IsRequired();
+            builder.Property(a => a.ApplicationStepId).HasColumnName("ApplicationStepId").IsRequired();
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
 }

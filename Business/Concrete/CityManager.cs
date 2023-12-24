@@ -30,7 +30,7 @@ namespace Business.Concrete
 
         public async Task<CreatedCityResponse> Add(CreateCityRequest createCityRequest)
         {
-            await _cityBusinessRules.SameCityName(createCityRequest.Name,createCityRequest.CountryId);
+            //await _cityBusinessRules.SameCityName(createCityRequest.Name,createCityRequest.CountryId);
             City city = _mapper.Map<City>(createCityRequest);
             var createdCity = await _cityDal.AddAsync(city);
             CreatedCityResponse result = _mapper.Map<CreatedCityResponse>(createdCity);
@@ -40,7 +40,7 @@ namespace Business.Concrete
         public async Task<DeletedCityResponse> Delete(DeleteCityRequest deleteCityRequest)
         {
             City city = _mapper.Map<City>(deleteCityRequest);
-            var deletedCity = await _cityDal.DeleteAsync(city, true);
+            var deletedCity = await _cityDal.DeleteAsync(city, false);
             DeletedCityResponse result = _mapper.Map<DeletedCityResponse>(deletedCity);
             return result;
         }

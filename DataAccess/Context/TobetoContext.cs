@@ -15,6 +15,7 @@ namespace DataAccess.Context
     public class TobetoContext : DbContext
     {
         protected IConfiguration Configuration { get; set; }
+
         public DbSet<Announcement> Announcements { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Country> Countries { get; set; }
