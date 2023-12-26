@@ -3,6 +3,8 @@ using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
 using Business.Rules;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -28,9 +30,10 @@ namespace Business.Concrete
             _cityBusinessRules = cityBusinessRules;
         }
 
+        [ValidationAspect(typeof(CityValidator))]
         public async Task<CreatedCityResponse> Add(CreateCityRequest createCityRequest)
         {
-            //await _cityBusinessRules.SameCityName(createCityRequest.Name,createCityRequest.CountryId);
+            await _cityBusinessRules.SameCityName(createCityRequest.Name,createCityRequest.CountryId);
             City city = _mapper.Map<City>(createCityRequest);
             var createdCity = await _cityDal.AddAsync(city);
             CreatedCityResponse result = _mapper.Map<CreatedCityResponse>(createdCity);

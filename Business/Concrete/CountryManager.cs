@@ -3,6 +3,8 @@ using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
 using Business.Rules;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -28,6 +30,7 @@ namespace Business.Concrete
             _countryBusinessRules = countryBusinessRules;
         }
 
+        [ValidationAspect(typeof(CountryValidator))]
         public async Task<CreatedCountryResponse> Add(CreateCountryRequest createCountryRequest)
         {
             await _countryBusinessRules.SameCountryName(createCountryRequest.Name);

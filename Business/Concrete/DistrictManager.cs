@@ -2,6 +2,8 @@
 using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -25,6 +27,7 @@ namespace Business.Concrete
             _mapper = mapper;
         }
 
+        [ValidationAspect(typeof(DistrictValidator))]
         public async Task<CreatedDistrictResponse> Add(CreateDistrictRequest createDistrictRequest)
         {
             District district = _mapper.Map<District>(createDistrictRequest);

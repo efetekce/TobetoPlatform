@@ -18,9 +18,13 @@ namespace Business.Rules
             _cityDal = cityDal;
         }
 
-        public async Task SameCityName()
+        public async Task SameCityName(string name, int countryId)
         {
-
+            var result = await _cityDal.GetListAsync(ci => ci.Name == name && ci.CountryId == countryId);
+            if (result.Count > 0)
+            {
+                throw new BusinessException(BusinessMessages.SameCityNameError);
+            }
         }
     }
 }

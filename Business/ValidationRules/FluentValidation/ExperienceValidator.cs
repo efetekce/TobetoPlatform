@@ -1,4 +1,5 @@
-﻿using Entities.Concretes;
+﻿using Business.Dtos.Request;
+using Entities.Concretes;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -8,16 +9,10 @@ using System.Threading.Tasks;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class ExperienceValidator : AbstractValidator<Experience>
+    public class ExperienceValidator : AbstractValidator<CreateExperienceRequest>
     {
         public ExperienceValidator()
         {
-            //public string Field { get; set; }
-
-            //public DateTime StartDate { get; set; }
-
-            //public DateTime EndDate { get; set; }
-
             RuleFor(e => e.CompanyName).NotEmpty().WithMessage("Doldurulması zorunlu alan!");
             RuleFor(e => e.CompanyName).MinimumLength(5).WithMessage("En az 5 karakter girmelisiniz!");
             RuleFor(e => e.CompanyName).MaximumLength(50).WithMessage("En fazla 50 karakter girebilirsiniz!");
@@ -39,8 +34,7 @@ namespace Business.ValidationRules.FluentValidation
 
         private bool BeValidDate(DateTime date)
         {
-            // Check if the date is in the format "dd.MM.yyyy" and is a valid date
-            return true; // You can implement your date validation logic here
+            return true; 
         }
     }
 }

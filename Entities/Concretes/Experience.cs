@@ -17,7 +17,7 @@ namespace Entities.Concretes
 
         public string Field { get; set; }
 
-        public int CityId { get; set; } //citys table cityId
+        public int CityId { get; set; }
 
         public DateTime StartDate { get; set; }
 

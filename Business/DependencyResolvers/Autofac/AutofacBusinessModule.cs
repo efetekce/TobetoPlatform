@@ -18,9 +18,6 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<UniversityManager>().As<IUniversityService>().SingleInstance();
-            builder.RegisterType<EfUniversityDal>().As<IUniversityDal>().SingleInstance();
-
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()

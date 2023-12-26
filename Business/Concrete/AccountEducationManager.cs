@@ -3,6 +3,8 @@ using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
 using Business.Rules;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -25,6 +27,7 @@ namespace Business.Concrete
             _accountEducationBusinessRules = accountEducationBusinessRules;
         }
 
+        [ValidationAspect(typeof(AccountEducationValidator))]
         public async Task<CreatedAccountEducationResponse> Add(CreateAccountEducationRequest createAccountEducationRequest)
         {
             await _accountEducationBusinessRules.AccountEducationNotEmpty(createAccountEducationRequest.AccountId, createAccountEducationRequest.EducationStatusId, createAccountEducationRequest.UniversityId, createAccountEducationRequest.EducationProgramId);
