@@ -17,5 +17,25 @@ namespace Core.Entities.Concrete
         public byte[] PasswordHash { get; set; }
         public bool Status { get; set; }
 
+        public virtual ICollection<UserOperationClaim> UserOperationClaims { get; set; }
+        public virtual ICollection<OperationClaim> OperationClaims { get; set; }
+
+        public User()
+        {
+            UserOperationClaims = new HashSet<UserOperationClaim>();
+        }
+        public User(int id, string firstName, string lastName, string email, byte[] passwordSalt, byte[] passwordHash,
+               bool status) : this()
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            PasswordSalt = passwordSalt;
+            PasswordHash = passwordHash;
+            Status = status;
+            
+        }
+
     }
 }
