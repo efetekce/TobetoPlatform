@@ -10,7 +10,16 @@ namespace Core.Entities.Concrete
     public class OperationClaim : Entity<int>
     {
         public string Name { get; set; }
-        public List<UserOperationClaim> UserOperationClaims { get; set; }
-        public List<User> Users { get; set; }
+
+        public ICollection<User> Users { get; set; }
+        public ICollection<UserOperationClaim > UserOperationClaims { get; set; }
+        public OperationClaim()
+        {
+        }
+        
+        public OperationClaim(int id, string name) : base(id)
+        {
+            Name = name;
+        }
     }
 }

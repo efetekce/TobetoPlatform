@@ -66,5 +66,10 @@ namespace Core.Security.JWT
 
             return claims;
         }
+
+        public AccessToken CreateToken(User user, ICollection<OperationClaim> operationClaims)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

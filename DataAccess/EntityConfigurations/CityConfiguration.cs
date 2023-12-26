@@ -16,7 +16,7 @@ namespace DataAccess.EntityConfigurations
             builder.ToTable("Cities").HasKey(c => c.Id);
             builder.Property(c => c.Id).HasColumnName("Id").IsRequired();
             builder.Property(c => c.CountryId).HasColumnName("CountryId").IsRequired();
-            builder.Property(c => c.Name).HasColumnName("Name");
+            builder.Property(c => c.Name).HasColumnName("Name").IsRequired();
             builder.Property(c => c.Priority).HasColumnName("Priority");
             builder.Property(c => c.Visibility).HasColumnName("Visibility");
 

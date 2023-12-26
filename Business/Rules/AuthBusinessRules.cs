@@ -1,5 +1,6 @@
 ﻿using Business.Constants.Messages;
 using Core.CrossCuttingConcerns.Exceptions.Types;
+using Core.Entities.Concrete;
 using DataAccess.Abstracts;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System;
@@ -10,23 +11,20 @@ using System.Threading.Tasks;
 
 namespace Business.Rules
 {
-    public class UserBusinessRules
+    public class AuthBusinessRules
     {
         private readonly IUserDal _userDal;
-        public UserBusinessRules(IUserDal userDal)
+        public AuthBusinessRules(IUserDal userDal)
         {
             _userDal = userDal; 
         }
 
-        public async Task SameEmail(string email)
+        public async Task EmailCanNotBeDuplicatedWhenRegistered(string email)
         {
-            var result = await _userDal.GetListAsync(c => c.Email == email);
-
-            if (result != null)
-            {
-                throw new BusinessException("aynı email sistemde mevcut");
-            }
+            User? user = await _userDal.GetAsync(u => u.Email == email);
+            if (user != null) throw new BusinessException("Mail already exists");
 
         }
+
     }
 }
