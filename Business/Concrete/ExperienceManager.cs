@@ -3,6 +3,8 @@ using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
 using Business.Rules;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using Entities.Concretes;
@@ -27,6 +29,7 @@ namespace Business.Concrete
             _experienceBusinessRules = experienceBusinessRules;
         }
 
+        [ValidationAspect(typeof(ExperienceValidator))]
         public async Task<CreatedExperienceResponse> Add(CreateExperienceRequest createExperienceRequest)
         {
             await _experienceBusinessRules.ExperienceRule(createExperienceRequest.Position,createExperienceRequest.CompanyName,createExperienceRequest.CityId);

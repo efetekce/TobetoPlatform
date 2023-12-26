@@ -3,6 +3,8 @@ using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
 using Business.Rules;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -24,6 +26,7 @@ namespace Business.Concrete
             _socialMediaPlatformBusinessRules = socialMediaPlatformBusinessRules;
         }
 
+        [ValidationAspect(typeof(SocialMediaPlatformValidator))]
         public async Task<CreatedSocialMediaPlatformResponse> Add(CreateSocialMediaPlatformRequest createSocialMediaPlatformRequest)
         {
             await _socialMediaPlatformBusinessRules.SameSocialMediaName(createSocialMediaPlatformRequest.Name);

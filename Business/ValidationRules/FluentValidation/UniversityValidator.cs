@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using Business.Dtos.Request;
+using Core.Entities;
 using Entities.Concretes;
 using FluentValidation;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class UniversityValidator:AbstractValidator<University>
+    public class UniversityValidator:AbstractValidator<CreateUniversityRequest>
     {
         public UniversityValidator()
         {

@@ -3,6 +3,8 @@ using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
 using Business.Rules;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -29,6 +31,7 @@ namespace Business.Concrete
             //_educationStatusBusinessRules = educationStatusBusinessRules;
         }
 
+        [ValidationAspect(typeof(EducationStatusValidator))]
         public async Task<CreatedEducationStatusResponse> Add(CreateEducationStatusRequest createEducationStatusRequest)
         {
             EducationStatus educationStatus = _mapper.Map<EducationStatus>(createEducationStatusRequest);

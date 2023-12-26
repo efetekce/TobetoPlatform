@@ -3,6 +3,8 @@ using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
 using Business.Rules;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -24,6 +26,7 @@ namespace Business.Concrete
             _educationProgramBusinessRules = educationProgramBusinessRules;
         }
 
+        [ValidationAspect(typeof(EducationProgramValidator))]
         public async Task<CreatedEducationProgramResponse> Add(CreateEducationProgramRequest createEducationProgramRequest)
         {
             await _educationProgramBusinessRules.SameProgramName(createEducationProgramRequest.UniversityId, createEducationProgramRequest.Name);
