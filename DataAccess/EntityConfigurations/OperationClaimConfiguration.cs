@@ -13,11 +13,12 @@ namespace DataAccess.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<OperationClaim> builder)
         {
-            builder.ToTable("OperationClaims").HasKey(c => c.Id);
-            builder.Property(c => c.Id).HasColumnName("Id").IsRequired();
-            builder.Property(c => c.Name).HasColumnName("Name").IsRequired();
-            builder.HasMany(c => c.Users).WithMany(c => c.OperationClaims);//Many-to-Many
-            builder.HasMany(c => c.UserOperationClaims).WithOne(c => c.OperationClaim).HasForeignKey(c=>c.OperationClaimId);
+            builder.ToTable("OperationClaims").HasKey(o => o.Id);
+            builder.Property(o => o.Id).HasColumnName("Id").IsRequired();
+            builder.Property(o => o.Name).HasColumnName("Name").IsRequired();
+            builder.HasQueryFilter(o => !o.DeletedDate.HasValue);
+            builder.HasMany(o => o.Users).WithMany(o => o.OperationClaims);//Many-to-Many
+            builder.HasMany(o => o.UserOperationClaims).WithOne(o => o.OperationClaim).HasForeignKey(o => o.OperationClaimId);
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public class DeleteSocialMediaPlatformRequest
     {
-
+        public int Id { get; set; }
     }
 }

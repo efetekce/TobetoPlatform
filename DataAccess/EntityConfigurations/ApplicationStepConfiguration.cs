@@ -13,7 +13,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(a => a.Name).HasColumnName("Name");
             builder.Property(a => a.Priority).HasColumnName("Priority");
             builder.Property(a => a.Visibility).HasColumnName("Visibility");
-            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
+            builder.HasQueryFilter(a => !a.DeletedDate.HasValue);
         }
     }
 }

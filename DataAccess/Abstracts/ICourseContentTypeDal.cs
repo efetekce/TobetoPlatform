@@ -1,5 +1,4 @@
-﻿using Business.Dtos.Request;
-using Core.DataAccess.Repositories;
+﻿using Core.DataAccess.Repositories;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;

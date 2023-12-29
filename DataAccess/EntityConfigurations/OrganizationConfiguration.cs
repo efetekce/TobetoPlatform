@@ -20,13 +20,8 @@ namespace DataAccess.EntityConfigurations
             builder.Property(o => o.Visibility).HasColumnName("Visibility");
             builder.Property(o => o.Name).HasColumnName("Name");
             builder.Property(o => o.ContactNumber).HasColumnName("ContactNumber");
-
-            builder
-                .HasOne(o => o.Address)
-                .WithMany()
-                .HasForeignKey(o => o.AddressId)
-                .OnDelete(DeleteBehavior.Restrict);
-            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
+            builder.HasIndex(indexExpression: o => o.AddressId, name: "FK_Organizations_Addresses");
+            builder.HasQueryFilter(o => !o.DeletedDate.HasValue);
         }
     }
 }

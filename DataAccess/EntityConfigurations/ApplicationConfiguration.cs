@@ -22,7 +22,8 @@ namespace DataAccess.EntityConfigurations
             builder.Property(a => a.Title).HasColumnName("Title").HasMaxLength(255);
             builder.Property(a => a.Content).HasColumnName("Content");
             builder.Property(a => a.PublishedDate).HasColumnName("PublishedDate");
-            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
+            builder.HasIndex(indexExpression: a => a.OrganizationId, name: "FK_Applications_Organizations");
+            builder.HasQueryFilter(a => !a.DeletedDate.HasValue);
         }
     }
 }

@@ -19,7 +19,9 @@ namespace DataAccess.EntityConfigurations
             builder.Property(a => a.SocialMediaId).HasColumnName("SocialMediaId").IsRequired();
             builder.Property(a => a.Link).HasColumnName("Link").IsRequired();
             builder.Property(a => a.Priority).HasColumnName("Priority");
-            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
+            builder.HasIndex(indexExpression: a => a.AccountId, name: "FK_AccountSocialMedias_Accounts");
+            builder.HasIndex(indexExpression: a => a.SocialMediaId, name: "FK_AccountSocialMedias_SocialMediaPlatforms");
+            builder.HasQueryFilter(a => !a.DeletedDate.HasValue);
         }
     }
 }

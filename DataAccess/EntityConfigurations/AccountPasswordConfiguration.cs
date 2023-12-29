@@ -17,7 +17,8 @@ namespace DataAccess.EntityConfigurations
             builder.Property(a => a.Id).HasColumnName("Id").IsRequired();
             builder.Property(a => a.AccountId).HasColumnName("AccountId");
             builder.Property(a => a.Priority).HasColumnName("Priority");
-            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
+            builder.HasIndex(indexExpression: a => a.AccountId, name: "FK_AccountPasswords_Accounts");
+            builder.HasQueryFilter(a => !a.DeletedDate.HasValue);
         }
     }
 }

@@ -19,25 +19,10 @@ namespace DataAccess.EntityConfigurations
             builder.Property(a => a.CityId).HasColumnName("CityId").IsRequired();
             builder.Property(a => a.DistrictId).HasColumnName("DistrictId").IsRequired();
             builder.Property(a => a.Detail).HasColumnName("Detail");
-
-            // Relationships
-            builder
-                .HasOne(a => a.Country)
-                .WithMany()
-                .HasForeignKey(a => a.CountryId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder
-                .HasOne(a => a.City)
-                .WithMany()
-                .HasForeignKey(a => a.CityId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder
-                .HasOne(a => a.District)
-                .WithMany()
-                .HasForeignKey(a => a.DistrictId)
-                .OnDelete(DeleteBehavior.Restrict);
+            builder.HasIndex(indexExpression: a => a.CountryId, name: "FK_Addresses_Countries");
+            builder.HasIndex(indexExpression: a => a.CityId, name: "FK_Addresses_Cities");
+            builder.HasIndex(indexExpression: a => a.DistrictId, name: "FK_Addresses_Districts");
+            builder.HasQueryFilter(a => !a.DeletedDate.HasValue);
         }
     }
 }
