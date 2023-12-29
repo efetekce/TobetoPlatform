@@ -18,16 +18,19 @@ namespace DataAccess.EntityConfigurations
             builder.Property(s => s.PublishedDate).HasColumnName("PublishedDate");
             builder.Property(s => s.Priority).HasColumnName("Priority");
             builder.Property(s => s.Visibility).HasColumnName("Visibility");
-            builder.HasOne(s => s.Organization)
-                .WithMany()
-                .HasForeignKey(s => s.OrganizationId)
-                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(s => s.SurveyTypes)
-                .WithMany()
+            builder
+                .HasOne(s => s.Organization)
+                .WithMany(o => o.Surveys)
+                .HasForeignKey(s => s.OrganizationId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .HasOne(s => s.SurveyTypes)
+                .WithMany(st => st.Surveys)
                 .HasForeignKey(s => s.SurveyTypeId)
-                .OnDelete(DeleteBehavior.Cascade);
-            builder.HasQueryFilter(s => !s.DeletedDate.HasValue);
+                .OnDelete(DeleteBehavior.Restrict);
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
 }

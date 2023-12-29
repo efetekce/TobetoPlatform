@@ -9,5 +9,7 @@ namespace Business.Dtos.Request
     public class DeleteSocialMediaRequest
     {
         public int Id { get; set; }
+        public string SocialMediaName { get; set; }
+        public string Description { get; set; }
     }
 }

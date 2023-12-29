@@ -1,9 +1,7 @@
-using Business.Dtos.Request;
 using Core.Entities.Concrete;
 using Entities.Concretes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +15,6 @@ namespace DataAccess.Context
     {
         protected IConfiguration Configuration { get; set; }
 
-        public DbSet<SubLecture> SubLectures { get; set; }
-        public DbSet<AnnouncementType> AnnouncementTypes { get; set; }
-        public DbSet<AccountTestResult> AccountTestResults { get; set; }
-        public DbSet<AccountSkill> AccountSkills { get; set; }
         public DbSet<Announcement> Announcements { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Country> Countries { get; set; }
@@ -31,7 +25,9 @@ namespace DataAccess.Context
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
         public DbSet<ForeignLanguage> Languages { get; set; }
-        public DbSet<PersonalInformation> PersonalInformations { get; set; }
+        public DbSet<PersonalInformation> PersonalInformation { get; set; }
+
+
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<ProfileImage> ProfileImages { get; set; }
         public DbSet<Skill> Skills { get; set; }
@@ -60,16 +56,13 @@ namespace DataAccess.Context
         public DbSet<Course> Courses { get; set; }
         public DbSet<CourseCategory> CourseCategories { get; set; }
         public DbSet<CourseContent> CourseContents { get; set; }
-        public DbSet<CourseContentType> CourseContentTypes { get; set; }
+        public DbSet<CourseContentType> CourseContentTypes { get; set; }        
         public DbSet<CourseDetail> CourseDetails { get; set; }
         public DbSet<AccountCourse> AccountCourses { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<LessonStatus> LessonStates { get; set; }
-        public DbSet<AccountCourseLesson> AccountCourseLessons { get; set; }
+        public DbSet<AccountCourseLesson> AccountCourseLesson { get; set; }
         public DbSet<AccountCertificate> AccountCertificates { get; set; }
-        public DbSet<AccountOperationClaim> AccountOperationClaims { get; set; }
-        public DbSet<Test> Tests { get; set; }
-        public DbSet<ProfileLanguage> ProfileLanguages { get; set; }
 
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {

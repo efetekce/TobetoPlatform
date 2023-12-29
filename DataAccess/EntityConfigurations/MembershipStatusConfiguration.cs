@@ -9,18 +9,17 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfigurations
 {
-    public class MembershipStatusConfiguration : IEntityTypeConfiguration<MembershipStatus>
+    public class MembershipStatusConfiguration:IEntityTypeConfiguration<MembershipStatus>
     {
         public void Configure(EntityTypeBuilder<MembershipStatus> builder)
         {
-            builder.ToTable("MembershipStatuses").HasKey(ms => ms.Id);
-            builder.Property(ms => ms.Id).HasColumnName("Id").IsRequired();
-            builder.Property(ms => ms.AccountId).HasColumnName("AccountId").IsRequired();
-            builder.Property(ms => ms.Status).HasColumnName("Status").IsRequired();
-            builder.Property(ms => ms.JoinDate).HasColumnName("JoinDate").IsRequired();
-            builder.Property(ms => ms.EndDate).HasColumnName("EndDate");
-            builder.HasIndex(indexExpression: ms => ms.AccountId, name: "FK_MembershipStatuses_Accounts");
-            builder.HasQueryFilter(ms => !ms.DeletedDate.HasValue);
+            builder.ToTable("MembershipStatus").HasKey(m=>m.Id);
+            builder.Property(m=>m.Id).HasColumnName("Id").IsRequired();
+            builder.Property(m => m.AccountId).HasColumnName("AccountId").IsRequired();
+            builder.Property(m=>m.Status).HasColumnName("Status").IsRequired();
+            builder.Property(m => m.JoinDate).HasColumnName("JoinDate").IsRequired();
+            builder.Property(m => m.EndDate).HasColumnName("EndDate");
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
 }

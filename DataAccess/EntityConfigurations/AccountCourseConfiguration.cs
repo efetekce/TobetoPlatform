@@ -19,7 +19,6 @@ namespace DataAccess.EntityConfigurations
             builder.Property(e => e.CourseId).HasColumnName("CourseId").IsRequired();
 
             builder.HasIndex(indexExpression: e => e.AccountId, name: "FK_AccountCourses_Accounts");
-            builder.HasIndex(indexExpression: e => e.CourseId, name: "FK_AccountCourses_Courses");
             //one to many
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }

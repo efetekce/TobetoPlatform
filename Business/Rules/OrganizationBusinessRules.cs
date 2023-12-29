@@ -15,6 +15,9 @@ namespace Business.Rules
     {
         private readonly IOrganizationDal _organizationDal;
         private readonly IAddressDal _addressDal;
+        /*public int AddressId { get; set; }
+        public string Name { get; set; }
+        public string ContactNumber { get; set; }*/
         public OrganizationBusinessRules(IOrganizationDal organizationDal, IAddressDal addressDal)
         {
             _organizationDal = organizationDal;

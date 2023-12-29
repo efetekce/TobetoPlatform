@@ -19,7 +19,7 @@ namespace DataAccess.EntityConfigurations
                 .WithOne(s => s.SurveyTypes)
                 .HasForeignKey(s => s.SurveyTypeId)
                 .OnDelete(DeleteBehavior.Restrict);
-            builder.HasQueryFilter(st => !st.DeletedDate.HasValue);
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
 }
