@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfigurations
 {
-    public class CourseContentConfiguration : IEntityTypeConfiguration<CourseContent>
+    public class LessonConfiguration : IEntityTypeConfiguration<Lesson>
     {
-        public void Configure(EntityTypeBuilder<CourseContent> builder)
+        public void Configure(EntityTypeBuilder<Lesson> builder)
         {
-            builder.ToTable("CourseContents").HasKey(c => c.Id);
+            builder.ToTable("Lessons").HasKey(c => c.Id);
             builder.Property(c => c.Id).HasColumnName("Id").IsRequired();
             builder.Property(c => c.CourseId).HasColumnName("CourseId").IsRequired();
-            builder.Property(c => c.ContentTypeId).HasColumnName("ContectTypeId").IsRequired();
+            builder.Property(c => c.CourseContentId).HasColumnName("CourseContentId").IsRequired();
             builder.Property(c => c.Name).HasColumnName("Name").IsRequired();
-            builder.HasMany(c => c.Courses).WithOne(c => c.CourseContent).HasForeignKey(c => c.CourseContentId);
+            builder.Property(c => c.VideoDuration).HasColumnName("VideoDuration").IsRequired();
+
         }
     }
 }
