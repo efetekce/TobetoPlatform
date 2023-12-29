@@ -1,4 +1,5 @@
-﻿using Business.Dtos.Request;
+﻿using Business.Constants.Messages;
+using Business.Dtos.Request;
 using Entities.Concretes;
 using FluentValidation;
 using System;
@@ -13,14 +14,9 @@ namespace Business.ValidationRules.FluentValidation
     {
         public SurveyValidator()
         {
-            //public string Title { get; set; }
-            //public string Content { get; set; }
-            //public string Link { get; set; }
-            //public DateTime PublishedDate { get; set; }
-
-            RuleFor(s => s.Title).NotEmpty().WithMessage("Doldurulması zorunlu alan!");
-            RuleFor(s => s.Content).NotEmpty().WithMessage("Doldurulması zorunlu alan!");
-            RuleFor(s => s.Link).NotEmpty().WithMessage("Doldurulması zorunlu alan!");
+            RuleFor(s => s.Title).NotEmpty().WithMessage(BusinessMessages.RequiredField);
+            RuleFor(s => s.Content).NotEmpty().WithMessage(BusinessMessages.RequiredField);
+            RuleFor(s => s.Link).NotEmpty().WithMessage(BusinessMessages.RequiredField);
         }
     }
 }
