@@ -14,6 +14,7 @@ namespace DataAccess.Concretes
     {
         public EfAccountForeignLanguageDal(TobetoContext context) : base(context)
         {
+            TobetoContext _context;
         }
     }
 }

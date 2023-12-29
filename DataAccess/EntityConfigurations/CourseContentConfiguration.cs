@@ -13,12 +13,13 @@ namespace DataAccess.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<CourseContent> builder)
         {
-            builder.ToTable("CourseContents").HasKey(c => c.Id);
-            builder.Property(c => c.Id).HasColumnName("Id").IsRequired();
-            builder.Property(c => c.CourseId).HasColumnName("CourseId").IsRequired();
-            builder.Property(c => c.ContentTypeId).HasColumnName("ContectTypeId").IsRequired(); 
-            builder.Property(c => c.Name).HasColumnName("Name").IsRequired();
-            builder.HasMany(c => c.Courses).WithOne(c => c.CourseContent).HasForeignKey(c => c.CourseContentId);
+            builder.ToTable("CourseContents").HasKey(cc => cc.Id);
+            builder.Property(cc => cc.Id).HasColumnName("Id").IsRequired();
+            builder.Property(cc => cc.CourseId).HasColumnName("CourseId").IsRequired();
+            builder.Property(cc => cc.ContentTypeId).HasColumnName("ContectTypeId").IsRequired(); 
+            builder.Property(cc => cc.Name).HasColumnName("Name").IsRequired();
+            builder.HasQueryFilter(cc => !cc.DeletedDate.HasValue);
+            builder.HasMany(cc => cc.Courses).WithOne(cc => cc.CourseContent).HasForeignKey(cc => cc.CourseContentId);
         }
     }
 }

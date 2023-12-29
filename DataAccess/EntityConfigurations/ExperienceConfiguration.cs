@@ -23,6 +23,8 @@ namespace DataAccess.EntityConfigurations
             builder.Property(e => e.StartDate).HasColumnName("StartDate");
             builder.Property(e => e.EndDate).HasColumnName("EndDate");
             builder.Property(e => e.JobDescription).HasColumnName("JobDescription");
+            //builder.HasIndex(indexExpression: e => e.ProfileId, name: "FK_Experiences_Skills");
+            builder.HasIndex(indexExpression: e => e.CityId, name: "FK_Experiences_Cities");
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }

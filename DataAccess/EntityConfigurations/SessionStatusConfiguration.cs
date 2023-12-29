@@ -13,13 +13,14 @@ namespace DataAccess.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<SessionStatus> builder)
         {
-            builder.ToTable("SessionStatus").HasKey(s => s.Id);
-            builder.Property(s => s.Id).HasColumnName("Id").IsRequired();
-            builder.Property(s => s.AccountId).HasColumnName("AccountId").IsRequired();
-            builder.Property(s => s.Status).HasColumnName("Status");
-            builder.Property(s => s.LoginTime).HasColumnName("LoginTime").IsRequired();
-            builder.Property(s => s.LogoutTime).HasColumnName("LogoutTime").IsRequired();
-            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
+            builder.ToTable("SessionStatuses").HasKey(s => s.Id);
+            builder.Property(ss => ss.Id).HasColumnName("Id").IsRequired();
+            builder.Property(ss => ss.AccountId).HasColumnName("AccountId").IsRequired();
+            builder.Property(ss => ss.Status).HasColumnName("Status");
+            builder.Property(ss => ss.LoginTime).HasColumnName("LoginTime").IsRequired();
+            builder.Property(ss => ss.LogoutTime).HasColumnName("LogoutTime").IsRequired();
+            builder.HasIndex(indexExpression: ss => ss.AccountId, name: "FK_SessionStatuses_Accounts");
+            builder.HasQueryFilter(ss => !ss.DeletedDate.HasValue);
         }
     }
 }

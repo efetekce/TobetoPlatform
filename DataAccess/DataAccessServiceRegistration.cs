@@ -62,7 +62,6 @@ namespace DataAccess
             services.AddScoped<IAccountCourseDal, EfAccountCourseDal>();
             services.AddScoped<IAccountCourseLessonDal, EfAccountCourseLessonDal>();
             services.AddScoped<IAccountCertificateDal, EfAccountCertificateDal>();
-            //services.AddScoped<IPlatformCatalogDal,EfPlatformCatalogDal>();
 
             return services;
         }

@@ -20,6 +20,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(c => c.LessonId).HasColumnName("LessonId").IsRequired();
             builder.Property(c => c.ImageId).HasColumnName("ImageId");
             builder.Property(c => c.Name).HasColumnName("Name").IsRequired();
+            builder.HasQueryFilter(c => !c.DeletedDate.HasValue);
             builder.HasOne(c=>c.CourseContent).WithMany(c=>c.Courses).HasForeignKey(c=>c.CourseContentId);
         }
     }

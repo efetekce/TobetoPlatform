@@ -19,13 +19,9 @@ namespace DataAccess.EntityConfigurations
             builder.Property(d => d.Name).HasColumnName("Name");
             builder.Property(d => d.Priority).HasColumnName("Priority");
             builder.Property(d => d.Visibility).HasColumnName("Visibility");
-
-            // Relationship
-            builder
-                .HasOne(d => d.City)
-                .WithMany(c => c.Districts)
-                .HasForeignKey(d => d.CityId)
-                .OnDelete(DeleteBehavior.Restrict);
+            builder.HasIndex(indexExpression: d => d.CityId, name: "FK_Districts_Cities");
+            builder.HasQueryFilter(d => !d.DeletedDate.HasValue);
+            
         }
     }
 }
