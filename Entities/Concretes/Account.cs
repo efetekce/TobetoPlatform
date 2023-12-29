@@ -11,7 +11,7 @@ namespace Entities.Concretes
 
     public class Account : Entity<int>
     {
-        public int AddressId { get; set; }
+        public int AdressId { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? NationalId { get; set; }

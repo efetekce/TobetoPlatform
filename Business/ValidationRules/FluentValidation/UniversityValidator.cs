@@ -1,5 +1,4 @@
-﻿using Business.Constants.Messages;
-using Business.Dtos.Request;
+﻿using Business.Dtos.Request;
 using Core.Entities;
 using Entities.Concretes;
 using FluentValidation;
@@ -16,9 +15,9 @@ namespace Business.ValidationRules.FluentValidation
         public UniversityValidator()
         {
             RuleFor(u => u.Name)
-                .NotEmpty().WithMessage(BusinessMessages.RequiredField);
-            RuleFor(u=>u.Name).MinimumLength(2).WithMessage(BusinessMessages.MinLengthError2);
-            RuleFor(u=>u.Name).MaximumLength(50).WithMessage(BusinessMessages.MaxLengthError50);
+                .NotEmpty().WithMessage("Doldurulması zorunlu alan!");
+            RuleFor(u=>u.Name).MinimumLength(2).WithMessage("En az 2 karakter girmelisiniz!");
+            RuleFor(u=>u.Name).MaximumLength(50).WithMessage("En fazla 50 karakter girebilirsiniz!");
         }
     }
 }

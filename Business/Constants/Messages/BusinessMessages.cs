@@ -44,17 +44,5 @@ namespace Business.Constants.Messages
         public static string NotNullableOrganizationName = "Kurum boş olamaz";
         public static string NotNullableContactNumber = "İletişim numarası boş olamaz";
         public static string RequiredAddress = "Geçerli bir adres için kayıt yapınız";
-        public static string NationalIdValue = "TC 11 haneli olmalıdır!";
-        public static string RequiredField = "Doldurulması zorunlu alan!";
-        public static string MinLengthError2 = "En az 2 karakter girmelisiniz!";
-        public static string MaxLengthError50 = "En fazla 50 karakter girebilirsiniz!";
-        public static string MinLengthError5 = "En az 5 karakter girmelisiniz!";
-        public static string MaxLengthError300 = "En fazla 300 karakter girebilirsiniz!";
-        public static string MaxLengthError30 = "En fazla 30 karakter girebilirsiniz!";
-        public static string StartYearError = "Geçerli bir başlangıç yılı olmalıdır.";
-        public static string GraduationYearError = "Geçerli bir mezuniyet yılı olmalıdır.";
-        public static string InvalidUrlError = "Geçerli bir URL formatında olmalıdır.";
-        public static string DateFormatError = "Tarih, 'dd.MM.yyyy' formatında olmalıdır.";
-        public static string DateComparison= "Mezuniyet yılı, başlangıç yılından küçük olamaz.";
     }
 }

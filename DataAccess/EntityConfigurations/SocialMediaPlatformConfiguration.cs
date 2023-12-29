@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfigurations
 {
-    public class SocialMediaPlatformConfiguration : IEntityTypeConfiguration<SocialMediaPlatform>
+    public class SocialMediaPlatformConfiguration:IEntityTypeConfiguration<SocialMediaPlatform>
     {
         public void Configure(EntityTypeBuilder<SocialMediaPlatform> builder)
         {
-            builder.ToTable("SocialMediaPlatforms").HasKey(smp => smp.Id);
-            builder.Property(smp => smp.Id).HasColumnName("Id").IsRequired();
-            builder.Property(smp => smp.Name).HasColumnName("Name").IsRequired();
-            builder.Property(smp => smp.Link).HasColumnName("Link").IsRequired();
-            builder.Property(smp => smp.Priority).HasColumnName("Priority");
-            builder.Property(smp => smp.Visibility).HasColumnName("Visibility");
-            builder.HasQueryFilter(smp => !smp.DeletedDate.HasValue);
+            builder.ToTable("SocialMediaPlatforms").HasKey(s=>s.Id);
+            builder.Property(s=>s.Id).HasColumnName("Id").IsRequired();
+            builder.Property(s=>s.Name).HasColumnName("Name").IsRequired();
+            builder.Property(s => s.Link).HasColumnName("Link").IsRequired();
+            builder.Property(s => s.Priority).HasColumnName("Priority");
+            builder.Property(s => s.Visibility).HasColumnName("Visibility");
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }
 }

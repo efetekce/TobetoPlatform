@@ -24,7 +24,7 @@ namespace Business.Rules
             var result = await _accountDal.GetListAsync(a => a.NationalId == nationalId);
             if (result.Count == 11) 
             {
-                throw new BusinessException(BusinessMessages.NationalIdValue);
+                throw new BusinessException("TC 11 haneli olmalı ");
             }
         }
     }

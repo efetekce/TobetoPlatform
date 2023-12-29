@@ -9,5 +9,19 @@ namespace Business.Dtos.Request
     public class DeleteEducationRequest
     {
         public int Id { get; set; }
+
+        public int ProfileId { get; set; }
+
+        public bool Status { get; set; }
+
+        public string University { get; set; }
+
+        public string Major { get; set; }
+
+        public DateTime StartYear { get; set; }
+
+        public DateTime EndYear { get; set; }
+
+        public DateTime GraduationYear { get; set; }
     }
 }

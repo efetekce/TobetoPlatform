@@ -1,5 +1,4 @@
-﻿using Business.Constants.Messages;
-using Business.Dtos.Request;
+﻿using Business.Dtos.Request;
 using Entities.Concretes;
 using FluentValidation;
 using System;
@@ -15,8 +14,8 @@ namespace Business.ValidationRules.FluentValidation
         public AccountSocialMediaValidator()
         {
             RuleFor(a => a.Link)
-                .NotEmpty().WithMessage(BusinessMessages.RequiredField)
-                .Must(BeAValidUrl).WithMessage(BusinessMessages.InvalidUrlError);
+                .NotEmpty().WithMessage("Doldurulması zorunlu alan!")
+                .Must(BeAValidUrl).WithMessage("Geçerli bir URL formatında olmalıdır.");
         }
 
         private bool BeAValidUrl(string url)

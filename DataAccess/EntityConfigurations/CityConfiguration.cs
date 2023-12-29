@@ -19,8 +19,12 @@ namespace DataAccess.EntityConfigurations
             builder.Property(c => c.Name).HasColumnName("Name").IsRequired();
             builder.Property(c => c.Priority).HasColumnName("Priority");
             builder.Property(c => c.Visibility).HasColumnName("Visibility");
-            builder.HasIndex(indexExpression: c => c.CountryId, name: "FK_Cities_Countries");
-            builder.HasQueryFilter(c => !c.DeletedDate.HasValue);
+
+            builder
+                .HasOne(c => c.Country)
+                .WithMany(co => co.Cities)
+                .HasForeignKey(c => c.CountryId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
