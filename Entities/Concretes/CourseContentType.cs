@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Dtos.Request
+namespace Entities.Concretes
 {
 
     public class CourseContentType : Entity<int>

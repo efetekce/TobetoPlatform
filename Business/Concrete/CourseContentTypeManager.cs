@@ -5,6 +5,7 @@ using Business.Dtos.Response;
 using Business.Rules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
+using Entities.Concretes;
 using System;
 using System.Collections.Generic;
 using System.Linq;

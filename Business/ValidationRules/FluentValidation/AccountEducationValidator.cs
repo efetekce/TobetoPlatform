@@ -14,12 +14,12 @@ namespace Business.ValidationRules.FluentValidation
     {
         public AccountEducationValidator()
         {
-            RuleFor(a => a.StartYear).NotEmpty().WithMessage("Doldurulması zorunlu alan!")
-                .Must(BeAValidYear).WithMessage("Geçerli bir başlangıç yılı olmalıdır.");
+            RuleFor(a => a.StartYear).NotEmpty().WithMessage(BusinessMessages.RequiredField)
+                .Must(BeAValidYear).WithMessage(BusinessMessages.StartYearError);
 
-            RuleFor(a => a.GraduationYear).NotEmpty().WithMessage("Doldurulması zorunlu alan!")
-                .Must(BeAValidYear).WithMessage("Geçerli bir mezuniyet yılı olmalıdır.")
-                .GreaterThanOrEqualTo(a => a.StartYear).WithMessage("Mezuniyet yılı, başlangıç yılından küçük olamaz.");
+            RuleFor(a => a.GraduationYear).NotEmpty().WithMessage(BusinessMessages.RequiredField)
+                .Must(BeAValidYear).WithMessage(BusinessMessages.GraduationYearError)
+                .GreaterThanOrEqualTo(a => a.StartYear).WithMessage(BusinessMessages.DateComparison);
 
             RuleFor(a => a.IsGraduated).NotEmpty().WithMessage(BusinessMessages.AccountApplicationCannotBeEmpty);
         }

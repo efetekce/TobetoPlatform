@@ -37,7 +37,5 @@ namespace DataAccess.EntityConfigurations
 
             builder.HasQueryFilter(a => !a.DeletedDate.HasValue);
         }
-
-       
     }
 }

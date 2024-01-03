@@ -22,9 +22,9 @@ namespace Business.Rules
         public async Task MaxNationalIdLength(string nationalId)
         {
             var result = await _accountDal.GetListAsync(a => a.NationalId == nationalId);
-            if (result.Count != 11) 
+            if (result.Count == 11) 
             {
-                throw new BusinessException("tc 11 hanelı olmalı ");
+                throw new BusinessException("TC 11 haneli olmalı ");
             }
         }
     }

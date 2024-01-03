@@ -15,8 +15,8 @@ namespace Entities.Concretes
         public DateTime BirthDate { get; set; }
         public string NationalIdentity { get; set; }
         public string Email { get; set; }
-        public string Country { get; set; } //table
-        public string City { get; set; } //table
+        public string CountryId { get; set; }
+        public string CityId { get; set; } 
         public string District { get; set; }
         public string NeighborhoodStreet { get; set; }
         public string AboutMe { get; set; }
