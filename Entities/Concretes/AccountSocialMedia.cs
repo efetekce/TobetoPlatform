@@ -13,5 +13,7 @@ namespace Entities.Concretes
         public int SocialMediaId { get; set; }
         public int Priority { get; set; }
         public string Link { get; set; }
+        public Account Account { get; set; }
+        public virtual ICollection<SocialMediaPlatform> SocialMediaPlatforms { get; set; }
     }
 }

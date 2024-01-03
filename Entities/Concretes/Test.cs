@@ -19,5 +19,7 @@ namespace Entities.Concretes
         public DateTime EndTime { get; set; }
         public int Priority { get; set; }
         public bool Visibility { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<AccountTestResult> AccountTestResults { get; set; }
     }
 }

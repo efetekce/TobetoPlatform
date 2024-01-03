@@ -15,8 +15,13 @@ namespace Business.Profiles
     {
         public UserRegisterMappingProfile()
         {
-            CreateMap<CreateUserRegisterRequest, User>().ReverseMap();
+            CreateMap<CreateUserRegisterRequest, User>();
             CreateMap<User,CreatedUserRegisterResponse>().ReverseMap();
+
+            CreateMap<OperationClaim, User>().ReverseMap();
+            CreateMap<OperationClaim,UserOperationClaim>().ReverseMap();
+    
+
         }
     }
 }

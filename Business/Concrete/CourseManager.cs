@@ -31,7 +31,7 @@ namespace Business.Concrete
         public async Task<CreatedCourseResponse> Add(CreateCourseRequest createCourseRequest)
         {
             await _courseBusinessRules.CourseNameCantBeNull(createCourseRequest.Name);
-            await _courseBusinessRules.ImagePathCantBeNull(createCourseRequest.ImagePath);
+          //  await _courseBusinessRules.ImagePathCantBeNull(createCourseRequest.ImagePath);
 
             Course course = _mapper.Map<Course>(createCourseRequest);
             var createdCourse = await _courseDal.AddAsync(course);
@@ -50,7 +50,7 @@ namespace Business.Concrete
         public async Task<IPaginate<GetListCourseResponse>> GetListCourse(PageRequest pageRequest)
         {
             var course = await _courseDal.GetListAsync(
-                include:c=>c.Include(cc=>cc.CourseContent),
+                include:c=>c.Include(cc=>cc.CourseContents),
                 orderBy: c => c.OrderBy(c => c.Id),
                 index: pageRequest.PageIndex,
                 size: pageRequest.PageSize);

@@ -11,13 +11,16 @@ namespace Entities.Concretes
     {
         public int AccountId { get; set; }
         public int TestId { get; set; }
-
         public bool Visibility { get; set; }
-
         public int TotalCorrectAnswer { get; set; }
         public int TotalWrongAnswer { get; set; }
         public int TotalBlankAnswer { get; set; }
         public int Points { get; set; }
+
+        public virtual Account Account { get; set; }
+        public virtual Test Test { get; set; }
         //public bool IsCorrect { get; set; }
+
+
     }
 }

@@ -14,6 +14,7 @@ namespace Entities.Concretes
         public int QuestionCategoryId { get; set; }
         public string Content { get; set; }
         public bool IsActive { get; set; }
+        public virtual Test Test { get; set; }
 
     }
 }

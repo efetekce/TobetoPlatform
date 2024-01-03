@@ -9,6 +9,8 @@ namespace Entities.Concretes
 {
     public class CourseCategory:Entity<int>
     {
+        public int LessonId { get; set; }
         public int Name { get; set; }
+        public virtual Lesson Lesson { get; set; }
     }
 }

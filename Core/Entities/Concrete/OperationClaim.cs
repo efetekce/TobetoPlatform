@@ -11,15 +11,16 @@ namespace Core.Entities.Concrete
     {
         public string Name { get; set; }
 
-        public ICollection<User> Users { get; set; }
-        public ICollection<UserOperationClaim > UserOperationClaims { get; set; }
-        public OperationClaim()
-        {
-        }
+        //public ICollection<User> Users { get; set; }
+        //public virtual UserOperationClaim UserOperationClaim { get; set; }
+
+        //public OperationClaim()
+        //{
+        //}
         
-        public OperationClaim(int id, string name) : base(id)
-        {
-            Name = name;
-        }
+        //public OperationClaim(int id, string name) : base(id)
+        //{
+        //    Name = name;
+        //}
     }
 }

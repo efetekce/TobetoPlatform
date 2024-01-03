@@ -26,5 +26,5 @@ namespace Business.Profiles
             CreateMap<Account, UpdatedAccountResponse>().ReverseMap();
             CreateMap<Account, DeletedAccountResponse>().ReverseMap();
         }
-    }
+    } 
 }

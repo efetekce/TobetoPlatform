@@ -18,3 +18,5 @@ namespace Entities.Concretes
         public District District { get; set; }
     }
 }
+
+

@@ -11,6 +11,12 @@ namespace Entities.Concretes
 
     public class Account : Entity<int>
     {
+        // public int UserId { get; set; }
+        // public int DistrictId { get; set; }
+        // public int CityId { get; set; }
+        // public int CountryId { get; set; }
+        //  public string AdressDetail { get; set; }
+        //  public string Description { get; set; }
         public int AdressId { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
@@ -20,16 +26,25 @@ namespace Entities.Concretes
         public string? PhoneNumber { get; set; }
         public string? ProfilePhotoPath { get; set; }
         public bool Status { get; set; }
-        public ICollection<Skill> Skills { get; set; }
-        public ICollection<AccountForeignLanguage> AccountForeignLanguages { get; set; }
-        //public ICollection<AccountSocialMedia> AccountSocialMedias { get; set; }
-        public ICollection<AccountEducation> AccountEducations { get; set; }
-        public ICollection<AccountCourse> AccountCourses { get; set; }
-        public ICollection<AccountCourseLesson> AccountCoursesLessons { get; set; }
-        public ICollection<AccountCertificate> AccountCertificates { get; set; }
-        public ICollection<AccountTestResult> AccountTestResult { get; set; }
-        public ICollection<Address> Address { get; set; }
+        public virtual District District { get; set; }
+        public virtual City City { get; set; }
+        public virtual Country Country { get; set; }
+        public virtual User User { get; set; }
 
+        public virtual Address Address { get; set; }
+        // public virtual AccountPassword Password { get; set; }
+
+
+
+        public virtual ICollection<Skill>? Skills { get; set; }
+        public virtual ICollection<AccountForeignLanguage>? AccountForeignLanguages { get; set; }
+        public virtual ICollection<AccountSocialMedia>? AccountSocialMedias { get; set; }
+        public virtual ICollection<AccountEducation>? AccountEducations { get; set; }
+        public virtual ICollection<AccountCourse>? AccountCourses { get; set; }
+        public virtual ICollection<AccountCourseLesson>? AccountCoursesLessons { get; set; }
+        public virtual ICollection<AccountCertificate>? AccountCertificates { get; set; }
+        public virtual ICollection<AccountTestResult>? AccountTestResults { get; set; }
+        public virtual ICollection<AccountApplication>? AccountApplications { get; set; }
 
 
 

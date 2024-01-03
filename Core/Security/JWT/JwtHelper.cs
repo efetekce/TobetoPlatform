@@ -48,7 +48,7 @@ namespace Core.Security.JWT
                 issuer: tokenOptions.Issuer,
                 audience: tokenOptions.Audience,
                 expires: _accessTokenExpiration,
-                notBefore: DateTime.Now,
+                notBefore: DateTime.UtcNow,
                 claims: SetClaims(user, operationClaims),
                 signingCredentials: signingCredentials
             );
@@ -67,9 +67,9 @@ namespace Core.Security.JWT
             return claims;
         }
 
-        public AccessToken CreateToken(User user, ICollection<OperationClaim> operationClaims)
-        {
-            throw new NotImplementedException();
-        }
+        //public AccessToken CreateToken(User user, ICollection<OperationClaim> operationClaims)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

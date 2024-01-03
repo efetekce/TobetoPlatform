@@ -16,11 +16,11 @@ namespace DataAccess.EntityConfigurations
             builder.ToTable("Courses").HasKey(c => c.Id);
             builder.Property(c=>c.Id).HasColumnName("Id").IsRequired();
             builder.Property(c => c.CourseContentId).HasColumnName("CourseContentId").IsRequired();
-            builder.Property(c => c.CourseAboutId).HasColumnName("CourseAboutId").IsRequired();
+            //builder.Property(c => c.CourseAboutId).HasColumnName("CourseAboutId").IsRequired();
             builder.Property(c => c.LessonId).HasColumnName("LessonId").IsRequired();
             builder.Property(c => c.ImageId).HasColumnName("ImageId");
             builder.Property(c => c.Name).HasColumnName("Name").IsRequired();
-            builder.HasOne(c=>c.CourseContent).WithMany(c=>c.Courses).HasForeignKey(c=>c.CourseContentId);
+            builder.HasMany(c=>c.CourseContents).WithOne(c=>c.Course).HasForeignKey(c=>c.CourseId);
         }
     }
 }

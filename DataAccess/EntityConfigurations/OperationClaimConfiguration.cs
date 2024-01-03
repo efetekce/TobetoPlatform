@@ -16,8 +16,8 @@ namespace DataAccess.EntityConfigurations
             builder.ToTable("OperationClaims").HasKey(c => c.Id);
             builder.Property(c => c.Id).HasColumnName("Id").IsRequired();
             builder.Property(c => c.Name).HasColumnName("Name").IsRequired();
-            builder.HasMany(c => c.Users).WithMany(c => c.OperationClaims);//Many-to-Many
-            builder.HasMany(c => c.UserOperationClaims).WithOne(c => c.OperationClaim).HasForeignKey(c=>c.OperationClaimId);
+            //builder.HasMany(c => c.Users).WithMany(c => c.OperationClaims);//Many-to-Many
+           // builder.HasOne(c => c.UserOperationClaim).WithMany(c => c.OperationClaims).HasForeignKey(c => c.UserOperationClaim.UserId);
         }
     }
 }
