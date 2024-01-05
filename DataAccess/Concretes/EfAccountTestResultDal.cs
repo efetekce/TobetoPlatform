@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concretes
 {
-    public class EfAccountPasswordDal:EfRepositoryBase<AccountPassword,int,TobetoContext>,IAccountPasswordDal
+    public class EfAccountTestResultDal : EfRepositoryBase<AccountTestResult, int, TobetoContext>,IAccountTestResultDal
     {
-        public EfAccountPasswordDal(TobetoContext context):base(context)
+        public EfAccountTestResultDal(TobetoContext context) : base(context)
         {
             TobetoContext _context;
         }

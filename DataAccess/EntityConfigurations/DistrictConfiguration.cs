@@ -17,15 +17,12 @@ namespace DataAccess.EntityConfigurations
             builder.Property(d => d.Id).HasColumnName("Id").IsRequired();
             builder.Property(d => d.CityId).HasColumnName("CityId").IsRequired();
             builder.Property(d => d.Name).HasColumnName("Name");
-            builder.Property(d => d.Priority).HasColumnName("Priority");
-            builder.Property(d => d.Visibility).HasColumnName("Visibility");
-
             // Relationship
-            builder
-                .HasOne(d => d.City)
-                .WithMany(c => c.Districts)
-                .HasForeignKey(d => d.CityId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder
+            //    .HasOne(d => d.City)
+            //    .WithMany(c => c.Districts)
+            //    .HasForeignKey(d => d.CityId)
+            //    .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

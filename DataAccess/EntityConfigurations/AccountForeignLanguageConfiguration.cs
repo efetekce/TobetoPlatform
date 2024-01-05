@@ -18,9 +18,9 @@ namespace DataAccess.EntityConfigurations
         builder.Property(af => af.AccountId).HasColumnName("AccountId").IsRequired();
         builder.Property(af => af.ForeignLanguageId).HasColumnName("ForeignLanguageId").IsRequired();
         builder.Property(af => af.ForeignLanguageLevelId).HasColumnName("ForeignLanguageLevelId").IsRequired();
-        builder.HasIndex(indexExpression: af => af.AccountId, name: "FK_AccountForeignLanguages_Accounts");
-        builder.HasIndex(indexExpression: af => af.ForeignLanguageId, name: "FK_AccountForeignLanguages_ForeignLanguages");
-        builder.HasIndex(indexExpression: af => af.ForeignLanguageLevelId, name: "FK_AccountForeignLanguages_ForeignLanguagesLevels");
+        //builder.HasIndex(indexExpression: af => af.AccountId, name: "FK_AccountForeignLanguages_Accounts");
+        //builder.HasIndex(indexExpression: af => af.ForeignLanguageId, name: "FK_AccountForeignLanguages_ForeignLanguages");
+        //builder.HasIndex(indexExpression: af => af.ForeignLanguageLevelId, name: "FK_AccountForeignLanguages_ForeignLanguagesLevels");
             builder.HasQueryFilter(af => !af.DeletedDate.HasValue);
         }
     }

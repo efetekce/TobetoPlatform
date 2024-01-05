@@ -50,7 +50,6 @@ namespace Business.Concrete
         public async Task<IPaginate<GetListCourseResponse>> GetListCourse(PageRequest pageRequest)
         {
             var course = await _courseDal.GetListAsync(
-                include:c=>c.Include(cc=>cc.CourseContents),
                 orderBy: c => c.OrderBy(c => c.Id),
                 index: pageRequest.PageIndex,
                 size: pageRequest.PageSize);

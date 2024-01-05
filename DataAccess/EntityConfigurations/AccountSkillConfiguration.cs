@@ -17,10 +17,8 @@ namespace DataAccess.EntityConfigurations
             builder.Property(ak => ak.Id).HasColumnName("Id").IsRequired(); 
             builder.Property(ak => ak.AccountId).HasColumnName("AccountId").IsRequired(); 
             builder.Property(ak => ak.SkillId).HasColumnName("SkillId").IsRequired(); 
-            builder.Property(ak => ak.Priority).HasColumnName("Priority"); 
-            builder.Property(ak => ak.Visibility).HasColumnName("Visibility"); 
-            builder.HasIndex(indexExpression: ak => ak.AccountId, name: "FK_AccountSkills_Accounts");
-            builder.HasIndex(indexExpression: ak => ak.SkillId, name: "FK_AccountSkills_Skills");
+            //builder.HasIndex(indexExpression: ak => ak.AccountId, name: "FK_AccountSkills_Accounts");
+            //builder.HasIndex(indexExpression: ak => ak.SkillId, name: "FK_AccountSkills_Skills");
             builder.HasQueryFilter(ak => !ak.DeletedDate.HasValue);
         }
     }

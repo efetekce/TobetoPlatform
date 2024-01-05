@@ -13,7 +13,5 @@ namespace Business.Dtos.Request
         public int LessonId { get; set; }
         public string ImageId { get; set; }
         public string Name { get; set; }
-    }
-
-    
+    }   
 }

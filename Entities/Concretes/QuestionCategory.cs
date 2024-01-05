@@ -10,7 +10,5 @@ namespace Entities.Concretes
     public class QuestionCategory : Entity<int>
     {
         public string Name { get; set; }
-        public int Priority { get; set; }
-
     }
 }

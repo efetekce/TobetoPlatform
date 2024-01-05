@@ -17,7 +17,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(ls => ls.Id).HasColumnName("Id").IsRequired();
             builder.Property(ls => ls.LessonId).HasColumnName("LessonId").IsRequired();
             builder.Property(ls => ls.Name).HasColumnName("Name").IsRequired();
-            builder.HasIndex(indexExpression: ls => ls.LessonId, name: "FK_LessonStates_Lessons");
+            //builder.HasIndex(indexExpression: ls => ls.LessonId, name: "FK_LessonStates_Lessons");
             builder.HasQueryFilter(ls => !ls.DeletedDate.HasValue);
         }
     }

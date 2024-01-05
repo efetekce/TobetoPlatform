@@ -3,8 +3,5 @@
     public class DeleteAccountCourseLessonRequest
     {
         public int Id { get; set; }
-
     }
-
-
 }

@@ -12,7 +12,5 @@ namespace Entities.Concretes
         public int AccountId { get; set; }
         public int OperationClaimId { get; set; }
         public bool IsActive { get; set; }
-        public int Priority { get; set; }
-
     }
 }

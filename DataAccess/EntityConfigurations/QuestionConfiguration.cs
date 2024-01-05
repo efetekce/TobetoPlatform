@@ -21,9 +21,9 @@ namespace DataAccess.EntityConfigurations
         builder.Property(q => q.Content).HasColumnName("Content");
         builder.Property(q => q.IsActive).HasColumnName("IsActive").IsRequired();
 
-        builder.HasIndex(indexExpression: q => q.AssessmentId, name: "FK_Questions_Assessments");
-        builder.HasIndex(indexExpression: q => q.SurveyId, name: "FK_Questions_Surveys");
-        builder.HasIndex(indexExpression: q => q.QuestionCategoryId, name: "FK_Questions_QuestionCategories");
+        //builder.HasIndex(indexExpression: q => q.AssessmentId, name: "FK_Questions_Assessments");
+        //builder.HasIndex(indexExpression: q => q.SurveyId, name: "FK_Questions_Surveys");
+        //builder.HasIndex(indexExpression: q => q.QuestionCategoryId, name: "FK_Questions_QuestionCategories");
         builder.HasQueryFilter(q => !q.DeletedDate.HasValue);
         }
     }

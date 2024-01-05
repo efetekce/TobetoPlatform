@@ -14,6 +14,5 @@ namespace Business.Dtos.Response
         public string NationalId { get; set; }
         public DateTime BirthDate { get; set; }
         public string PhoneNumber { get; set; }
-
     }
 }

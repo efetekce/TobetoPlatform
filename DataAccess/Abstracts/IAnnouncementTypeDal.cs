@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstracts
 {
-    public interface ILanguageDal : IRepository<ForeignLanguage, int>, IAsyncRepository<ForeignLanguage, int>
+    public interface IAnnouncementTypeDal : IRepository<AnnouncementType, int>, IAsyncRepository<AnnouncementType, int>
     {
-
     }
 }

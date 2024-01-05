@@ -12,8 +12,8 @@ namespace Entities.Concretes
         public int AccountId { get; set; }
         public int ApplicationId { get; set; }
         public int ApplicationStepId { get; set; }
-        public virtual Account Account { get; set; }
-        public virtual Application Application { get; set; }    
-        public virtual ApplicationStep ApplicationStep { get; set; }
+        //public virtual Account Account { get; set; }
+        //public virtual Application Application { get; set; }    
+        //public virtual ApplicationStep ApplicationStep { get; set; }
     }
 }

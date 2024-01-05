@@ -19,8 +19,8 @@ namespace DataAccess.EntityConfigurations
             builder.Property(l => l.CourseContentId).HasColumnName("CourseContentId").IsRequired();
             builder.Property(l => l.Name).HasColumnName("Name");
             builder.Property(l => l.VideoDuration).HasColumnName("VideoDuration");
-            builder.HasIndex(indexExpression: l => l.CourseId, name: "FK_Lessons_Courses");
-            builder.HasIndex(indexExpression: l => l.CourseContentId, name: "FK_Lessons_CourseContents");
+            //builder.HasIndex(indexExpression: l => l.CourseId, name: "FK_Lessons_Courses");
+            //builder.HasIndex(indexExpression: l => l.CourseContentId, name: "FK_Lessons_CourseContents");
             builder.HasQueryFilter(l => !l.DeletedDate.HasValue);
         }
     }

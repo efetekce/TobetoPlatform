@@ -10,7 +10,5 @@ namespace Business.Dtos.Request
     {
         public int CountryId { get; set; }
         public string Name { get; set; }
-        public int Priority { get; set; }
-        public bool Visibility { get; set; }
     }
 }

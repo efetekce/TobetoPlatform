@@ -14,10 +14,8 @@ namespace Entities.Concretes
         public int CourseDetailId { get; set; }
         public string Name { get; set; }
         public int VideoDuration { get; set; }
-        public  CourseContent CourseContent { get; set; }
-        public Course Course { get; set; }
-    //    public virtual CourseDetail CourseDetail { get; set; }
-
-
+        //public  CourseContent CourseContent { get; set; }
+        //public Course Course { get; set; }
+        //public virtual CourseDetail CourseDetail { get; set; }
     }
 }

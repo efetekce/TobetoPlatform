@@ -11,6 +11,6 @@ namespace Entities.Concretes
     {
         public int LessonId { get; set; }
         public int Name { get; set; }
-        public virtual Lesson Lesson { get; set; }
+        //public virtual Lesson Lesson { get; set; }
     }
 }

@@ -16,16 +16,14 @@ namespace DataAccess.EntityConfigurations
             builder.ToTable("Organizations").HasKey(o => o.Id);
             builder.Property(o => o.Id).HasColumnName("Id").IsRequired();
             builder.Property(o => o.AddressId).HasColumnName("AddressId").IsRequired();
-            builder.Property(o => o.Priority).HasColumnName("Priority");
-            builder.Property(o => o.Visibility).HasColumnName("Visibility");
             builder.Property(o => o.Name).HasColumnName("Name");
             builder.Property(o => o.ContactNumber).HasColumnName("ContactNumber");
 
-            builder
-                .HasOne(o => o.Address)
-                .WithMany()
-                .HasForeignKey(o => o.AddressId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder
+            //    .HasOne(o => o.Address)
+            //    .WithMany()
+            //    .HasForeignKey(o => o.AddressId)
+            //    .OnDelete(DeleteBehavior.Restrict);
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }

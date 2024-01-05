@@ -16,8 +16,6 @@ namespace DataAccess.EntityConfigurations
             builder.ToTable("ForeignLanguages").HasKey(fl => fl.Id);
             builder.Property(fl => fl.Id).HasColumnName("Id").IsRequired();
             builder.Property(fl => fl.Name).HasColumnName("Name");
-            builder.Property(fl => fl.Priority).HasColumnName("Priority");
-            builder.Property(fl => fl.Visibility).HasColumnName("Visibility");
             builder.HasQueryFilter(fl => !fl.DeletedDate.HasValue);
         }
     }

@@ -21,7 +21,7 @@ namespace DataAccess.EntityConfigurations
         builder.Property(a => a.Content).HasColumnName("Content");
         builder.Property(a => a.LanguageLevel).HasColumnName("LanguageLevel");
         builder.Property(a => a.Name).HasColumnName("Name");
-            builder.HasIndex(indexExpression: a => a.QuestionId, name: "FK_Answers_Questions");
+            //builder.HasIndex(indexExpression: a => a.QuestionId, name: "FK_Answers_Questions");
             //????builder.HasIndex(indexExpression: a => a.ProfileId, name: "FK_Answers_Questions");
             builder.HasQueryFilter(a => !a.DeletedDate.HasValue);
         }

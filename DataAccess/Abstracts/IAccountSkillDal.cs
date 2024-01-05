@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstracts
 {
-    public interface IAccountPasswordDal:IRepository<AccountPassword,int>,IAsyncRepository<AccountPassword,int>
+    public interface IAccountSkillDal:IRepository<AccountSkill,int>,IAsyncRepository<AccountSkill,int>
     {
     }
 }

@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concretes
 {
-    public class EfLanguageDal : EfRepositoryBase<ForeignLanguage, int, TobetoContext>, ILanguageDal
+    public class EfAccountSkillDal:EfRepositoryBase<AccountSkill,int,TobetoContext>,IAccountSkillDal
     {
-        public EfLanguageDal(TobetoContext context) : base(context)
+        public EfAccountSkillDal(TobetoContext context) : base(context)
         {
             TobetoContext _context;
         }

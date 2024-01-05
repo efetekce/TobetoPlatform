@@ -17,9 +17,9 @@ namespace Entities.Concretes
         public DateTime StartYear { get; set; }
         public DateTime GraduationYear { get; set; }
         public bool IsGraduated { get; set; }
-        public virtual Account Account { get; set; }
-        public virtual EducationStatus EducationStatus { get; set; }
-        public virtual University University { get; set; }
-        public virtual EducationProgram EducationProgram { get; set; }
+        //public virtual Account Account { get; set; }
+        //public virtual EducationStatus EducationStatus { get; set; }
+        //public virtual University University { get; set; }
+        //public virtual EducationProgram EducationProgram { get; set; }
     }
 }

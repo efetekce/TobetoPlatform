@@ -8,6 +8,7 @@ namespace Business.Dtos.Response
 {
     public class CreatedSocialMediaResponse
     {
+        public int Id { get; set; }
         public string SocialMediaName { get; set; }
         public string Description { get; set; }
     }

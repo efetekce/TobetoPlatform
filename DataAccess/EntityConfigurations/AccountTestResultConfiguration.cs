@@ -17,7 +17,6 @@ namespace DataAccess.EntityConfigurations
             builder.Property(atr => atr.Id).HasColumnName("Id").IsRequired();
             builder.Property(atr => atr.AccountId).HasColumnName("AccountId").IsRequired();
             builder.Property(atr => atr.TestId).HasColumnName("TestId").IsRequired();
-            builder.Property(atr => atr.Visibility).HasColumnName("Visibility");
             builder.Property(atr => atr.TotalCorrectAnswer).HasColumnName("TotalCorrectAnswer");
             builder.Property(atr => atr.TotalWrongAnswer).HasColumnName("TotalWrongAnswer");
             builder.Property(atr => atr.TotalBlankAnswer).HasColumnName("TotalBlankAnswer");

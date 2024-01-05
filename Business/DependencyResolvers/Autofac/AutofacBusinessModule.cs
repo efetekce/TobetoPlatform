@@ -20,17 +20,17 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<UniversityManager>().As<IUniversityService>().SingleInstance();
-            builder.RegisterType<EfUniversityDal>().As<IUniversityDal>().SingleInstance();
+            //builder.RegisterType<UniversityManager>().As<IUniversityService>().SingleInstance();
+            //builder.RegisterType<EfUniversityDal>().As<IUniversityDal>().SingleInstance();
 
-            builder.RegisterType<CityManager>().As<ICityService>().SingleInstance();
-            builder.RegisterType<EfCityDal>().As<ICityDal>().SingleInstance();
+            //builder.RegisterType<CityManager>().As<ICityService>().SingleInstance();
+            //builder.RegisterType<EfCityDal>().As<ICityDal>().SingleInstance();
 
-            builder.RegisterType<UserManager>().As<IUserService>();
-            builder.RegisterType<EfUserDal>().As<IUserDal>();
+            //builder.RegisterType<UserManager>().As<IUserService>();
+            //builder.RegisterType<EfUserDal>().As<IUserDal>();
 
-            builder.RegisterType<AuthManager>().As<IAuthService>();
-            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+            //builder.RegisterType<AuthManager>().As<IAuthService>();
+            //builder.RegisterType<JwtHelper>().As<ITokenHelper>();
            
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();

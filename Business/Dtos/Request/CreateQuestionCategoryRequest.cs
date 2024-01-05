@@ -9,6 +9,5 @@ namespace Business.Dtos.Request
     public class CreateQuestionCategoryRequest
     {
         public string Name { get; set; }
-        public int Priority { get; set; }
     }
 }

@@ -11,14 +11,11 @@ namespace DataAccess.EntityConfigurations
             builder.ToTable("SurveyTypes").HasKey(st => st.Id);
             builder.Property(st => st.Id).HasColumnName("Id").IsRequired();
             builder.Property(st => st.Name).HasColumnName("Name");
-            builder.Property(st => st.Priority).HasColumnName("Priority");
-            builder.Property(st => st.Visibility).HasColumnName("Visibility");
-
-            builder
-                .HasMany(st => st.Surveys)
-                .WithOne(s => s.SurveyTypes)
-                .HasForeignKey(s => s.SurveyTypeId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder
+            //    .HasMany(st => st.Surveys)
+            //    .WithOne(s => s.SurveyTypes)
+            //    .HasForeignKey(s => s.SurveyTypeId)
+            //    .OnDelete(DeleteBehavior.Restrict);
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }

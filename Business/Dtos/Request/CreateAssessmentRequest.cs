@@ -15,7 +15,5 @@ namespace Business.Dtos.Request
         public int Duration { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public int Priority { get; set; }
-        public bool Visibility { get; set; }
     }
 }

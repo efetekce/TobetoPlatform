@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstracts
 {
-    public interface IPersonalInformationDal : IRepository<PersonalInformation, int>, IAsyncRepository<PersonalInformation, int>
+    public interface ISubLectureDal : IRepository<SubLecture, int>, IAsyncRepository<SubLecture, int>
     {
     }
 }

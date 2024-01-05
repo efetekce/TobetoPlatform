@@ -11,7 +11,6 @@ namespace Business.Dtos.Response
         public int Id { get; set; }
         public int QuestionId { get; set; }
         public string Content { get; set; }
-
         public int ProfileId { get; set; }
         public string? LanguageName { get; set; }
         public string? LanguageLevel { get; set; }

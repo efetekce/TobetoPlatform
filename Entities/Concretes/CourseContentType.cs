@@ -12,7 +12,6 @@ namespace Entities.Concretes
     public class CourseContentType : Entity<int>
     {
         public string Name { get; set; }
-        public virtual ICollection<CourseContent> CourseContents { get; set; }
-
+        //public virtual ICollection<CourseContent> CourseContents { get; set; }
     }
 }

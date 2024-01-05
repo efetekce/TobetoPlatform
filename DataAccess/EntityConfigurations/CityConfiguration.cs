@@ -17,14 +17,11 @@ namespace DataAccess.EntityConfigurations
             builder.Property(c => c.Id).HasColumnName("Id").IsRequired();
             builder.Property(c => c.CountryId).HasColumnName("CountryId").IsRequired();
             builder.Property(c => c.Name).HasColumnName("Name").IsRequired();
-            builder.Property(c => c.Priority).HasColumnName("Priority");
-            builder.Property(c => c.Visibility).HasColumnName("Visibility");
-
-            builder
-                .HasOne(c => c.Country)
-                .WithMany(co => co.Cities)
-                .HasForeignKey(c => c.CountryId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder
+            //    .HasOne(c => c.Country)
+            //    .WithMany(co => co.Cities)
+            //    .HasForeignKey(c => c.CountryId)
+            //    .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -24,7 +24,6 @@ namespace Business
             services.AddScoped<IAccountCourseService, AccountCourseManager>();
             services.AddScoped<IAccountEducationService, AccountEducationManager>();
             services.AddScoped<IAccountForeignLanguageService, AccountForeignLanguageManager>();
-            services.AddScoped<IAccountPasswordService, AccountPasswordManager>();
             services.AddScoped<IAccountService, AccountManager>();
             services.AddScoped<IAddressService, AddressManager>();
             services.AddScoped<IAnnouncementService, AnnouncementManager>();

@@ -10,6 +10,5 @@ namespace Entities.Concretes
     public class University : Entity<int>
     {
         public string Name { get; set; }
-        public bool Visibility { get; set; }
     }
 }

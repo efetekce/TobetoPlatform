@@ -21,23 +21,23 @@ namespace DataAccess.EntityConfigurations
             builder.Property(a => a.Detail).HasColumnName("Detail");
 
             // Relationships
-            builder
-                .HasOne(a => a.Country)
-                .WithMany()
-                .HasForeignKey(a => a.CountryId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder
+            //    .HasOne(a => a.Country)
+            //    .WithMany()
+            //    .HasForeignKey(a => a.CountryId)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            builder
-                .HasOne(a => a.City)
-                .WithMany()
-                .HasForeignKey(a => a.CityId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder
+            //    .HasOne(a => a.City)
+            //    .WithMany()
+            //    .HasForeignKey(a => a.CityId)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            builder
-                .HasOne(a => a.District)
-                .WithMany()
-                .HasForeignKey(a => a.DistrictId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder
+            //    .HasOne(a => a.District)
+            //    .WithMany()
+            //    .HasForeignKey(a => a.DistrictId)
+            //    .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -14,8 +14,7 @@ namespace Entities.Concretes
         public int PercentageOfCompletion { get; set; }
         public int Point { get; set; }
         public bool Liked { get; set; }
-        public virtual Account Account { get; set; }
-        public virtual Course Course { get; set; }
-
+        //public virtual Account Account { get; set; }
+        //public virtual Course Course { get; set; }
     }
 }

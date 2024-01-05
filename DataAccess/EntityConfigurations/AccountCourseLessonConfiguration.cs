@@ -18,11 +18,11 @@ namespace DataAccess.EntityConfigurations
             builder.Property(ac => ac.AccountId).HasColumnName("AccountId").IsRequired();
             builder.Property(ac => ac.LessonId).HasColumnName("LessonId").IsRequired();
             builder.Property(ac => ac.LessonStatusId).HasColumnName("LessonStatusId").IsRequired();
-            builder.Property(ac => ac.Like).HasColumnName("Like");
+            //builder.Property(ac => ac.Like).HasColumnName("Like");
             builder.Property(ac => ac.IsActive).HasColumnName("IsActive");
-            builder.HasIndex(indexExpression: ac => ac.AccountId, name: "FK_AccountCourseLessons_Accounts");
-            builder.HasIndex(indexExpression: ac => ac.LessonId, name: "FK_AccountCourseLessons_Lessons");
-            builder.HasIndex(indexExpression: ac => ac.LessonStatusId, name: "FK_AccountCourseLessons_LessonStates");
+            //builder.HasIndex(indexExpression: ac => ac.AccountId, name: "FK_AccountCourseLessons_Accounts");
+            //builder.HasIndex(indexExpression: ac => ac.LessonId, name: "FK_AccountCourseLessons_Lessons");
+            //builder.HasIndex(indexExpression: ac => ac.LessonStatusId, name: "FK_AccountCourseLessons_LessonStates");
 
             builder.HasQueryFilter(ac => !ac.DeletedDate.HasValue);
             //BAĞLANTILAR KURULACAK!!!

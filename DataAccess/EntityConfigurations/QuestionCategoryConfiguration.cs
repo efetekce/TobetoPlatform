@@ -16,7 +16,6 @@ namespace DataAccess.EntityConfigurations
         builder.ToTable("QuestionCategories").HasKey(qc => qc.Id);
         builder.Property(qc => qc.Id).HasColumnName("Id").IsRequired();
         builder.Property(qc => qc.Name).HasColumnName("Name").IsRequired();
-        builder.Property(qc => qc.Priority).HasColumnName("Priority");
         builder.HasQueryFilter(qc => !qc.DeletedDate.HasValue);
         }
     }

@@ -22,9 +22,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(a => a.Duration).HasColumnName("Duration");
             builder.Property(a => a.StartTime).HasColumnName("StartTime");
             builder.Property(a => a.EndTime).HasColumnName("EndTime");
-            builder.Property(a => a.Priority).HasColumnName("Priority");
-            builder.Property(a => a.Visibility).HasColumnName("Visibility");
-            builder.HasIndex(indexExpression: a => a.QuestionId, name: "FK_Assessments_Questions");
+            //builder.HasIndex(indexExpression: a => a.QuestionId, name: "FK_Assessments_Questions");
             builder.HasQueryFilter(a => !a.DeletedDate.HasValue);
         }
     }

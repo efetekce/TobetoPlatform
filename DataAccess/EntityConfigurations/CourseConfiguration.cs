@@ -20,7 +20,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(c => c.LessonId).HasColumnName("LessonId").IsRequired();
             builder.Property(c => c.ImageId).HasColumnName("ImageId");
             builder.Property(c => c.Name).HasColumnName("Name").IsRequired();
-            builder.HasMany(c=>c.CourseContents).WithOne(c=>c.Course).HasForeignKey(c=>c.CourseId);
+            //builder.HasMany(c=>c.CourseContents).WithOne(c=>c.Course).HasForeignKey(c=>c.CourseId);
         }
     }
 }

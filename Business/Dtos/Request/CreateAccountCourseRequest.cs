@@ -16,6 +16,4 @@ namespace Business.Dtos.Request
         public bool Like { get; set; }
         public bool Favorite { get; set; }
     }
-
-
 }

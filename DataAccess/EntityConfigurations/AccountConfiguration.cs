@@ -14,7 +14,7 @@ namespace DataAccess.EntityConfigurations
         public void Configure(EntityTypeBuilder<Account> builder)
         {
             builder.ToTable("Accounts").HasKey(b => b.Id);
-            builder.Property(a => a.AdressId).HasColumnName("AdressId");
+            builder.Property(a => a.AddressId).HasColumnName("AddressId");
             builder.Property(a => a.FirstName).HasColumnName("FirstName").IsRequired();
             builder.Property(a => a.LastName).HasColumnName("LastName").IsRequired();
             builder.Property(a => a.NationalId).HasColumnName("NationalId").IsRequired();
@@ -22,17 +22,15 @@ namespace DataAccess.EntityConfigurations
             builder.Property(a => a.PhoneNumber).HasColumnName("PhoneNumber").IsRequired();
             builder.Property(a => a.Status).HasColumnName("Status").IsRequired();
             builder.HasIndex(indexExpression: a => a.NationalId, name: "UK_Accounts_NationalId").IsUnique();
-
-
           //  builder.HasMany(a => a.AccountSocialMedias);
-            builder.HasMany(a => a.AccountEducations);
-            builder.HasMany(a => a.AccountForeignLanguages);
-            builder.HasMany(a => a.AccountCourses);
-            builder.HasMany(a => a.AccountCertificates);
-            builder.HasMany(a => a.AccountCoursesLessons);
-            builder.HasMany(a => a.AccountTestResults);
-            builder.HasMany(a => a.AccountApplications);
-            builder.HasOne(a => a.Address);
+            //builder.HasMany(a => a.AccountEducations);
+            //builder.HasMany(a => a.AccountForeignLanguages);
+            //builder.HasMany(a => a.AccountCourses);
+            //builder.HasMany(a => a.AccountCertificates);
+            //builder.HasMany(a => a.AccountCoursesLessons);
+            //builder.HasMany(a => a.AccountTestResults);
+            //builder.HasMany(a => a.AccountApplications);
+            //builder.HasOne(a => a.Address);
             //adress classı accountadress olmalı ve bu tablo accountıd içermeli
 
             builder.HasQueryFilter(a => !a.DeletedDate.HasValue);
