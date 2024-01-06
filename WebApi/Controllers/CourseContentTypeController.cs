@@ -16,8 +16,6 @@ namespace WebApi.Controllers
             _courseContentTypeService = courseContentTypeService;
         }
 
-
-
         [HttpGet]
         public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {

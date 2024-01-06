@@ -25,20 +25,20 @@ namespace Business.Concrete
             _mapper = mapper;
         }
 
-        public async Task<CreatedSkillsResponse> Add(CreateSkillRequest createSkillRequest)
+        public async Task<CreatedSkillResponse> Add(CreateSkillRequest createSkillRequest)
         {
             Skill skill = _mapper.Map<Skill>(createSkillRequest);
             var cretedSkill = await _skillDal.AddAsync(skill);
-            CreatedSkillsResponse result = _mapper.Map<CreatedSkillsResponse>(cretedSkill);
+            CreatedSkillResponse result = _mapper.Map<CreatedSkillResponse>(cretedSkill);
             return result;
 
         }
 
-        public async Task<DeletedSkillsResponse> Delete(DeleteSkillsRequest deleteSkillsRequest)
+        public async Task<DeletedSkillResponse> Delete(DeleteSkillRequest deleteSkillRequest)
         {
-            Skill skill = _mapper.Map<Skill>(deleteSkillsRequest);
+            Skill skill = _mapper.Map<Skill>(deleteSkillRequest);
             var deletedSkill = await _skillDal.DeleteAsync(skill, false);
-            DeletedSkillsResponse result = _mapper.Map<DeletedSkillsResponse>(deletedSkill);
+            DeletedSkillResponse result = _mapper.Map<DeletedSkillResponse>(deletedSkill);
             return result;
         }
 
@@ -52,11 +52,11 @@ namespace Business.Concrete
             return result;
         }
 
-        public async Task<UpdatedSkillsResponse> Update(UpdateSkillsRequest updateSkillsRequest)
+        public async Task<UpdatedSkillResponse> Update(UpdateSkillRequest updateSkillRequest)
         {
-            Skill skill = _mapper.Map<Skill>(updateSkillsRequest);
+            Skill skill = _mapper.Map<Skill>(updateSkillRequest);
             var updatedSkill = await _skillDal.UpdateAsync(skill);
-            UpdatedSkillsResponse result = _mapper.Map<UpdatedSkillsResponse>(updatedSkill);
+            UpdatedSkillResponse result = _mapper.Map<UpdatedSkillResponse>(updatedSkill);
             return result;
         }
     }

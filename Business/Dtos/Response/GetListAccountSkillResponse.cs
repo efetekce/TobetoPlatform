@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Response
 {
-    public class DeletedSkillsResponse
+    public class GetListAccountSkillResponse
     {
         public int Id { get; set; }
-        public string Skill { get; set; }
+        public int AccountId { get; set; }
+        public int SkillId { get; set; }
     }
 }

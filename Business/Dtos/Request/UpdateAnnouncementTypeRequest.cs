@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
-    public class CreateSkillRequest
+    public class UpdateAnnouncementTypeRequest
     {
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

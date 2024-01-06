@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Dtos.Response
+namespace Business.Dtos.Request
 {
-    public class CreatedSkillsResponse
+    public class DeleteAnnouncementTypeRequest
     {
         public int Id { get; set; }
-        public string Skill { get; set; }
     }
 }

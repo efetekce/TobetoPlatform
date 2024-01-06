@@ -18,18 +18,23 @@ namespace Business
     {
         public static IServiceCollection AddBusinessServices(this IServiceCollection services)
         {
+            services.AddScoped<IAccountService, AccountManager>();
             services.AddScoped<IAccountApplicationService, AccountApplicationManager>();
             services.AddScoped<IAccountCertificateService, AccountCertificateManager>();
-            services.AddScoped<IAccountCourseLessonService, AccountCourseLessonManager>();
             services.AddScoped<IAccountCourseService, AccountCourseManager>();
+            services.AddScoped<IAccountCourseLessonService, AccountCourseLessonManager>();
             services.AddScoped<IAccountEducationService, AccountEducationManager>();
             services.AddScoped<IAccountForeignLanguageService, AccountForeignLanguageManager>();
-            services.AddScoped<IAccountService, AccountManager>();
+            services.AddScoped<IAccountSkillService, AccountSkillManager>();
+            services.AddScoped<IAccountSocialMediaService, AccountSocialMediaManager>();
+            services.AddScoped<IAccountTestResultService, AccountTestResultManager>();
             services.AddScoped<IAddressService, AddressManager>();
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
+            services.AddScoped<IAnnouncementTypeService, AnnouncementTypeManager>();
             services.AddScoped<IAnswerService, AnswerManager>();
             services.AddScoped<IApplicationService, ApplicationManager>();
             services.AddScoped<IApplicationStepService, ApplicationStepManager>();
+            services.AddScoped<IAssessmentService, AssessmentManager>();
             services.AddScoped<IAuthService, AuthManager>();
             services.AddScoped<ICityService, CityManager>();
             services.AddScoped<ICountryService, CountryManager>();
@@ -48,17 +53,18 @@ namespace Business
             services.AddScoped<ILessonStatusService, LessonStatusManager>();
             services.AddScoped<IMembershipStatusService, MembershipStatusManager>();
             services.AddScoped<IOrganizationService, OrganizationManager>();
-            services.AddScoped<IQuestionCategoryService, QuestionCategoryManager>();
+            services.AddScoped<IProfileImageService, ProfileImageManager>();
             services.AddScoped<IQuestionService, QuestionManager>();
+            services.AddScoped<IQuestionCategoryService, QuestionCategoryManager>();
             services.AddScoped<ISessionStatusService, SessionStatusManager>();
             services.AddScoped<ISkillService, SkillManager>();
             services.AddScoped<ISocialMediaPlatformService, SocialMediaPlatformManager>();
+            services.AddScoped<ISubLectureService, SubLectureManager>();
             services.AddScoped<ISurveyService, SurveyManager>();
             services.AddScoped<ISurveyTypeService, SurveyTypeManager>();
             services.AddScoped<ITokenHelper, JwtHelper>();
             services.AddScoped<IUniversityService, UniversityManager>();
             services.AddScoped<IUserService, UserManager>();
-            services.AddScoped<IAccountService,AccountManager>();
 
             // ----------------------FOR RULES-----------------------
             services.AddScoped<AccountApplicationBusinessRules>();

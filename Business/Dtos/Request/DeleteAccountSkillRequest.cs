@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
-    public class CreateSkillRequest
+    public class DeleteAccountSkillRequest
     {
-        public string Name { get; set; }
+        public int Id { get; set; }
     }
 }

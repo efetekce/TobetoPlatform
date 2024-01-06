@@ -30,17 +30,16 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpPut]
+        [HttpPost("Update")]
         public async Task<IActionResult> Update([FromBody] UpdateAccountCertificateRequest updateCertificateRequest)
         {
             var result = await _accountCertificateService.Update(updateCertificateRequest);
             return Ok(result);
         }
 
-        [HttpDelete]
+        [HttpPost("Delete")]
         public async Task<IActionResult> Delete([FromBody] DeleteAccountCertificateRequest deleteCertificateRequest)
         {
-
             var result = await _accountCertificateService.Delete(deleteCertificateRequest);
             return Ok(result);
         }

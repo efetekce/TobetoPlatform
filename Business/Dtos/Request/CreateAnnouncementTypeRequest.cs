@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
-    public class CreateSkillRequest
+    public class CreateAnnouncementTypeRequest
     {
         public string Name { get; set; }
     }

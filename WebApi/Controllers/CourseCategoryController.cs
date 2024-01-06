@@ -16,8 +16,6 @@ namespace WebApi.Controllers
             _courseCategoryService = courseCategoryService;
         }
 
-
-
         [HttpGet]
         public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
