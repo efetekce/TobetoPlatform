@@ -18,7 +18,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(c => c.CourseId).HasColumnName("CourseId").IsRequired();
             builder.Property(c => c.ContentTypeId).HasColumnName("ContectTypeId").IsRequired(); 
             builder.Property(c => c.Name).HasColumnName("Name").IsRequired();
-            builder.HasMany(c => c.Courses).WithOne(c => c.CourseContent).HasForeignKey(c => c.CourseContentId);
+            //builder.HasMany(c => c.Courses).WithOne(c => c.CourseContent).HasForeignKey(c => c.CourseContentId);
         }
     }
 }

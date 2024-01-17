@@ -16,32 +16,32 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class ExperienceManager : IExperienceService
+    public class AccountExperienceManager : IAccountExperienceService
     {
-        IExperienceDal _experienceDal;
+        IAccountExperienceDal _experienceDal;
         IMapper _mapper;
         ExperienceBusinessRules _experienceBusinessRules;
 
-        public ExperienceManager(IExperienceDal experienceDal, IMapper mapper,ExperienceBusinessRules experienceBusinessRules)
+        public AccountExperienceManager(IAccountExperienceDal experienceDal, IMapper mapper,ExperienceBusinessRules experienceBusinessRules)
         {
             _experienceDal = experienceDal;
             _mapper = mapper;
             _experienceBusinessRules = experienceBusinessRules;
         }
 
-        [ValidationAspect(typeof(ExperienceValidator))]
-        public async Task<CreatedExperienceResponse> Add(CreateExperienceRequest createExperienceRequest)
+        [ValidationAspect(typeof(AccountExperienceValidator))]
+        public async Task<CreatedExperienceResponse> Add(CreateAccountExperienceRequest createExperienceRequest)
         {
             await _experienceBusinessRules.ExperienceRule(createExperienceRequest.Position,createExperienceRequest.CompanyName,createExperienceRequest.CityId);
-            var category = _mapper.Map<Experience>(createExperienceRequest);
+            var category = _mapper.Map<AccountExperience>(createExperienceRequest);
             var createdCategory = await _experienceDal.AddAsync(category);
             var createdCategoryResponse = _mapper.Map<CreatedExperienceResponse>(createdCategory);
             return createdCategoryResponse;
         }
 
-        public async Task<DeletedExperienceResponse> Delete(DeleteExperienceRequest deleteExperienceRequest)
+        public async Task<DeletedExperienceResponse> Delete(DeleteAccountExperienceRequest deleteExperienceRequest)
         {
-            var experience = _mapper.Map<Experience>(deleteExperienceRequest);
+            var experience = _mapper.Map<AccountExperience>(deleteExperienceRequest);
             var deletedExperience = await _experienceDal.DeleteAsync(experience, false);
             var deletedExperienceResponse = _mapper.Map<DeletedExperienceResponse>(deletedExperience);
             return deletedExperienceResponse;
@@ -58,9 +58,9 @@ namespace Business.Concrete
             return mapped;
         }
 
-        public async Task<UpdatedExperienceResponse> Update(UpdateExperienceRequest updateExperienceRequest)
+        public async Task<UpdatedExperienceResponse> Update(UpdateAccountExperienceRequest updateExperienceRequest)
         {
-            var category = _mapper.Map<Experience>(updateExperienceRequest);
+            var category = _mapper.Map<AccountExperience>(updateExperienceRequest);
             var updatedExperience = await _experienceDal.UpdateAsync(category);
             var updatedExperienceResponse = _mapper.Map<UpdatedExperienceResponse>(updatedExperience);
             return updatedExperienceResponse;

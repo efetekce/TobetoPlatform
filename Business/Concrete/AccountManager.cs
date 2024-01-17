@@ -7,6 +7,7 @@ using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
 using Entities.Concretes;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,12 +44,20 @@ namespace Business.Concrete
             return result;
         }
 
+        public async Task<GetListAccountResponse> GetByIdAccount(GetByIdAccountRequest getByIdAccountRequest)
+        {
+            var account = await _accountDal.GetListAsync(a => a.Id == getByIdAccountRequest.Id);
+            var result = _mapper.Map<GetListAccountResponse>(account);
+            return result;
+        }
+
         public async Task<IPaginate<GetListAccountResponse>> GetListAccount(PageRequest pageRequest)
         {
             var account = await _accountDal.GetListAsync(
+                include: a => a.Include(b => b.Country).Include(c=>c.City).Include(d=>d.District),
                 orderBy: a => a.OrderBy(a => a.Id),
                 index: pageRequest.PageIndex,
-                size: pageRequest.PageSize);
+                size: pageRequest.PageSize); ;
             var result = _mapper.Map<Paginate<GetListAccountResponse>>(account);
             return result;
         }

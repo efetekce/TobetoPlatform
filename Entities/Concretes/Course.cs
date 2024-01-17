@@ -14,8 +14,11 @@ namespace Entities.Concretes
         public int LessonId { get; set; }
         public string ImageId { get; set; }
         public string Name { get; set; }
-        public CourseContent CourseContent { get; set; }
         
 
+        //Navigation Properties
+        public CourseDetail CourseDetail { get; set; }
+        public virtual ICollection<CourseContent> CourseContents { get; set; }
+        public virtual ICollection<AccountCourse> AccountCourse { get; set; }
     }
 }

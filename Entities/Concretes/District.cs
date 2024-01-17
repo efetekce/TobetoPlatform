@@ -10,9 +10,7 @@ namespace Entities.Concretes
     public class District : Entity<int>
     {
         public int CityId { get; set; }
-        public string Name { get; set; }
-        public int Priority { get; set; }
-        public bool Visibility { get; set; }
         public City City { get; set; }
+        public string Name { get; set; }
     }
 }

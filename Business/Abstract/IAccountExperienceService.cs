@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IExperienceService
+    public interface IAccountExperienceService
     {
-        Task<CreatedExperienceResponse> Add(CreateExperienceRequest createExperienceRequest);
+        Task<CreatedExperienceResponse> Add(CreateAccountExperienceRequest createExperienceRequest);
 
         Task<IPaginate<GetListExperienceResponse>> GetListExperience(PageRequest pageRequest);
 
-        Task<UpdatedExperienceResponse> Update(UpdateExperienceRequest updateExperienceRequest);
+        Task<UpdatedExperienceResponse> Update(UpdateAccountExperienceRequest updateExperienceRequest);
 
-        Task<DeletedExperienceResponse> Delete(DeleteExperienceRequest deleteExperienceRequest);
+        Task<DeletedExperienceResponse> Delete(DeleteAccountExperienceRequest deleteExperienceRequest);
     }
 }

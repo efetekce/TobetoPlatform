@@ -16,15 +16,25 @@ namespace Business.Profiles
         public AccountMappingProfile()
         {
             CreateMap<CreateAccountRequest, Account>().ReverseMap();
-            CreateMap<UpdateAccountRequest, Account>().ReverseMap();
-            CreateMap<DeleteAccountRequest, Account>().ReverseMap();
+            CreateMap<Account, CreatedAccountResponse>()
+            .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => $"{src.Country.Code} {src.PhoneNumber}"))
+            .ReverseMap();
 
-            CreateMap<Account, GetListAccountResponse>().ReverseMap();
+            CreateMap<UpdateAccountRequest, Account>()
+            .ReverseMap();
+            CreateMap<Account, UpdatedAccountResponse>()
+            .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => $"{src.Country.Code} {src.PhoneNumber}"))
+            .ReverseMap();
+
+            CreateMap<DeleteAccountRequest, Account>().ReverseMap();
+            CreateMap<Account, DeletedAccountResponse>().ReverseMap();
+
+            CreateMap<Account, GetListAccountResponse>()
+            .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => $"{src.Country.Code} {src.PhoneNumber}"))
+            .ReverseMap();
             CreateMap<Paginate<Account>, Paginate<GetListAccountResponse>>().ReverseMap();
 
-            CreateMap<Account, CreatedAccountResponse>().ReverseMap();
-            CreateMap<Account, UpdatedAccountResponse>().ReverseMap();
-            CreateMap<Account, DeletedAccountResponse>().ReverseMap();
+            CreateMap<GetByIdAccountRequest, Account>().ReverseMap();
         }
     }
 }

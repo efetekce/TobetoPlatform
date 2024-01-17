@@ -14,14 +14,14 @@ namespace Business.Rules
     public class OrganizationBusinessRules : BaseBusinessRules
     {
         private readonly IOrganizationDal _organizationDal;
-        private readonly IAddressDal _addressDal;
+        //private readonly IAddressDal _addressDal;
         /*public int AddressId { get; set; }
         public string Name { get; set; }
         public string ContactNumber { get; set; }*/
-        public OrganizationBusinessRules(IOrganizationDal organizationDal, IAddressDal addressDal)
+        public OrganizationBusinessRules(IOrganizationDal organizationDal)
         {
             _organizationDal = organizationDal;
-            _addressDal = addressDal;
+            //_addressDal = addressDal;
         }
 
         public async Task OrganizationNameCantBeNull(string name)
@@ -40,15 +40,15 @@ namespace Business.Rules
             }
         }
 
-        public async Task MustBeAddressDefined(int addressId)
-        {
-            var result = await _addressDal.GetListAsync(
-                predicate: p => p.Id == addressId
-                );
-            if (result.Count == 0)
-            {
-                throw new BusinessException(BusinessMessages.RequiredAddress);
-            }
-        }
+        //public async Task MustBeAddressDefined(int addressId)
+        //{
+        //    var result = await _addressDal.GetListAsync(
+        //        predicate: p => p.Id == addressId
+        //        );
+        //    if (result.Count == 0)
+        //    {
+        //        throw new BusinessException(BusinessMessages.RequiredAddress);
+        //    }
+        //}
     }
 }

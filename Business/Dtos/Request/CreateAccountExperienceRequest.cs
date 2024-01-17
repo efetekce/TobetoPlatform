@@ -6,24 +6,15 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
-    public class UpdateExperienceRequest
+    public class CreateAccountExperienceRequest
     {
-        public int Id { get; set; }
-
-        public int ProfileId { get; set; }
-
+        public int AccountId { get; set; }
         public string CompanyName { get; set; }
-
         public string Position { get; set; }
-
-        public string Field { get; set; }
-
+        public string Sector { get; set; }
         public int CityId { get; set; }
-
         public DateTime StartDate { get; set; }
-
         public DateTime EndDate { get; set; }
-
         public string JobDescription { get; set; }
     }
 }

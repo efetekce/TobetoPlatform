@@ -9,7 +9,7 @@ namespace Entities.Concretes
 {
     public class ProfileImage :Entity<int>
     {
-        public Guid ProfileId { get; set; }
+        public int AccountId { get; set; }
         public string ImagePath { get; set; }
     }
 }

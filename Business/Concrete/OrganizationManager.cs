@@ -31,7 +31,7 @@ namespace Business.Concrete
         {
             await _organizationBusinessRules.OrganizationNameCantBeNull(createOrganizationRequest.Name);
             await _organizationBusinessRules.ContactNumberCantBeNull(createOrganizationRequest.ContactNumber);
-            await _organizationBusinessRules.MustBeAddressDefined(createOrganizationRequest.AddressId);
+            //await _organizationBusinessRules.MustBeAddressDefined(createOrganizationRequest.AddressId);
 
             Organization organization = _mapper.Map<Organization>(createOrganizationRequest);
             var createdOrganization = await _organizationDal.AddAsync(organization);
@@ -61,7 +61,7 @@ namespace Business.Concrete
         {
             await _organizationBusinessRules.OrganizationNameCantBeNull(updateOrganizationRequest.Name);
             await _organizationBusinessRules.ContactNumberCantBeNull(updateOrganizationRequest.ContactNumber);
-            await _organizationBusinessRules.MustBeAddressDefined(updateOrganizationRequest.AddressId);
+            //await _organizationBusinessRules.MustBeAddressDefined(updateOrganizationRequest.AddressId);
 
             Organization organization = _mapper.Map<Organization>(updateOrganizationRequest);
             var updatedOrganization = await _organizationDal.UpdateAsync(organization);

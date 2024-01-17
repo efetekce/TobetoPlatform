@@ -14,9 +14,9 @@ namespace Business.Rules
 {
     public class ExperienceBusinessRules : BaseBusinessRules
     {
-        private readonly IExperienceDal _experienceDal;
+        private readonly IAccountExperienceDal _experienceDal;
 
-        public ExperienceBusinessRules(IExperienceDal experienceDal)
+        public ExperienceBusinessRules(IAccountExperienceDal experienceDal)
         {
             _experienceDal = experienceDal;
         }

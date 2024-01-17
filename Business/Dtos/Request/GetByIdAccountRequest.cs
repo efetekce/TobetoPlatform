@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
-    public class DeleteAddressRequest
+    public class GetByIdAccountRequest
     {
         public int Id { get; set; }
     }

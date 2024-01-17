@@ -21,10 +21,21 @@ namespace Business.Rules
 
         public async Task MaxNationalIdLength(string nationalId)
         {
-            var result = await _accountDal.GetListAsync(a => a.NationalId == nationalId);
-            if (result.Count != 11) 
+            //Bu kısımda henüz tc kimlik kaydı olmadı
+            //var result = await _accountDal.GetListAsync(a => a.NationalId == nationalId);
+            if (nationalId.ToString().Length != 11) 
             {
                 throw new BusinessException("tc 11 hanelı olmalı ");
+            }
+        }
+
+        //NationalId nin unique olması durumu ayrı iş kuralı olmalı
+        public async Task NationalIdMustBeUnique(string nationalId)
+        {
+            var result = await _accountDal.GetListAsync(a => a.NationalId == nationalId);
+            if (result.Count > 0)
+            {
+                throw new BusinessException("Geçerli bir kimlik idsi giriniz");
             }
         }
     }

@@ -30,7 +30,7 @@ namespace Business.Concrete
             _countryBusinessRules = countryBusinessRules;
         }
 
-        [ValidationAspect(typeof(CountryValidator))]
+        //[ValidationAspect(typeof(CountryValidator))]
         public async Task<CreatedCountryResponse> Add(CreateCountryRequest createCountryRequest)
         {
             await _countryBusinessRules.SameCountryName(createCountryRequest.Name);

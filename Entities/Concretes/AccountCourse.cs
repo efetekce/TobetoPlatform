@@ -11,6 +11,8 @@ namespace Entities.Concretes
     {
         public int AccountId { get; set; }
         public int CourseId { get; set; }
+        public virtual Account Account { get; set; }
+        public ICollection<Course> Course { get; set; }
         public int PercentageOfCompletion { get; set; }
         public int Point { get; set; }
         public bool Like { get; set; }

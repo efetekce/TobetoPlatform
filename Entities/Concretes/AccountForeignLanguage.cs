@@ -10,9 +10,8 @@ namespace Entities.Concretes
     public class AccountForeignLanguage : Entity<int>
     {
         public int AccountId { get; set; }
-        public int ForeignLanguageId { get; set; }
-
-        public int ForeignLanguageLevelId { get; set; }
-      
+        public Account Account { get; set; }
+        public ICollection<ForeignLanguage> ForeignLanguage { get; set; }
+        public ICollection<ForeignLanguageLevel> ForeignLanguageLevel { get; set; }
     }
 }

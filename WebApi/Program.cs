@@ -17,6 +17,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddBusinessServices();
 builder.Services.AddDataAccessServices(builder.Configuration);
+
+
+//Add Cors; uidan backende sorgu atabilmesi için gerekli bazý konfigürasyonlar 1
+//builder.Services.AddCors(opt => opt.AddDefaultPolicy(p => { p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); }));
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 //
 builder.Services.AddEndpointsApiExplorer();
@@ -58,7 +63,10 @@ var app = builder.Build();
 
         app.MapControllers();
 
-        app.Run();
+//Use Cors; uidan backende sorgu atabilmesi için gerekli bazý konfigürasyonlar 2
+//app.UseCors(opt => opt.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+
+app.Run();
     
        
         

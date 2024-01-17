@@ -16,9 +16,7 @@ namespace DataAccess.EntityConfigurations
             builder.ToTable("AccountSocialMedias").HasKey(a => a.Id);
             builder.Property(a => a.Id).HasColumnName("Id").IsRequired();
             builder.Property(a => a.AccountId).HasColumnName("AccountId").IsRequired();
-            builder.Property(a => a.SocialMediaId).HasColumnName("SocialMediaId").IsRequired();
             builder.Property(a => a.Link).HasColumnName("Link").IsRequired();
-            builder.Property(a => a.Priority).HasColumnName("Priority");
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }

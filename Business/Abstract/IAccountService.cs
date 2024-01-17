@@ -13,6 +13,7 @@ namespace Business.Abstract
     {
         Task<CreatedAccountResponse> Add(CreateAccountRequest  createAccountRequest);
         Task<IPaginate<GetListAccountResponse>> GetListAccount(PageRequest pageRequest);
+        Task<GetListAccountResponse> GetByIdAccount(GetByIdAccountRequest getByIdAccountRequest); //Burayı sor!
         Task<UpdatedAccountResponse> Update(UpdateAccountRequest updateAccountRequest);
         Task<DeletedAccountResponse> Delete(DeleteAccountRequest deleteAccountRequest);
     }

@@ -18,8 +18,11 @@ namespace DataAccess.EntityConfigurations
             builder.Property(e => e.AccountId).HasColumnName("AccountId").IsRequired();
             builder.Property(e => e.CourseId).HasColumnName("CourseId").IsRequired();
 
-            builder.HasIndex(indexExpression: e => e.AccountId, name: "FK_AccountCourses_Accounts");
-            //one to many
+            //builder.HasOne(e => e.Account).WithMany(e => e.AccountCourses).HasForeignKey(e => e.AccountId);
+            builder.HasMany(e => e.Course);
+
+            //builder.HasIndex(indexExpression: e => e.AccountId, name: "FK_AccountCourses_Accounts");
+
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }

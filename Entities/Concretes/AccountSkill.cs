@@ -5,8 +5,7 @@ namespace Entities.Concretes
     public class AccountSkill : Entity<int>
     {
         public int AccountId { get; set; }
-        public int SkillId { get; set; }
-        public int Priority { get; set; }
-        public bool Visibility { get; set; }
+        public Account Account { get; set; }
+        public ICollection<Skill> Skill { get; set; }
     }
 }

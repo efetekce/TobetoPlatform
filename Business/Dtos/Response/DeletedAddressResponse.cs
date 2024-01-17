@@ -13,5 +13,6 @@ namespace Business.Dtos.Response
         public int CityId { get; set; }
         public int DistrictId { get; set; }
         public string Detail { get; set; }
+        public int AccountId { get; set; }
     }
 }

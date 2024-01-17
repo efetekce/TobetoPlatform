@@ -10,8 +10,8 @@ namespace Entities.Concretes
     public class AccountSocialMedia : Entity<int>
     {
         public int AccountId { get; set; }
-        public int SocialMediaId { get; set; }
-        public int Priority { get; set; }
+        public Account Account { get; set; }
+        public ICollection<SocialMediaPlatform> SocialMediaPlatform { get; set; }
         public string Link { get; set; }
     }
 }

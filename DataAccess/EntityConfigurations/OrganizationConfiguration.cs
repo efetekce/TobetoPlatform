@@ -21,11 +21,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(o => o.Name).HasColumnName("Name");
             builder.Property(o => o.ContactNumber).HasColumnName("ContactNumber");
 
-            builder
-                .HasOne(o => o.Address)
-                .WithMany()
-                .HasForeignKey(o => o.AddressId)
-                .OnDelete(DeleteBehavior.Restrict);
+            
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
         }
     }

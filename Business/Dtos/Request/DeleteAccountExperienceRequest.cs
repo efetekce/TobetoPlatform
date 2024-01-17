@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Dtos.Response
+namespace Business.Dtos.Request
 {
-    public class DeletedCityResponse
+    public class DeleteAccountExperienceRequest
     {
         public int Id { get; set; }
-        public int CountryId { get; set; }
-        public string Name { get; set; }
     }
 }

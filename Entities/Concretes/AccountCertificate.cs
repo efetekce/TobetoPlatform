@@ -11,9 +11,9 @@ namespace Entities.Concretes
     public class AccountCertificate : Entity<int>
     {
         public int AccountId { get; set; }
-        public string Name { get; set; }
-
-        //public string FileFormat { get; set; }
+        public Account Account { get; set; }
+        public string Name { get; set; } 
+        public string FileFormat { get; set; }
         //public string Path { get; set; } 
         //public Guid Key { get; set; }
     }

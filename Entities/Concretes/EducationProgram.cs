@@ -9,8 +9,9 @@ namespace Entities.Concretes
 {
     public class EducationProgram : Entity<int>
     {
-        public int UniversityId { get; set; }
         public string Name { get; set; }
-        public bool Visibility { get; set; }
+        public ICollection<University> University { get; set; }
+
+
     }
 }

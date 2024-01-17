@@ -10,11 +10,16 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concretes
 {
-    public class EfPersonalInformationDal : EfRepositoryBase<PersonalInformation, int, TobetoContext>, IPersonalInformationDal
+    public class EfAccountExperienceDal : EfRepositoryBase<AccountExperience, int, TobetoContext>, IAccountExperienceDal
     {
-        public EfPersonalInformationDal(TobetoContext context) : base(context)
+        public EfAccountExperienceDal(TobetoContext context) : base(context)
         {
             TobetoContext _context;
         }
     }
 }
+
+
+
+
+

@@ -19,32 +19,19 @@ namespace Business
         public static IServiceCollection AddBusinessServices(this IServiceCollection services)
         {
             services.AddScoped<IAccountApplicationService, AccountApplicationManager>();
-            services.AddScoped<IAccountCertificateService, AccountCertificateManager>();
             services.AddScoped<IAccountCourseLessonService, AccountCourseLessonManager>();
             services.AddScoped<IAccountCourseService, AccountCourseManager>();
-            services.AddScoped<IAccountEducationService, AccountEducationManager>();
-            services.AddScoped<IAccountForeignLanguageService, AccountForeignLanguageManager>();
-            services.AddScoped<IAccountPasswordService, AccountPasswordManager>();
-            services.AddScoped<IAccountService, AccountManager>();
-            services.AddScoped<IAddressService, AddressManager>();
+            //services.AddScoped<IAccountPasswordService, AccountPasswordManager>();
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
             services.AddScoped<IAnswerService, AnswerManager>();
             services.AddScoped<IApplicationService, ApplicationManager>();
             services.AddScoped<IApplicationStepService, ApplicationStepManager>();
             services.AddScoped<IAuthService, AuthManager>();
-            services.AddScoped<ICityService, CityManager>();
-            services.AddScoped<ICountryService, CountryManager>();
             services.AddScoped<ICourseCategoryService, CourseCategoryManager>();
             services.AddScoped<ICourseContentService, CourseContentManager>();
             services.AddScoped<ICourseContentTypeService, CourseContentTypeManager>();
             services.AddScoped<ICourseDetailService, CourseDetailManager>();
             services.AddScoped<ICourseService, CourseManager>();
-            services.AddScoped<IDistrictService, DistrictManager>();
-            services.AddScoped<IEducationProgramService, EducationProgramManager>();
-            services.AddScoped<IEducationStatusService, EducationStatusManager>();
-            services.AddScoped<IExperienceService, ExperienceManager>();
-            services.AddScoped<IForeignLanguageLevelService, ForeignLanguageLevelManager>();
-            services.AddScoped<IForeignLanguageService, ForeignLanguageManager>();
             services.AddScoped<ILessonService, LessonManager>();
             services.AddScoped<ILessonStatusService, LessonStatusManager>();
             services.AddScoped<IMembershipStatusService, MembershipStatusManager>();
@@ -52,14 +39,31 @@ namespace Business
             services.AddScoped<IQuestionCategoryService, QuestionCategoryManager>();
             services.AddScoped<IQuestionService, QuestionManager>();
             services.AddScoped<ISessionStatusService, SessionStatusManager>();
-            services.AddScoped<ISkillService, SkillManager>();
-            services.AddScoped<ISocialMediaPlatformService, SocialMediaPlatformManager>();
             services.AddScoped<ISurveyService, SurveyManager>();
             services.AddScoped<ISurveyTypeService, SurveyTypeManager>();
             services.AddScoped<ITokenHelper, JwtHelper>();
-            services.AddScoped<IUniversityService, UniversityManager>();
             services.AddScoped<IUserService, UserManager>();
-            services.AddScoped<IAccountService,AccountManager>();
+
+            //Profil bilgileri
+            services.AddScoped<IAccountService, AccountManager>();
+            services.AddScoped<ICountryService, CountryManager>();
+            services.AddScoped<ICityService, CityManager>();
+            services.AddScoped<IDistrictService, DistrictManager>();
+            services.AddScoped<IAccountExperienceService, AccountExperienceManager>();
+            services.AddScoped<IAccountEducationService, AccountEducationManager>();
+            services.AddScoped<IUniversityService, UniversityManager>();
+            services.AddScoped<IEducationProgramService, EducationProgramManager>();
+            services.AddScoped<IEducationStatusService, EducationStatusManager>();
+            services.AddScoped<IAccountCertificateService, AccountCertificateManager>();
+            services.AddScoped<IAccountSkillService, AccountSkillManager>();
+            services.AddScoped<ISkillService, SkillManager>();
+            services.AddScoped<IAccountCertificateService, AccountCertificateManager>();
+            services.AddScoped<IAccountSocialMediaService, AccountSocialMediaManager>();
+            services.AddScoped<ISocialMediaPlatformService, SocialMediaPlatformManager>();
+            services.AddScoped<IAccountForeignLanguageService, AccountForeignLanguageManager>();
+            services.AddScoped<IForeignLanguageLevelService, ForeignLanguageLevelManager>();
+            services.AddScoped<IForeignLanguageService, ForeignLanguageManager>();
+            //services.AddScoped<IAddressService, AddressManager>();
 
             // ----------------------FOR RULES-----------------------
             services.AddScoped<AccountApplicationBusinessRules>();

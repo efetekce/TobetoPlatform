@@ -13,8 +13,15 @@ namespace Entities.Concretes
         public int CourseContentId { get; set; }
         public int CategoryId { get; set; }
         public int OrganizationId { get; set; }
-        public string Language { get; set; }
+        public int ForeignLanguageId { get; set; }
         public string SubType { get; set; }
+
+        //Navigation Properties
+        public virtual Course Course { get; set; }
+        public virtual ICollection<CourseContent> CourseContents { get; set; }
+        public virtual CourseCategory CourseCategory { get; set; }
+        public virtual Organization Organization { get; set; }
+        public virtual ForeignLanguage ForeignLanguage { get; set; }
 
     }
 }
