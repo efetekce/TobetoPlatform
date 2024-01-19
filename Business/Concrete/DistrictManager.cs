@@ -38,7 +38,8 @@ namespace Business.Concrete
 
         public async Task<DeletedDistrictResponse> Delete(DeleteDistrictRequest deleteDistrictRequest)
         {
-            District district = _mapper.Map<District>(deleteDistrictRequest);
+            //District district = _mapper.Map<District>(deleteDistrictRequest);
+            District district = await _districtDal.GetAsync(d => d.Id == deleteDistrictRequest.Id);
             var deletedDistrict = await _districtDal.DeleteAsync(district, false);
             DeletedDistrictResponse result = _mapper.Map<DeletedDistrictResponse>(deletedDistrict);
             return result;
@@ -56,7 +57,9 @@ namespace Business.Concrete
 
         public async Task<UpdatedDistrictResponse> Update(UpdateDistrictRequest updateDistrictRequest)
         {
-            District district = _mapper.Map<District>(updateDistrictRequest);
+            //District district = _mapper.Map<District>(updateDistrictRequest);
+            District district = await _districtDal.GetAsync(i => i.Id == updateDistrictRequest.Id);
+            _mapper.Map(updateDistrictRequest, district);
             var updatedDistrict = await _districtDal.UpdateAsync(district);
             UpdatedDistrictResponse result = _mapper.Map<UpdatedDistrictResponse>(updatedDistrict);
             return result;

@@ -15,6 +15,8 @@ namespace DataAccess.EntityConfigurations
         {
             builder.ToTable("Experiences").HasKey(e => e.Id);
             builder.Property(e => e.Id).HasColumnName("Id").IsRequired();
+            builder.Property(e => e.AccountId).HasColumnName("AccountId").IsRequired();
+            builder.Property(e => e.CityId).HasColumnName("CityId").IsRequired();
             builder.Property(e => e.CompanyName).HasColumnName("CompanyName").IsRequired();
             builder.Property(e => e.Position).HasColumnName("Position");
             builder.Property(e => e.Sector).HasColumnName("Sector");
@@ -23,7 +25,8 @@ namespace DataAccess.EntityConfigurations
             builder.Property(e => e.JobDescription).HasColumnName("JobDescription");
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
 
-            builder.HasOne(a => a.City).WithMany().HasForeignKey(c => c.CityId).OnDelete(DeleteBehavior.NoAction);
+            //builder.HasOne(c => c.City).WithOne(city => city.AccountExperience).HasForeignKey<AccountExperience>(a => a.CityId);
+            builder.HasOne(a => a.Account).WithMany(account => account.AccountExperiences).HasForeignKey(a => a.AccountId).IsRequired().OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

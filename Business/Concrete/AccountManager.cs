@@ -38,7 +38,8 @@ namespace Business.Concrete
 
         public async Task<DeletedAccountResponse> Delete(DeleteAccountRequest deleteAccountRequest)
         {
-            Account account = _mapper.Map<Account>(deleteAccountRequest);
+            //Account account = _mapper.Map<Account>(deleteAccountRequest);
+            Account account = await _accountDal.GetAsync(d => d.Id == deleteAccountRequest.Id);
             var deletedAccount = await _accountDal.DeleteAsync(account, false);
             DeletedAccountResponse result = _mapper.Map<DeletedAccountResponse>(deletedAccount);
             return result;
@@ -54,7 +55,7 @@ namespace Business.Concrete
         public async Task<IPaginate<GetListAccountResponse>> GetListAccount(PageRequest pageRequest)
         {
             var account = await _accountDal.GetListAsync(
-                include: a => a.Include(b => b.Country).Include(c=>c.City).Include(d=>d.District),
+                include: a => a.Include(b => b.Country).ThenInclude(c=>c.Cities).ThenInclude(d=>d.Districts),
                 orderBy: a => a.OrderBy(a => a.Id),
                 index: pageRequest.PageIndex,
                 size: pageRequest.PageSize); ;
@@ -64,7 +65,9 @@ namespace Business.Concrete
 
         public async Task<UpdatedAccountResponse> Update(UpdateAccountRequest updateAccountRequest)
         {
-            Account account = _mapper.Map<Account>(updateAccountRequest);
+            //Account account = _mapper.Map<Account>(updateAccountRequest);
+            Account account = await _accountDal.GetAsync(i => i.Id == updateAccountRequest.Id);
+            _mapper.Map(updateAccountRequest, account);
             var updatedAccount = await _accountDal.UpdateAsync(account);
             UpdatedAccountResponse result = _mapper.Map<UpdatedAccountResponse>(updatedAccount);
             return result;

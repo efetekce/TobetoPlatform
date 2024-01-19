@@ -80,7 +80,7 @@ namespace Business
             services.AddScoped<CourseContentTypeBusinessRules>();
             services.AddScoped<CourseDetailBusinessRules>();
             services.AddScoped<EducationProgramBusinessRules>();
-            services.AddScoped<ExperienceBusinessRules>();
+            services.AddScoped<AccountExperienceBusinessRules>();
             services.AddScoped<LessonBusinessRules>();
             services.AddScoped<LessonStatusBusinessRules>();
             services.AddScoped<OrganizationBusinessRules>();

@@ -10,6 +10,6 @@ namespace Entities.Concretes
     public class University : Entity<int>
     {
         public string Name { get; set; }
-        public ICollection<EducationProgram> EducationProgram { get; set; }
+        public ICollection<EducationProgram> EducationPrograms { get; set; }
     }
 }

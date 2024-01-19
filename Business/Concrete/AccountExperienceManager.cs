@@ -7,6 +7,7 @@ using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
+using DataAccess.Concretes;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -18,52 +19,55 @@ namespace Business.Concrete
 {
     public class AccountExperienceManager : IAccountExperienceService
     {
-        IAccountExperienceDal _experienceDal;
+        IAccountExperienceDal _accountExperienceDal;
         IMapper _mapper;
-        ExperienceBusinessRules _experienceBusinessRules;
+        AccountExperienceBusinessRules _accountExperienceBusinessRules;
 
-        public AccountExperienceManager(IAccountExperienceDal experienceDal, IMapper mapper,ExperienceBusinessRules experienceBusinessRules)
+        public AccountExperienceManager(IAccountExperienceDal accountExperienceDal, IMapper mapper,AccountExperienceBusinessRules accountExperienceBusinessRules)
         {
-            _experienceDal = experienceDal;
+            _accountExperienceDal = accountExperienceDal;
             _mapper = mapper;
-            _experienceBusinessRules = experienceBusinessRules;
+            _accountExperienceBusinessRules = accountExperienceBusinessRules;
         }
 
         [ValidationAspect(typeof(AccountExperienceValidator))]
-        public async Task<CreatedExperienceResponse> Add(CreateAccountExperienceRequest createExperienceRequest)
+        public async Task<CreatedAccountExperienceResponse> Add(CreateAccountExperienceRequest createAccountExperienceRequest)
         {
-            await _experienceBusinessRules.ExperienceRule(createExperienceRequest.Position,createExperienceRequest.CompanyName,createExperienceRequest.CityId);
-            var category = _mapper.Map<AccountExperience>(createExperienceRequest);
-            var createdCategory = await _experienceDal.AddAsync(category);
-            var createdCategoryResponse = _mapper.Map<CreatedExperienceResponse>(createdCategory);
-            return createdCategoryResponse;
+            await _accountExperienceBusinessRules.ExperienceRule(createAccountExperienceRequest.Position, createAccountExperienceRequest.CompanyName, createAccountExperienceRequest.CityId);
+            AccountExperience accountExperience = _mapper.Map<AccountExperience>(createAccountExperienceRequest);
+            var createdAccountExperience = await _accountExperienceDal.AddAsync(accountExperience);
+            var createdAccountExperienceResponse = _mapper.Map<CreatedAccountExperienceResponse>(createdAccountExperience);
+            return createdAccountExperienceResponse;
         }
 
-        public async Task<DeletedExperienceResponse> Delete(DeleteAccountExperienceRequest deleteExperienceRequest)
+        public async Task<DeletedAccountExperienceResponse> Delete(DeleteAccountExperienceRequest deleteAccountExperienceRequest)
         {
-            var experience = _mapper.Map<AccountExperience>(deleteExperienceRequest);
-            var deletedExperience = await _experienceDal.DeleteAsync(experience, false);
-            var deletedExperienceResponse = _mapper.Map<DeletedExperienceResponse>(deletedExperience);
-            return deletedExperienceResponse;
+            //AccountExperience accountExperience = _mapper.Map<AccountExperience>(deleteAccountExperienceRequest);
+            AccountExperience accountExperience = await _accountExperienceDal.GetAsync(d => d.Id == deleteAccountExperienceRequest.Id);
+            var deletedAccountExperience = await _accountExperienceDal.DeleteAsync(accountExperience, false);
+            var deletedAccountExperienceResponse = _mapper.Map<DeletedAccountExperienceResponse>(deletedAccountExperience);
+            return deletedAccountExperienceResponse;
 
         }
 
-        public async Task<IPaginate<GetListExperienceResponse>> GetListExperience(PageRequest pageRequest)
+        public async Task<IPaginate<GetListAccountExperienceResponse>> GetListAccountExperience(PageRequest pageRequest)
         {
-            var experiences = await _experienceDal.GetListAsync(
+            var experiences = await _accountExperienceDal.GetListAsync(
                 orderBy: e => e.OrderBy(e => e.Id),
                 index: pageRequest.PageIndex,
                 size: pageRequest.PageSize);
-            var mapped = _mapper.Map<Paginate<GetListExperienceResponse>>(experiences);
+            var mapped = _mapper.Map<Paginate<GetListAccountExperienceResponse>>(experiences);
             return mapped;
         }
 
-        public async Task<UpdatedExperienceResponse> Update(UpdateAccountExperienceRequest updateExperienceRequest)
+        public async Task<UpdatedAccountExperienceResponse> Update(UpdateAccountExperienceRequest updateAccountExperienceRequest)
         {
-            var category = _mapper.Map<AccountExperience>(updateExperienceRequest);
-            var updatedExperience = await _experienceDal.UpdateAsync(category);
-            var updatedExperienceResponse = _mapper.Map<UpdatedExperienceResponse>(updatedExperience);
-            return updatedExperienceResponse;
+            //var category = _mapper.Map<AccountExperience>(updateExperienceRequest);
+            AccountExperience accountExperience = await _accountExperienceDal.GetAsync(i => i.Id == updateAccountExperienceRequest.Id);
+            _mapper.Map(updateAccountExperienceRequest, accountExperience);
+            var updatedAccountExperience = await _accountExperienceDal.UpdateAsync(accountExperience);
+            var updatedAccountExperienceResponse = _mapper.Map<UpdatedAccountExperienceResponse>(updatedAccountExperience);
+            return updatedAccountExperienceResponse;
         }
     }
 }

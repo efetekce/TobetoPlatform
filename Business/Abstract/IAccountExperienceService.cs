@@ -12,12 +12,12 @@ namespace Business.Abstract
 {
     public interface IAccountExperienceService
     {
-        Task<CreatedExperienceResponse> Add(CreateAccountExperienceRequest createExperienceRequest);
+        Task<CreatedAccountExperienceResponse> Add(CreateAccountExperienceRequest createAccountExperienceRequest);
 
-        Task<IPaginate<GetListExperienceResponse>> GetListExperience(PageRequest pageRequest);
+        Task<IPaginate<GetListAccountExperienceResponse>> GetListAccountExperience(PageRequest pageRequest);
 
-        Task<UpdatedExperienceResponse> Update(UpdateAccountExperienceRequest updateExperienceRequest);
+        Task<UpdatedAccountExperienceResponse> Update(UpdateAccountExperienceRequest updateAccountExperienceRequest);
 
-        Task<DeletedExperienceResponse> Delete(DeleteAccountExperienceRequest deleteExperienceRequest);
+        Task<DeletedAccountExperienceResponse> Delete(DeleteAccountExperienceRequest deleteAccountExperienceRequest);
     }
 }

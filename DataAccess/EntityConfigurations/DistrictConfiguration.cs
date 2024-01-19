@@ -14,9 +14,16 @@ namespace DataAccess.EntityConfigurations
         public void Configure(EntityTypeBuilder<District> builder)
         {
             builder.ToTable("Districts").HasKey(d => d.Id);
+            builder.Property(d => d.Id).HasColumnName("Id").IsRequired();
+            builder.Property(d => d.CityId).HasColumnName("CityId").IsRequired();
             builder.Property(d => d.Name).HasColumnName("Name").IsRequired();
+            builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
 
-            builder.HasOne(d => d.City).WithMany(city => city.Districts).HasForeignKey(d => d.CityId).IsRequired().OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(d => d.City)
+                .WithMany(city => city.Districts)
+                .HasForeignKey(d => d.CityId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

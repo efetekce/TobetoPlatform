@@ -27,12 +27,12 @@ namespace Entities.Concretes
         public District District { get; set; }
         public int DistrictId { get; set; }
 
-        public ICollection<AccountExperience> AccountExperience { get; set; }
-        public ICollection<AccountEducation> AccountEducation { get; set; }
-        public ICollection<AccountSkill> AccountSkill { get; set; }
-        public ICollection<AccountCertificate> AccountCertificate { get; set; }
-        public ICollection<AccountSocialMedia> AccountSocialMedia { get; set; }
-        public ICollection<AccountForeignLanguage> AccountForeignLanguage { get; set; }
+        public ICollection<AccountExperience> AccountExperiences { get; set; }
+        public ICollection<AccountEducation> AccountEducations { get; set; }
+        public ICollection<AccountSkill> AccountSkills { get; set; }
+        public ICollection<AccountCertificate> AccountCertificates { get; set; }
+        public ICollection<AccountSocialMedia> AccountSocialMedias { get; set; }
+        public ICollection<AccountForeignLanguage> AccountForeignLanguages { get; set; }
         
         //public ICollection<AccountCourse> AccountCourses { get; set; }
         //public ICollection<AccountTestResult> AccountTestResult { get; set; }

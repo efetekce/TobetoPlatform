@@ -42,7 +42,8 @@ namespace Business.Concrete
 
         public async Task<DeletedCityResponse> Delete(DeleteCityRequest deleteCityRequest)
         {
-            City city = _mapper.Map<City>(deleteCityRequest);
+            //City city = _mapper.Map<City>(deleteCityRequest);
+            City city = await _cityDal.GetAsync(d => d.Id == deleteCityRequest.Id);
             var deletedCity = await _cityDal.DeleteAsync(city, false);
             DeletedCityResponse result = _mapper.Map<DeletedCityResponse>(deletedCity);
             return result;
@@ -60,7 +61,9 @@ namespace Business.Concrete
 
         public async Task<UpdatedCityResponse> Update(UpdateCityRequest updateCityRequest)
         {
-            City city = _mapper.Map<City>(updateCityRequest);
+            //City city = _mapper.Map<City>(updateCityRequest);
+            City city = await _cityDal.GetAsync(i => i.Id == updateCityRequest.Id);
+            _mapper.Map(updateCityRequest, city);
             var updatedCity = await _cityDal.UpdateAsync(city);
             UpdatedCityResponse result = _mapper.Map<UpdatedCityResponse>(updatedCity);
             return result;

@@ -42,7 +42,8 @@ namespace Business.Concrete
 
         public async Task<DeletedCountryResponse> Delete(DeleteCountryRequest deleteCountryRequest)
         {
-            Country country = _mapper.Map<Country>(deleteCountryRequest);
+            //Country country = _mapper.Map<Country>(deleteCountryRequest);
+            Country country = await _countryDal.GetAsync(d => d.Id == deleteCountryRequest.Id);
             var deletedCountry = await _countryDal.DeleteAsync(country, false);
             DeletedCountryResponse result = _mapper.Map<DeletedCountryResponse>(deletedCountry);
             return result;
@@ -61,7 +62,9 @@ namespace Business.Concrete
 
         public async Task<UpdatedCountryResponse> Update(UpdateCountryRequest updateCountryRequest)
         {
-            Country country = _mapper.Map<Country>(updateCountryRequest);
+            //Country country = _mapper.Map<Country>(updateCountryRequest);
+            Country country = await _countryDal.GetAsync(i => i.Id == updateCountryRequest.Id);
+            _mapper.Map(updateCountryRequest, country);
             var updatedCountry = await _countryDal.UpdateAsync(country);
             UpdatedCountryResponse result = _mapper.Map<UpdatedCountryResponse>(updatedCountry);
             return result;

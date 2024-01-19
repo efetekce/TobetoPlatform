@@ -31,14 +31,14 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost("Update")]
+        [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateCountryRequest updateCountryRequest)
         {
             var result = await _countryService.Update(updateCountryRequest);
             return Ok(result);
         }
 
-        [HttpPost("Delete")]
+        [HttpDelete]
         public async Task<IActionResult> Delete([FromBody] DeleteCountryRequest deleteCountryRequest)
         {
 

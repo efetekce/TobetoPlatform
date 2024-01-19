@@ -20,7 +20,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult>GetList([FromQuery] PageRequest pageRequest)
         {
-            var result = await _experienceService.GetListExperience(pageRequest);
+            var result = await _experienceService.GetListAccountExperience(pageRequest);
             return Ok(result);
         }
 
@@ -31,14 +31,14 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost("Update")]
+        [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateAccountExperienceRequest updateExperienceRequest)
         {
             var result = await _experienceService.Update(updateExperienceRequest);
             return Ok(result);
         }
 
-        [HttpPost("Delete")]
+        [HttpDelete]
         public async Task<IActionResult> Delete([FromBody] DeleteAccountExperienceRequest deleteExperienceRequest)
         {
             var result=await _experienceService.Delete(deleteExperienceRequest);

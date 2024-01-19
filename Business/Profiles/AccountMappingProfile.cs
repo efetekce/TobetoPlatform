@@ -17,20 +17,34 @@ namespace Business.Profiles
         {
             CreateMap<CreateAccountRequest, Account>().ReverseMap();
             CreateMap<Account, CreatedAccountResponse>()
+            .ForMember(dest => dest.CountryId, opt => opt.MapFrom(src => src.Country.Id))
+            .ForMember(dest => dest.CityId, opt => opt.MapFrom(src => src.City.Id))
+            .ForMember(dest => dest.DistrictId, opt => opt.MapFrom(src => src.District.Id))
             .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => $"{src.Country.Code} {src.PhoneNumber}"))
+            
             .ReverseMap();
 
-            CreateMap<UpdateAccountRequest, Account>()
-            .ReverseMap();
+            CreateMap<UpdateAccountRequest, Account>().ReverseMap();
             CreateMap<Account, UpdatedAccountResponse>()
             .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => $"{src.Country.Code} {src.PhoneNumber}"))
+            .ForMember(dest => dest.CountryId, opt => opt.MapFrom(src => src.Country.Id))
+            .ForMember(dest => dest.CityId, opt => opt.MapFrom(src => src.City.Id))
+            .ForMember(dest => dest.DistrictId, opt => opt.MapFrom(src => src.District.Id))
             .ReverseMap();
 
             CreateMap<DeleteAccountRequest, Account>().ReverseMap();
-            CreateMap<Account, DeletedAccountResponse>().ReverseMap();
+            CreateMap<Account, DeletedAccountResponse>()
+            .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => $"{src.Country.Code} {src.PhoneNumber}"))
+            .ForMember(dest => dest.CountryId, opt => opt.MapFrom(src => src.Country.Id))
+            .ForMember(dest => dest.CityId, opt => opt.MapFrom(src => src.City.Id))
+            .ForMember(dest => dest.DistrictId, opt => opt.MapFrom(src => src.District.Id))
+            .ReverseMap();
 
             CreateMap<Account, GetListAccountResponse>()
             .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => $"{src.Country.Code} {src.PhoneNumber}"))
+            .ForMember(dest => dest.CountryId, opt => opt.MapFrom(src => src.Country.Id))
+            .ForMember(dest => dest.CityId, opt => opt.MapFrom(src => src.City.Id))
+            .ForMember(dest => dest.DistrictId, opt => opt.MapFrom(src => src.District.Id))
             .ReverseMap();
             CreateMap<Paginate<Account>, Paginate<GetListAccountResponse>>().ReverseMap();
 

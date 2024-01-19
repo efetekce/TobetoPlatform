@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace Business.Rules
 {
-    public class ExperienceBusinessRules : BaseBusinessRules
+    public class AccountExperienceBusinessRules : BaseBusinessRules
     {
         private readonly IAccountExperienceDal _experienceDal;
 
-        public ExperienceBusinessRules(IAccountExperienceDal experienceDal)
+        public AccountExperienceBusinessRules(IAccountExperienceDal experienceDal)
         {
             _experienceDal = experienceDal;
         }
