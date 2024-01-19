@@ -13,8 +13,7 @@ namespace DataAccess.EntityConfigurations
             builder.Property(e=>e.Name).HasColumnName("Name");
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
 
-            builder.HasOne(u => u.University).WithMany(university => university.EducationPrograms).HasForeignKey(u => u.UniversityId).IsRequired().OnDelete(DeleteBehavior.NoAction);
-
+            builder.HasOne(u => u.University).WithMany(university => university.EducationPrograms).HasForeignKey(u => u.UniversityId).IsRequired().OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

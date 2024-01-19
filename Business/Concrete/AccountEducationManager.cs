@@ -40,7 +40,8 @@ namespace Business.Concrete
 
         public async Task<DeletedAccountEducationResponse> Delete(DeleteAccountEducationRequest deleteAccountEducationRequest)
         {
-            AccountEducation accountEducation = _mapper.Map<AccountEducation>(deleteAccountEducationRequest);
+            //AccountEducation accountEducation = _mapper.Map<AccountEducation>(deleteAccountEducationRequest);
+            AccountEducation accountEducation = await _accountEducationDal.GetAsync(d => d.Id == deleteAccountEducationRequest.Id);
             var deletedAccountEducation = await _accountEducationDal.DeleteAsync(accountEducation, false);
             DeletedAccountEducationResponse result = _mapper.Map<DeletedAccountEducationResponse>(deletedAccountEducation);
             return result;
@@ -59,7 +60,9 @@ namespace Business.Concrete
 
         public async Task<UpdatedAccountEducationResponse> Update(UpdateAccountEducationRequest updateAccountEducationRequest)
         {
-            AccountEducation accountEducation = _mapper.Map<AccountEducation>(updateAccountEducationRequest);
+            //AccountEducation accountEducation = _mapper.Map<AccountEducation>(updateAccountEducationRequest);
+            AccountEducation accountEducation = await _accountEducationDal.GetAsync(i => i.Id == updateAccountEducationRequest.Id);
+            _mapper.Map(updateAccountEducationRequest, accountEducation);
             var updatedAccountEducation = await _accountEducationDal.UpdateAsync(accountEducation);
             UpdatedAccountEducationResponse result = _mapper.Map<UpdatedAccountEducationResponse>(updatedAccountEducation);
             return result;
