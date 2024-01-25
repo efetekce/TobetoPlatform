@@ -11,7 +11,11 @@ namespace Entities.Concretes
     {
         public int AccountId { get; set; }
         public Account Account { get; set; }
-        public ICollection<ForeignLanguage> ForeignLanguage { get; set; }
-        public ICollection<ForeignLanguageLevel> ForeignLanguageLevel { get; set; }
+
+        public int ForeignLanguageId { get; set; }
+        public ForeignLanguage ForeignLanguage { get; set; }
+
+        public int ForeignLanguageLevelId { get; set; }
+        public ForeignLanguageLevel ForeignLanguageLevel { get; set; }
     }
 }

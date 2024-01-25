@@ -74,6 +74,7 @@ namespace Business
             services.AddScoped<AccountSocialMediaBusinessRules>();
             services.AddScoped<CityBusinessRules>();
             services.AddScoped<CountryBusinessRules>();
+            services.AddScoped<DistrictBusinessRules>();
             services.AddScoped<CourseBusinessRules>();
             services.AddScoped<CourseCategoryBusinessRules>();
             services.AddScoped<CourseContentBusinessRules>();

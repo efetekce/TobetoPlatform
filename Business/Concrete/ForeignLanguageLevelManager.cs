@@ -34,7 +34,8 @@ namespace Business.Concrete
 
         public async Task<DeletedForeignLanguageLevelResponse> Delete(DeleteForeignLanguageLevelRequest deleteForeignLanguageLevelRequest)
         {
-            ForeignLanguageLevel foreignLanguageLevel = _mapper.Map<ForeignLanguageLevel>(deleteForeignLanguageLevelRequest);
+            //ForeignLanguageLevel foreignLanguageLevel = _mapper.Map<ForeignLanguageLevel>(deleteForeignLanguageLevelRequest);
+            ForeignLanguageLevel foreignLanguageLevel = await _foreignLanguageLevelDal.GetAsync(d => d.Id == deleteForeignLanguageLevelRequest.Id);
             var deletedForeignLanguageLevel = await _foreignLanguageLevelDal.DeleteAsync(foreignLanguageLevel,false);
             DeletedForeignLanguageLevelResponse result = _mapper.Map<DeletedForeignLanguageLevelResponse>(deletedForeignLanguageLevel);
             return result;
@@ -52,7 +53,9 @@ namespace Business.Concrete
 
         public async Task<UpdatedForeignLanguageLevelResponse> Update(UpdateForeignLanguageLevelRequest updateForeignLanguageLevelRequest)
         {
-            ForeignLanguageLevel foreignLanguageLevel = _mapper.Map<ForeignLanguageLevel>(updateForeignLanguageLevelRequest);
+            //ForeignLanguageLevel foreignLanguageLevel = _mapper.Map<ForeignLanguageLevel>(updateForeignLanguageLevelRequest);
+            ForeignLanguageLevel foreignLanguageLevel = await _foreignLanguageLevelDal.GetAsync(i => i.Id == updateForeignLanguageLevelRequest.Id);
+            _mapper.Map(updateForeignLanguageLevelRequest, foreignLanguageLevel);
             var updatedForeignLanguageLevel = await _foreignLanguageLevelDal.UpdateAsync(foreignLanguageLevel);
             UpdatedForeignLanguageLevelResponse result = _mapper.Map<UpdatedForeignLanguageLevelResponse>(updatedForeignLanguageLevel);
             return result;

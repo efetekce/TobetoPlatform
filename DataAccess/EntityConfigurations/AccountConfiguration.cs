@@ -21,16 +21,28 @@ namespace DataAccess.EntityConfigurations
             builder.Property(a => a.Email).HasColumnName("Email").IsRequired();
             builder.Property(a => a.BirthDate).HasColumnName("BirthDate").IsRequired();
             builder.Property(a => a.PhoneNumber).HasColumnName("PhoneNumber").IsRequired();
-            //builder.Property(a => a.Status).HasColumnName("Status").IsRequired();
             builder.Property(a => a.Address).HasColumnName("Address");
             builder.Property(a => a.Description).HasColumnName("Description");
+            builder.HasIndex(indexExpression: a => a.NationalId, name: "UK_Accounts_NationalId").IsUnique();
             builder.HasQueryFilter(a => !a.DeletedDate.HasValue);
 
-            //builder.HasOne(c => c.Country).WithOne(country => country.Account).HasForeignKey<Account>(a => a.CountryId);
-            //builder.HasOne(c => c.City).WithOne(city => city.Account).HasForeignKey<Account>(a => a.CityId);
-            //builder.HasOne(d => d.District).WithOne(district => district.Account).HasForeignKey<Account>(a => a.DistrictId);
+            builder.HasOne(a => a.Country)
+                .WithMany()
+                .HasForeignKey(a => a.CountryId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.NoAction);
 
-            // builder.HasQueryFilter(a => Convert.ToInt32(a.NationalId) >= 0 && Convert.ToInt32(a.NationalId) <= 99999999999);
+            builder.HasOne(a => a.City)
+                .WithMany()
+                .HasForeignKey(a => a.CityId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(a => a.District)
+                .WithMany()
+                .HasForeignKey(a => a.DistrictId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.NoAction);
         }
 
        

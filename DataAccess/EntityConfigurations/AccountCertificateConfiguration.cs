@@ -17,10 +17,13 @@ namespace DataAccess.EntityConfigurations
             builder.Property(e => e.Id).HasColumnName("Id").IsRequired();
             builder.Property(e => e.AccountId).HasColumnName("AccountId").IsRequired();
             builder.Property(e => e.Name).HasColumnName("Name").IsRequired();
-
-            builder.HasIndex(indexExpression: e => e.AccountId, name: "FK_AccountCertificates_Accounts");
-            //one to many
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
+            
+            builder.HasOne(a => a.Account)
+                .WithMany(account => account.AccountCertificates)
+                .HasForeignKey(a => a.AccountId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

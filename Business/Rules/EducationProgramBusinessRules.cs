@@ -14,15 +14,15 @@ namespace Business.Rules
             _educationProgramDal = educationProgramDal;
         }
 
-        //public async Task SameProgramName(int universityId, string name)
-        //{
-        //    var result = await _educationProgramDal.GetListAsync(p => p.UniversityId == universityId && p.Name == name);
+        public async Task SameProgramName(int universityId, string name)
+        {
+            var result = await _educationProgramDal.GetListAsync(p => p.UniversityId == universityId && p.Name == name);
 
-        //    if (result.Count > 0)
-        //    {
-        //        throw new BusinessException(BusinessMessages.SameProgramNameError);
-        //    }
-        //}
+            if (result.Count > 0)
+            {
+                throw new BusinessException(BusinessMessages.SameProgramNameError);
+            }
+        }
     }
 }
 

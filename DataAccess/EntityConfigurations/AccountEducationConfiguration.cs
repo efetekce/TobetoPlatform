@@ -19,7 +19,29 @@ namespace DataAccess.EntityConfigurations
             builder.Property(a => a.IsGraduated).HasColumnName("IsGraduated");
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
 
-            builder.HasOne(a => a.Account).WithMany(account => account.AccountEducations).HasForeignKey(a => a.AccountId).IsRequired().OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(a => a.Account)
+                .WithMany(account => account.AccountEducations)
+                .HasForeignKey(a => a.AccountId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(a => a.EducationStatus)
+                .WithMany()
+                .HasForeignKey(a => a.EducationStatusId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(a => a.EducationProgram)
+                .WithMany()
+                .HasForeignKey(a => a.EducationProgramId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(a => a.University)
+                .WithMany()
+                .HasForeignKey(a => a.UniversityId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

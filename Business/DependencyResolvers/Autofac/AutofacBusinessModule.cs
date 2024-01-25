@@ -18,18 +18,18 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<UniversityManager>().As<IUniversityService>().SingleInstance();
-            builder.RegisterType<EfUniversityDal>().As<IUniversityDal>().SingleInstance();
-            builder.RegisterType<CityManager>().As<ICityService>().SingleInstance();
-            builder.RegisterType<EfCityDal>().As<ICityDal>().SingleInstance();
+            //builder.RegisterType<UniversityManager>().As<IUniversityService>().SingleInstance();
+            //builder.RegisterType<EfUniversityDal>().As<IUniversityDal>().SingleInstance();
+            //builder.RegisterType<CityManager>().As<ICityService>().SingleInstance();
+            //builder.RegisterType<EfCityDal>().As<ICityDal>().SingleInstance();
 
-            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            //var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
-            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
-                .EnableInterfaceInterceptors(new ProxyGenerationOptions()
-                {
-                    Selector = new AspectInterceptorSelector()
-                }).SingleInstance();
+            //builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
+            //    .EnableInterfaceInterceptors(new ProxyGenerationOptions()
+            //    {
+            //        Selector = new AspectInterceptorSelector()
+            //    }).SingleInstance();
         }
     }
 }

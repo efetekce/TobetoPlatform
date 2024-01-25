@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
+using Business.Rules;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.DataAccess.Paging;
@@ -20,16 +21,18 @@ namespace Business.Concrete
     {
         IDistrictDal _districtDal;
         IMapper _mapper;
-
-        public DistrictManager(IDistrictDal districtDal, IMapper mapper)
+        DistrictBusinessRules _districtBusinessRules;
+        public DistrictManager(IDistrictDal districtDal, IMapper mapper, DistrictBusinessRules districtBusinessRules)
         {
             _districtDal = districtDal;
             _mapper = mapper;
+            _districtBusinessRules = districtBusinessRules;
         }
 
         [ValidationAspect(typeof(DistrictValidator))]
         public async Task<CreatedDistrictResponse> Add(CreateDistrictRequest createDistrictRequest)
         {
+            await _districtBusinessRules.SameDistrictName(createDistrictRequest.Name, createDistrictRequest.CityId);
             District district = _mapper.Map<District>(createDistrictRequest);
             var createdDistrict = await _districtDal.AddAsync(district);
             CreatedDistrictResponse result = _mapper.Map<CreatedDistrictResponse>(createdDistrict);
@@ -55,8 +58,10 @@ namespace Business.Concrete
             return result;
         }
 
+        [ValidationAspect(typeof(DistrictValidator))]
         public async Task<UpdatedDistrictResponse> Update(UpdateDistrictRequest updateDistrictRequest)
         {
+            await _districtBusinessRules.SameDistrictName(updateDistrictRequest.Name, updateDistrictRequest.CityId);
             //District district = _mapper.Map<District>(updateDistrictRequest);
             District district = await _districtDal.GetAsync(i => i.Id == updateDistrictRequest.Id);
             _mapper.Map(updateDistrictRequest, district);

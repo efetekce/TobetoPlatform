@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Business.Rules
@@ -21,21 +22,38 @@ namespace Business.Rules
 
         public async Task MaxNationalIdLength(string nationalId)
         {
-            //Bu kısımda henüz tc kimlik kaydı olmadı
-            //var result = await _accountDal.GetListAsync(a => a.NationalId == nationalId);
-            if (nationalId.ToString().Length != 11) 
+            if (!nationalId.All(char.IsDigit))
             {
-                throw new BusinessException("tc 11 hanelı olmalı ");
+                throw new BusinessException("Tc sadece rakam içermelidir.");
             }
-        }
 
-        //NationalId nin unique olması durumu ayrı iş kuralı olmalı
-        public async Task NationalIdMustBeUnique(string nationalId)
-        {
+            if (nationalId.Length != 11)
+            {
+                throw new BusinessException("Tc 11 haneli olmalıdır.");
+            }
+
             var result = await _accountDal.GetListAsync(a => a.NationalId == nationalId);
             if (result.Count > 0)
             {
-                throw new BusinessException("Geçerli bir kimlik idsi giriniz");
+                throw new BusinessException("Bu Tc kimlik numarası zaten kullanımda.");
+            }
+        }
+
+        public async Task MailFormat(string mail)
+        {
+            var paginatedResult = await _accountDal.GetListAsync(a => a.Email == mail);
+
+            if (paginatedResult.Count > 0)
+            {
+                throw new BusinessException("Bu e-posta adresi zaten kullanımda.");
+            }
+
+            string emailPattern = @"^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
+            bool isValidEmail = Regex.IsMatch(mail, emailPattern);
+
+            if (!isValidEmail)
+            {
+                throw new BusinessException("Geçersiz e-posta formatı.");
             }
         }
     }

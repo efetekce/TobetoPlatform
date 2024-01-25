@@ -16,28 +16,16 @@ namespace Business.Profiles
         public AccountExperienceMappingProfile()
         {
             CreateMap<CreateAccountExperienceRequest, AccountExperience>().ReverseMap();
-            CreateMap<AccountExperience, CreatedAccountExperienceResponse>()
-            .ForMember(dest => dest.AccountId, opt => opt.MapFrom(src => src.Account.Id))
-            .ForMember(dest => dest.CityId, opt => opt.MapFrom(src => src.City.Id))
-            .ReverseMap();
+            CreateMap<AccountExperience, CreatedAccountExperienceResponse>().ReverseMap();
 
             CreateMap<DeleteAccountExperienceRequest, AccountExperience>().ReverseMap();
-            CreateMap<AccountExperience, DeletedAccountExperienceResponse>()
-            .ForMember(dest => dest.AccountId, opt => opt.MapFrom(src => src.Account.Id))
-            .ForMember(dest => dest.CityId, opt => opt.MapFrom(src => src.City.Id))
-            .ReverseMap();
+            CreateMap<AccountExperience, DeletedAccountExperienceResponse>().ReverseMap();
             
             CreateMap<Paginate<AccountExperience>, Paginate<GetListAccountExperienceResponse>>().ReverseMap();
-            CreateMap<AccountExperience, GetListAccountExperienceResponse>()
-            .ForMember(dest => dest.AccountId, opt => opt.MapFrom(src => src.Account.Id))
-            .ForMember(dest => dest.CityId, opt => opt.MapFrom(src => src.City.Id))
-            .ReverseMap();
+            CreateMap<AccountExperience, GetListAccountExperienceResponse>().ReverseMap();
             
             CreateMap<UpdateAccountExperienceRequest, AccountExperience>().ReverseMap();
-            CreateMap<AccountExperience, UpdatedAccountExperienceResponse>()
-            .ForMember(dest => dest.AccountId, opt => opt.MapFrom(src => src.Account.Id))
-            .ForMember(dest => dest.CityId, opt => opt.MapFrom(src => src.City.Id))
-            .ReverseMap();
+            CreateMap<AccountExperience, UpdatedAccountExperienceResponse>().ReverseMap();
         }
     }
 }

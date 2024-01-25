@@ -1,4 +1,5 @@
-﻿using Business.Dtos.Request;
+﻿using Business.Constants.Messages;
+using Business.Dtos.Request;
 using Entities.Concretes;
 using FluentValidation;
 using System;
@@ -13,7 +14,7 @@ namespace Business.ValidationRules.FluentValidation
     {
         public DistrictValidator()
         {
-            //RuleFor(d => d.Name).NotEmpty().WithMessage("Doldurulması zorunlu alan!");
+            RuleFor(d => d.Name).NotEmpty().WithMessage(BusinessMessages.RequiredField);
         }
     }
 }

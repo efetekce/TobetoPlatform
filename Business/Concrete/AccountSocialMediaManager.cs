@@ -38,7 +38,8 @@ namespace Business.Concrete
 
         public async Task<DeletedAccountSocialMediaResponse> Delete(DeleteAccountSocialMediaRequest deleteAccountSocialMediaRequest)
         {
-            AccountSocialMedia accountSocialMedia = _mapper.Map<AccountSocialMedia>(deleteAccountSocialMediaRequest);
+            //AccountSocialMedia accountSocialMedia = _mapper.Map<AccountSocialMedia>(deleteAccountSocialMediaRequest);
+            AccountSocialMedia accountSocialMedia = await _accountSocialMediaDal.GetAsync(d => d.Id == deleteAccountSocialMediaRequest.Id);
             var deletedAccountSocialMedia = await _accountSocialMediaDal.DeleteAsync(accountSocialMedia, false);
             DeletedAccountSocialMediaResponse result = _mapper.Map<DeletedAccountSocialMediaResponse>(deletedAccountSocialMedia);
             return result;
@@ -56,7 +57,9 @@ namespace Business.Concrete
 
         public async Task<UpdatedAccountSocialMediaResponse> Update(UpdateAccountSocialMediaRequest updateAccountSocialMediaRequest)
         {
-            AccountSocialMedia accountSocialMedia = _mapper.Map<AccountSocialMedia>(updateAccountSocialMediaRequest);
+            //AccountSocialMedia accountSocialMedia = _mapper.Map<AccountSocialMedia>(updateAccountSocialMediaRequest);
+            AccountSocialMedia accountSocialMedia = await _accountSocialMediaDal.GetAsync(i => i.Id == updateAccountSocialMediaRequest.Id);
+            _mapper.Map(updateAccountSocialMediaRequest, accountSocialMedia);
             var updatedAccountSocialMedia = await _accountSocialMediaDal.UpdateAsync(accountSocialMedia);
             UpdatedAccountSocialMediaResponse result = _mapper.Map<UpdatedAccountSocialMediaResponse>(updatedAccountSocialMedia);
             return result;

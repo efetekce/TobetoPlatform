@@ -14,9 +14,9 @@ namespace Business.ValidationRules.FluentValidation
     {
         public CountryValidator()
         {
-            //RuleFor(c => c.Name).NotEmpty().WithMessage("Ülke alanı boş olamaz!");
-            //RuleFor(c => c.Name).MinimumLength(2).WithMessage("En az 2 karakter girebilirsiniz!");
-            //RuleFor(c => c.Name).MaximumLength(30).WithMessage("En fazla 30 karakter girebilirsiniz!");
+            RuleFor(c => c.Name).NotEmpty().WithMessage(BusinessMessages.RequiredField);
+            RuleFor(c => c.Name).MinimumLength(2).WithMessage(BusinessMessages.MinLengthError2);
+            RuleFor(c => c.Name).MaximumLength(30).WithMessage(BusinessMessages.MaxLengthError30);
         }
     }
 }

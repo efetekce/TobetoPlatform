@@ -11,7 +11,9 @@ namespace Entities.Concretes
     {
         public int AccountId { get; set; }
         public Account Account { get; set; }
-        public ICollection<SocialMediaPlatform> SocialMediaPlatform { get; set; }
+
+        public int SocialMediaPlatformId { get; set; }
+        public SocialMediaPlatform SocialMediaPlatform { get; set; }
         public string Link { get; set; }
     }
 }

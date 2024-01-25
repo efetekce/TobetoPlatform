@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Response
 {
-    public class DeletedSocialMediaResponse
+    public class GetListAccountSkillResponse
     {
         public int Id { get; set; }
-        public string SocialMediaName { get; set; }
-        public string Description { get; set; }
+        public int AccountId { get; set; }
+        public int SkillId { get; set; }
     }
 }

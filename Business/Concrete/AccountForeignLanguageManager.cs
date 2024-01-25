@@ -33,7 +33,8 @@ namespace Business.Concrete
 
         public async Task<DeletedAccountForeignLanguageResponse> Delete(DeleteAccountForeignLanguageRequest deleteAccountForeignLanguageRequest)
         {
-            AccountForeignLanguage accountForeignLanguage = _mapper.Map<AccountForeignLanguage>(deleteAccountForeignLanguageRequest);
+            //AccountForeignLanguage accountForeignLanguage = _mapper.Map<AccountForeignLanguage>(deleteAccountForeignLanguageRequest);
+            AccountForeignLanguage accountForeignLanguage = await _accountForeignLanguageDal.GetAsync(afl => afl.Id == deleteAccountForeignLanguageRequest.Id);
             var deletedAccountForeignLanguage = await _accountForeignLanguageDal.DeleteAsync(accountForeignLanguage, false);
             DeletedAccountForeignLanguageResponse result = _mapper.Map<DeletedAccountForeignLanguageResponse>(deletedAccountForeignLanguage);
             return result;
@@ -51,7 +52,9 @@ namespace Business.Concrete
 
         public async Task<UpdatedAccountForeignLanguageResponse> Update(UpdateAccountForeignLanguageRequest updateAccountForeignLanguageRequest)
         {
-            AccountForeignLanguage accountForeignLanguage = _mapper.Map<AccountForeignLanguage>(updateAccountForeignLanguageRequest);
+            //AccountForeignLanguage accountForeignLanguage = _mapper.Map<AccountForeignLanguage>(updateAccountForeignLanguageRequest);
+            AccountForeignLanguage accountForeignLanguage = await _accountForeignLanguageDal.GetAsync(afl => afl.Id == updateAccountForeignLanguageRequest.Id);
+            _mapper.Map(updateAccountForeignLanguageRequest, accountForeignLanguage);
             var updatedAccountForeignLanguage = await _accountForeignLanguageDal.UpdateAsync(accountForeignLanguage);
             UpdatedAccountForeignLanguageResponse result = _mapper.Map<UpdatedAccountForeignLanguageResponse>(updatedAccountForeignLanguage);
             return result;

@@ -61,7 +61,8 @@ namespace Business.Concrete
 
         public async Task<UpdatedCityResponse> Update(UpdateCityRequest updateCityRequest)
         {
-            //City city = _mapper.Map<City>(updateCityRequest);
+            await _cityBusinessRules.SameCityName(updateCityRequest.Name, updateCityRequest.CountryId);
+            //var city = _mapper.Map<City>(updateCityRequest);
             City city = await _cityDal.GetAsync(i => i.Id == updateCityRequest.Id);
             _mapper.Map(updateCityRequest, city);
             var updatedCity = await _cityDal.UpdateAsync(city);

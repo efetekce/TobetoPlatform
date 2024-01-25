@@ -20,10 +20,19 @@ namespace Business.Rules
 
         public async Task SameCountryName(string name)
         {
-            var result = await _countryDal.GetListAsync(c=>c.Name==name);
-            if (result.Count>0)
+            var result = await _countryDal.GetListAsync(c => c.Name == name);
+            if (result.Count > 0)
             {
                 throw new BusinessException(BusinessMessages.SameCountryNameError);
+            }
+        }
+
+        public async Task SameCountryCode(string code)
+        {
+            var result = await _countryDal.GetListAsync(c => c.Code == code);
+            if (result.Count > 0)
+            {
+                throw new BusinessException(BusinessMessages.SameCountryCodeError);
             }
         }
     }

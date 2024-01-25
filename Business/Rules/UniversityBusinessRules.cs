@@ -16,7 +16,7 @@ namespace Business.Rules
 
         public async Task SameUniversityName(string name)
         {
-            var result = await _universityDal.GetListAsync(u=>u.Name==name);
+            var result = await _universityDal.GetListAsync(u => u.Name == name);
             if (result.Count > 0)
             {
                 throw new BusinessException(BusinessMessages.SameUniversityNameError);

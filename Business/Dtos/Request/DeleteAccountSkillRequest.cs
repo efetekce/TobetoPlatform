@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Request
 {
-    public class UpdateSocialMediaRequest
+    public class DeleteAccountSkillRequest
     {
         public int Id { get; set; }
-        public string SocialMediaName { get; set; }
-        public string Description { get; set; }
     }
 }

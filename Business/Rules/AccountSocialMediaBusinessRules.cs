@@ -4,6 +4,7 @@ using Core.CrossCuttingConcerns.Exceptions.Types;
 using Core.Results;
 using DataAccess.Abstracts;
 using Entities.Concretes;
+using Microsoft.Identity.Client;
 
 namespace Business.Rules
 {

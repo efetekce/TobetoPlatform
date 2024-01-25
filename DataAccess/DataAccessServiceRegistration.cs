@@ -25,7 +25,6 @@ namespace DataAccess
             services.AddScoped<IQuestionDal, EfQuestionDal>();
             services.AddScoped<IAnswerDal, EfAnswerDal>();
             services.AddScoped<IMembershipStatusDal, EfMembershipStatusDal>();
-            //services.AddScoped<IAccountPasswordDal, EfAccountPasswordDal>();
             services.AddScoped<ISessionStatusDal, EfSessionStatusDal>();
             services.AddScoped<IOrganizationDal, EfOrganizationDal>();
             services.AddScoped<ISurveyDal, EfSurveyDal>();
@@ -46,7 +45,7 @@ namespace DataAccess
 
             //Profil sayfasına ait dal bilgileri...
             services.AddScoped<IAccountDal, EfAccountDal>();
-            services.AddScoped<IProfileImageDal, EfProfileImageDal>();
+            //services.AddScoped<IProfileImageDal, EfProfileImageDal>();
             services.AddScoped<ICountryDal, EfCountryDal>();
             services.AddScoped<ICityDal, EfCityDal>();
             services.AddScoped<IDistrictDal, EfDistrictDal>();

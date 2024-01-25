@@ -7,6 +7,7 @@ namespace Entities.Concretes
         public int AccountId { get; set; }
         public Account Account { get; set; }
 
-        public ICollection<Skill> Skills { get; set; }
+        public int SkillId { get; set; }
+        public Skill Skill { get; set; }
     }
 }

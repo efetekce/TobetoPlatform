@@ -20,8 +20,8 @@ namespace Business.Rules
 
         public async Task SameSocialMediaName(string name)
         {
-            var result = await _socialMediaPlatformDal.GetListAsync(s=>s.Name==name);
-            if (result.Count>0)
+            var result = await _socialMediaPlatformDal.GetListAsync(s => s.Name == name);
+            if (result.Count > 0)
             {
                 throw new BusinessException(BusinessMessages.SameSocialMediaNameError);
             }

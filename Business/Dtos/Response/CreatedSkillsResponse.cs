@@ -8,6 +8,7 @@ namespace Business.Dtos.Response
 {
     public class CreatedSkillsResponse
     {
-        public string Skill { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

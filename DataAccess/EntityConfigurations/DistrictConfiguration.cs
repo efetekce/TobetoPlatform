@@ -23,7 +23,7 @@ namespace DataAccess.EntityConfigurations
                 .WithMany(city => city.Districts)
                 .HasForeignKey(d => d.CityId)
                 .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

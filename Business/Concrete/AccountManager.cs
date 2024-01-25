@@ -3,6 +3,8 @@ using Business.Abstract;
 using Business.Dtos.Request;
 using Business.Dtos.Response;
 using Business.Rules;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -27,9 +29,10 @@ namespace Business.Concrete
             _mapper = mapper;  
             _accountBusinessRules = accountBusinessRules;
         }
+
+        [ValidationAspect(typeof(AccountValidator))]
         public async Task<CreatedAccountResponse> Add(CreateAccountRequest createAccountRequest)
         {
-            await _accountBusinessRules.MaxNationalIdLength(createAccountRequest.NationalId);
             Account account = _mapper.Map<Account>(createAccountRequest);
             var createdAccount = await _accountDal.AddAsync(account);
             CreatedAccountResponse result = _mapper.Map<CreatedAccountResponse>(createdAccount);

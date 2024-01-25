@@ -62,6 +62,7 @@ namespace Business.Concrete
 
         public async Task<UpdatedCountryResponse> Update(UpdateCountryRequest updateCountryRequest)
         {
+            await _countryBusinessRules.SameCountryName(updateCountryRequest.Name);
             //Country country = _mapper.Map<Country>(updateCountryRequest);
             Country country = await _countryDal.GetAsync(i => i.Id == updateCountryRequest.Id);
             _mapper.Map(updateCountryRequest, country);

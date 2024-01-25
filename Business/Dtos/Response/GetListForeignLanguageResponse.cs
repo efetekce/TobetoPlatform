@@ -9,7 +9,7 @@ namespace Business.Dtos.Response
     public class GetListForeignLanguageResponse
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
+        public string Name { get; set; }
       
 
     }

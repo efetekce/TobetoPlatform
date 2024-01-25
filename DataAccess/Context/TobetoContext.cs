@@ -62,7 +62,7 @@ namespace DataAccess.Context
         public DbSet<SocialMediaPlatform> SocialMediaPlatforms { get; set; }
         public DbSet<AccountForeignLanguage> AccountForeignLanguages { get; set; }
         public DbSet<ForeignLanguage> ForeignLanguages { get; set; }
-        public DbSet<ForeignLanguageLevel> ForeignLanguagesLevels { get; set; }
+        public DbSet<ForeignLanguageLevel> ForeignLanguageLevels { get; set; }
         
         public TobetoContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {

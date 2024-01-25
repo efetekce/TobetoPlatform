@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Dtos.Request
+namespace Business.Rules
 {
-
-    public class DeleteSkillsRequest
+    public class ForeignLanguageBusinessRules
     {
-        public int Id { get; set; }
     }
 }

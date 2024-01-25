@@ -9,7 +9,7 @@ namespace Business.Dtos.Response
     public class GetListSkillResponse
     {
         public int Id { get; set; }
-        public string Skill { get; set; }
+        public string Name { get; set; }
 
     }
 }

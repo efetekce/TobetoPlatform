@@ -25,8 +25,17 @@ namespace DataAccess.EntityConfigurations
             builder.Property(e => e.JobDescription).HasColumnName("JobDescription");
             builder.HasQueryFilter(e => !e.DeletedDate.HasValue);
 
-            //builder.HasOne(c => c.City).WithOne(city => city.AccountExperience).HasForeignKey<AccountExperience>(a => a.CityId);
-            builder.HasOne(a => a.Account).WithMany(account => account.AccountExperiences).HasForeignKey(a => a.AccountId).IsRequired().OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(a => a.Account)
+                .WithMany(account => account.AccountExperiences)
+                .HasForeignKey(a => a.AccountId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(a => a.City)
+                .WithMany()
+                .HasForeignKey(a => a.CityId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

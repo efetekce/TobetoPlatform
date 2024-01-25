@@ -38,7 +38,8 @@ namespace Business.Concrete
 
         public async Task<DeletedSocialMediaPlatformResponse> Delete(DeleteSocialMediaPlatformRequest deleteSocialMediaPlatformRequest)
         {
-            SocialMediaPlatform socialMediaPlatform = _mapper.Map<SocialMediaPlatform>(deleteSocialMediaPlatformRequest);
+            //SocialMediaPlatform socialMediaPlatform = _mapper.Map<SocialMediaPlatform>(deleteSocialMediaPlatformRequest);
+            SocialMediaPlatform socialMediaPlatform = await _socialMediaPlatformDal.GetAsync(d => d.Id == deleteSocialMediaPlatformRequest.Id);
             var deletedSocialMediaPlatform = await _socialMediaPlatformDal.DeleteAsync(socialMediaPlatform, false);
             DeletedSocialMediaPlatformResponse result = _mapper.Map<DeletedSocialMediaPlatformResponse>(deletedSocialMediaPlatform);
             return result;
@@ -56,7 +57,9 @@ namespace Business.Concrete
 
         public async Task<UpdatedSocialMediaPlatformResponse> Update(UpdateSocialMediaPlatformRequest updateSocialMediaPlatformRequest)
         {
-            SocialMediaPlatform socialMediaPlatform = _mapper.Map<SocialMediaPlatform>(updateSocialMediaPlatformRequest);
+            //SocialMediaPlatform socialMediaPlatform = _mapper.Map<SocialMediaPlatform>(updateSocialMediaPlatformRequest);
+            SocialMediaPlatform socialMediaPlatform = await _socialMediaPlatformDal.GetAsync(smp => smp.Id == updateSocialMediaPlatformRequest.Id);
+            _mapper.Map(updateSocialMediaPlatformRequest, socialMediaPlatform);
             var updatedSocialMediaPlatform = await _socialMediaPlatformDal.UpdateAsync(socialMediaPlatform);
             UpdatedSocialMediaPlatformResponse result = _mapper.Map<UpdatedSocialMediaPlatformResponse>(updatedSocialMediaPlatform);
             return result;

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Response
 {
-    public class CreatedSocialMediaResponse
+    public class UpdatedAccountSkillResponse
     {
-        public string SocialMediaName { get; set; }
-        public string Description { get; set; }
+        public int Id { get; set; }
+        public int AccountId { get; set; }
+        public int SkillId { get; set; }
     }
 }
